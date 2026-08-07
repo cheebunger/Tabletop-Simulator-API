@@ -79,7 +79,7 @@ particularly helpful as you're able to copy text from here.
 
 #### Shortcut {: #atom-console-shortcut }
 
-**Windows/Linux:** ++Ctrl+Alt+I++
+**Windows/Linux:** ++Ctrl+Shift+I++
 
 **macOS:** ++Cmd+Opt+I++
 
