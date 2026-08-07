@@ -252,7 +252,7 @@ jointTo([<span class="tag obj"></span>](types.md) object, [<span class="tag tab"
 moveToHandStash() | Moves a card in hand into the player's hand stash. | [<span class="ret boo"></span>](types.md) | [:i:](#movetohandstash)
 putObject([<span class="tag obj"></span>](types.md) put_object, [<span class="tag int"></span>](types.md) index) | Places an object into a container (chip stacks/bags/decks). | [<span class="ret obj"></span>](types.md) | [:i:](#putobject)
 randomize([<span class="tag str"></span>](types.md) color) {: data-toc-label="randomize(...)" data-toc-child-of="action-function-details" } | Shuffles deck/bag, rolls dice/coin, lifts other objects into the air. Same as pressing ++R++ by default. If the optional parameter `color` is used, this function will trigger `onObjectRandomized()`, passing that player color. | [<span class="ret boo"></span>](types.md) |
-registerCollisions([<span class="tag boo"></span>](types.md) stay) | Registers this object for Global collision events. | [<span class="ret boo"></span>](types.md) | [:i:](#registercollisions)
+s([<span class="tag boo"></span>](types.md) stay) | Registers this object for Global collision events. | [<span class="ret boo"></span>](types.md) | [:i:](#s)
 reload() | Returns Object reference of itself after it respawns itself. | [<span class="ret obj"></span>](types.md) | [:i:](#reload)
 removeAttachment([<span class="tag int"></span>](types.md) index) {: data-toc-label="removeAttachment(...)" data-toc-child-of="action-function-details" } | Removes a child with the given index. Use [getAttachments()](#getattachments) to find out the index property. | [<span class="ret obj"></span>](types.md)
 removeAttachments() {: data-toc-label="removeAttachments()" data-toc-child-of="action-function-details" } | Detaches the children of this Object. Returns a table of object references | [<span class="ret tab"></span>](types.md)
@@ -264,7 +264,7 @@ shuffleStates() {: data-toc-label="shuffleStates()" data-toc-child-of="action-fu
 split([<span class="tag int"></span>](types.md) piles) | Splits a deck, as evenly as possible, into a number of piles. | [<span class="ret tab"></span>](types.md) | [:i:](#split)
 spread([<span class="tag flo"></span>](types.md) distance) | Uses the spread action on a deck. | [<span class="ret tab"></span>](types.md) | [:i:](#spread)
 takeObject([<span class="tag tab"></span>](types.md) parameters) | Takes an object out of a container (bag/deck/chip stack), returning a reference to the object that was taken out. | [<span class="ret obj"></span>](types.md) | [:i:](#takeobject)
-unregisterCollisions() | Unregisters this object for Global collision events. | [<span class="ret boo"></span>](types.md) | [:i:](#unregistercollisions)
+uns() | Unregisters this object for Global collision events. | [<span class="ret boo"></span>](types.md) | [:i:](#uns)
 
 ### Component Functions
 
@@ -1475,7 +1475,7 @@ self.putObject(obj)
 
 [<span class="ret boo"></span>](types.md) Registers this object for Global collision events, such as [onObjectCollisionEnter](events.md#onobjectcollisionenter). Always returns `true`.
 
-!!!info "registerCollision(stay)"
+!!!info "registerCollisions(stay)"
 	* [<span class="tag boo"></span>](types.md) **stay**: Whether we should register for [onObjectCollisionStay](events.md#onobjectcollisionstay). Stay events may negatively impact performance, only set this to `true` if absolutely necessary.
         * {>>Optional, defaults to `false`.<<}
 
