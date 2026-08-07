@@ -1,0 +1,1715 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>System Console - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/theme.css">
+    
+      <link rel="stylesheet" href="../css/table.css">
+    
+      <link rel="stylesheet" href="../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#controls" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Console
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          System Console
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        System Console
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    Controls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-variables" class="md-nav__link">
+    Commands &amp; Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special-characters" class="md-nav__link">
+    Special characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-commands" class="md-nav__link">
+    Script commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-useful-commands" class="md-nav__link">
+    Some useful commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-console-commands" class="md-nav__link">
+    All Console Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    Controls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-variables" class="md-nav__link">
+    Commands &amp; Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#special-characters" class="md-nav__link">
+    Special characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-commands" class="md-nav__link">
+    Script commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-useful-commands" class="md-nav__link">
+    Some useful commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all-console-commands" class="md-nav__link">
+    All Console Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/systemconsole.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    System Console
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>The system console gives you a direct way to interact with Tabletop Simulator's settings.  It can be used to automate repetitive actions, and customise your TTS experience.</p>
+<h2 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h2>
+<p>The console accepts basic text input.  Additionally, you may hit <kbd class="keys"><kbd class="key-arrow-up">Up</kbd></kbd> and <kbd class="keys"><kbd class="key-arrow-down">Down</kbd></kbd> to cycle back and forth through the command history, and <kbd class="keys"><kbd class="key-tab">Tab</kbd></kbd> to autocomplete your current command (if more than one command is possible from your current prefix then hit it a couple of times to list all matching commands).  Hitting the <kbd class="keys"><kbd class="key-grave">`</kbd></kbd> key will activate the console.  Hitting it again will type the character; if you would rather it deactivated the console input as well as activating it, then you can make it do that by entering this command: <code>+console_hotkey_lock</code></p>
+<h2 id="commands-variables">Commands &amp; Variables<a class="headerlink" href="#commands-variables" title="Permanent link">&para;</a></h2>
+<p>You interact with the system console by typing commands into it.  When you hit enter the command will be perform its action, and then output its results to the console.</p>
+<p>There is a subset of the commands which have an additional property; these are called <code>variables</code>, and each one stores a value (in addition to behaving like regular commands).  Typically these are used for the settings which govern TTS behaviour.  For example, the <code>color</code> command is a variable; it holds the seat color you currently occupy.  Typing it without any parameters will make it output its current value, while typing it with a parameter will let you set it; you could type <code>color red</code> to switch to the red seat, for instance.  You may also create your own variables with the <code>store_number</code>, <code>store_toggle</code>, and <code>store_text</code> commands (or if you are familiar with programming, their aliases: <code>float</code>, <code>bool</code>, and <code>string</code>); these are especially useful when writing scripts.</p>
+<p>A lot of variables are toggles: they can be either <code>OFF</code> or <code>ON</code>.  For these you can set them in an additional way; by prefixing with <code>+</code>, <code>-</code>, or <code>!</code>.  <code>+</code> will turn it on, <code>-</code> will turn it off, and <code>!</code> will toggle it, changing it to the opposite of its current value.  For example: <code>+measure_in_metric</code> will set <code>measure_in_metric</code> to <code>ON</code>, and <code>!measure_logging</code> when <code>measure_logging</code> is <code>ON</code> will set it to <code>OFF</code> (and vice-versa).</p>
+<p>Note that some variables are <code>persistent</code> - this means that they will remember their value even after you close the game.</p>
+<p>There are three commands which are extremely valuable when getting to know the console, these are:</p>
+<ul>
+<li><code>commands</code> - Lists all non-variable commands.</li>
+<li><code>variables</code> - Lists all variable commands and their current values.</li>
+<li><code>help</code> - Lists all commands, with a description of what they do.</li>
+</ul>
+<p>You may specify a prefix when using these to have them filter to only commands which begin with it; for example you could type <code>variables spectator</code> to see the value of all commands which deal with the spectator window.
+Additionally, if you ask for <code>help</code> on a specific command it will give you a detailed description of how to use it.</p>
+<p>You may insert variables into commands by enclosing them in <code>{</code> and <code>}</code>.  For example, typing <code>hovered</code> will display the GUID of the object your pointer is hovering over; <code>spectator_camera_target {hovered}</code> will set the spectator camera target with it.</p>
+<p>If you start a command with the <code>@</code> symbol then it will be silenced; it will not output anything to the console.</p>
+<h2 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h2>
+<p>The <code>exec</code> command will execute a series of commands separated either by <code>;</code> or by being on separate lines.  Alternatively, you may use the <code>-v</code> parameter to execute a text variable as a script.  For example, <code>exec -v bootexec</code> will execute the commands in the <code>bootexec</code> variable (there is also a <code>run</code> alias, which performs <code>exec -v</code>, so <code>run bootexec</code> will do the same thing).  You may also pass <code>exec</code> a <code>-q</code> parameter to make it execute in quiet mode (commands being executed are not echoed to the console, but their output is).</p>
+<p>There are two special variables: <code>autoexec</code> and <code>bootexec</code>; these are text variables which load the contents of those two files - <code>autoexec.cfg</code> and <code>bootexec.cfg</code>, respectively - in your TTS user folder (typically <code>C:\Users\&lt;username&gt;\Documents\My Games\Tabletop Simulator</code>).</p>
+<p><code>autoexec</code> will be executed every time you arrive at the main menu in TTS, while <code>bootexec</code> is only executed once, when TTS first starts up.  Note that the game resets every time you go back to the main menu, so if you want to affect any settings / add bindings / etc you need to do it in <code>autoexec</code></p>
+<p>Example <code>bootexec</code>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Host a game for 8 players using default server name and password</span>
+host_game<span class="w"> </span><span class="m">8</span>
+
+<span class="c1"># Load game on row 4 slot 5</span>
+ui_games_click<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span>
+
+<span class="c1"># Switch to system console</span>
+chat_tab_system
+
+<span class="c1"># Activate spectator window</span>
++spectator_window
+</code></pre></div></p>
+<p>Example <code>autoexec</code>:
+<div class="highlight"><pre><span></span><code><span class="c1"># Make easier to type versions of spectator_camera_ commands.</span>
+<span class="c1"># i.e. cam_load instead of spectator_camera_load</span>
+<span class="nb">alias</span><span class="w"> </span>cam_*<span class="w"> </span>spectator_camera_*
+
+<span class="c1"># Set some settings</span>
++cam_stay_upright
+-spectator_show_ui
+
+<span class="c1"># make right control have camera follow player while held</span>
+<span class="c1"># @ makes it not output to console</span>
+<span class="nb">bind</span><span class="w"> </span>+right_control<span class="w"> </span>@+cam_follow_player
+<span class="nb">bind</span><span class="w"> </span>-right_control<span class="w"> </span>@-cam_follow_player
+
+<span class="c1"># make semicolon look at object under pointer</span>
+<span class="c1"># need to add additional { } so hovered isn&#39;t evaluated immediately</span>
+<span class="nb">bind</span><span class="w"> </span>semicolon<span class="w"> </span>cam_look_at<span class="w"> </span><span class="o">{{</span>hovered<span class="o">}}</span>
+
+<span class="c1"># make period toggle object tracking, and comma set tracked object</span>
+<span class="nb">bind</span><span class="w"> </span>period<span class="w"> </span>!cam_tracking
+<span class="nb">bind</span><span class="w"> </span>comma<span class="w"> </span>cam_target<span class="w"> </span><span class="o">{{</span>hovered<span class="o">}}</span>
+
+<span class="c1"># make right shift cycle through first 3 camera positions</span>
+<span class="nb">alias</span><span class="w"> </span>next_camera<span class="w"> </span>add<span class="w"> </span>cam_load_zero<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span>
+<span class="nb">bind</span><span class="w"> </span>right_shift<span class="w"> </span>next_camera
+
+<span class="c1"># make some buttons to load specific camera positions</span>
+ui_button<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">600</span><span class="w">   </span><span class="m">0</span><span class="w"> </span>cam_load<span class="w"> </span><span class="m">1</span>
+ui_button<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">600</span><span class="w"> </span>-30<span class="w"> </span>cam_load<span class="w"> </span><span class="m">2</span>
+ui_button<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">600</span><span class="w"> </span>-60<span class="w"> </span>cam_load<span class="w"> </span><span class="m">3</span>
+</code></pre></div></p>
+<h3 id="special-characters">Special characters<a class="headerlink" href="#special-characters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>@</code> - Behaves as it does normally; prefix it to a command to silence that command.</li>
+<li><code>@@</code> - Two <code>@</code> in a row silences the remainder of the script; each command will behave as if it had a <code>@</code> before it.  <code>@@</code> again will disable this effect.</li>
+<li><code>#</code> - At the start of a line is used for comments; the line will be ignored.</li>
+<li><code>:</code> - At the start of a line is used to specify a label, which may be skipped to with the <code>skip</code> command.</li>
+<li><code>{</code> and <code>}</code> - If you surround a variable with these then it will be evaluated during the script execution; you may add additional braces to delay evaluation.  Whenever a command being executed has braces in its parameters it will either strip one layer off (if there is more than one), or evaluate the enclosed variable (if there is only one layer); e.g. <code>{{hovered}}</code> will become <code>{hovered}</code>, whereas <code>{hovered}</code> will become the component currently under the mouse pointer.  You can see this used in the above <code>autoexec</code>.  Another example; say you wanted a binding which could add a binding to another key.  We add this line to the <code>autoexec</code>:
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span><span class="w"> </span>right_shift<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>right_control<span class="w"> </span>spectator_camera_target<span class="w"> </span><span class="o">{{{</span>hovered<span class="o">}}}</span>
+</code></pre></div>
+When the <code>autoexec</code> is executed and the first <code>bind</code> is called, the first layer of braces will be removed, so the command bound to right shift will be:
+<div class="highlight"><pre><span></span><code><span class="nb">bind</span><span class="w"> </span>right_control<span class="w"> </span>spectator_camera_target<span class="w"> </span><span class="o">{{</span>hovered<span class="o">}}</span>
+</code></pre></div>
+Then when you hit right shift, it will resolve so that the command bound to right control is:
+<div class="highlight"><pre><span></span><code>spectator_camera_target<span class="w"> </span><span class="o">{</span>hovered<span class="o">}</span>
+</code></pre></div>
+Now when you hit right control while hovering over the object, the hovered object will be evaulated and passed to <code>spectator_camera_target</code>.</li>
+</ul>
+<h3 id="script-commands">Script commands<a class="headerlink" href="#script-commands" title="Permanent link">&para;</a></h3>
+<p>The <code>skip</code> command can be used inside a script to jump forward to a label.  It may not be used to jump backwards.  You may give it an optional <code>variable</code> and then further optional <code>comparison</code> and <code>value</code> parameters: if you do it will only skip if the variable is non-zero, or the result of the comparison is true.</p>
+<p>The <code>wait</code> command will pause the script for the specified number of seconds.  It will always wait at least one frame, so <code>wait 0</code> will do just that.  This can be useful in <code>bootexec</code> and <code>autoexec</code>, as some game systems may take a couple of frames to intialize; if your commands do not appear to work then try putting them at the end of the script, after a <code>wait</code>.</p>
+<p>Finally, the <code>exit</code> command will cause the script to stop executing.</p>
+<p>Example <code>autoexec</code>:
+<div class="highlight"><pre><span></span><code>@@<span class="w"> </span><span class="c1"># silence script</span>
+
+
+<span class="c1">## Set up a `private_room` variable to govern whether server is private or public</span>
+
+<span class="c1"># Create scripts for each mode</span>
+
+store_text<span class="w"> </span>private_game_settings
+<span class="w">  </span>host_name<span class="w"> </span>Members<span class="w"> </span>Only!
+<span class="w">  </span>host_password<span class="w"> </span>foobar
+end<span class="w"> </span>private_game_settings
+
+store_text<span class="w"> </span>public_game_settings
+<span class="w">  </span>host_name<span class="w"> </span>All<span class="w"> </span>Are<span class="w"> </span>Welcome!
+<span class="w">  </span>host_password<span class="w"> </span><span class="s2">&quot;&quot;</span>
+end<span class="w"> </span>public_game_settings
+
+<span class="c1"># create variable and assign scripts</span>
+store_toggle<span class="w"> </span>private_room
+<span class="nb">alias</span><span class="w"> </span>+private_room<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-q<span class="w"> </span>-v<span class="w"> </span>private_game_settings
+<span class="nb">alias</span><span class="w"> </span>-private_room<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-q<span class="w"> </span>-v<span class="w"> </span>public_game_settings
+
+<span class="c1"># bind to key, and set to private by default</span>
+<span class="nb">bind</span><span class="w"> </span>KeypadMinus<span class="w"> </span>!private_room
++private_room
+
+
+<span class="c1">## Set up smart chat keybinding:</span>
+<span class="c1"># Push to activate Team chat input if in team,</span>
+<span class="c1"># or Game chat input if not.</span>
+
+store_text<span class="w"> </span>smart_chat
+<span class="w">  </span>skip<span class="w"> </span>:teamchat<span class="w"> </span>team
+<span class="w">  </span>chat_tab_game
+<span class="w">  </span>skip<span class="w"> </span>:activate
+:teamchat
+<span class="w">  </span>chat_tab_team
+:activate
+<span class="w">  </span>chat_input
+end<span class="w"> </span>smart_chat
+
+<span class="nb">bind</span><span class="w"> </span>y<span class="w"> </span>@exec<span class="w"> </span>-v<span class="w"> </span>smart_chat
+
+
+<span class="c1">## Display GUID of currently held object,</span>
+<span class="c1"># or if nothing held then currently hovered object.</span>
+
+store_text<span class="w"> </span>echo_guid_script
+<span class="w">  </span>skip<span class="w"> </span>:held<span class="w"> </span>grabbed
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="o">{{</span>hovered<span class="o">}}</span>
+<span class="w">  </span><span class="nb">exit</span>
+:held
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="o">{{</span>grabbed<span class="o">}}</span>
+end<span class="w"> </span>echo_guid_script
+
+<span class="nb">alias</span><span class="w"> </span>echo_guid<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-q<span class="w"> </span>-v<span class="w"> </span>echo_guid_script
+<span class="nb">bind</span><span class="w"> </span>KeypadEnter<span class="w"> </span>echo_guid
+
+
+<span class="c1">## Create key to Tap/Untap card (turn 90 degreees / set upright)</span>
+<span class="c1">#  Use seat hand zone rotation to work out orientation.</span>
+
+string<span class="w"> </span>guid<span class="w"> </span><span class="s2">&quot;&quot;</span>
+float<span class="w"> </span>facing
+float<span class="w"> </span>y
+bool<span class="w"> </span>untapped
+
+string<span class="w"> </span>tap_script
+<span class="w">  </span><span class="c1"># use &quot;&quot; so if not hovering variable will be cleared</span>
+<span class="w">  </span>guid<span class="w"> </span><span class="s2">&quot;{{hovered}}&quot;</span>
+<span class="w">  </span>skip<span class="w"> </span>:ok<span class="w"> </span>guid
+<span class="w">  </span><span class="nb">exit</span>
+:ok
+<span class="w">  </span><span class="c1"># Find hand zone facing. It faces the player, so spin it 180.</span>
+<span class="w">  </span>component_examine<span class="w"> </span><span class="o">{{</span>color<span class="o">}}</span>
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span>facing<span class="w"> </span><span class="o">(</span>examine_rotation.y<span class="w"> </span>-<span class="w"> </span><span class="m">180</span><span class="o">)</span><span class="w"> </span>%<span class="w"> </span><span class="m">360</span>
+<span class="w">  </span><span class="c1"># Is card currently tapped?</span>
+<span class="w">  </span>component_examine<span class="w"> </span><span class="o">{{</span>guid<span class="o">}}</span>
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span>y<span class="w"> </span>examine_rotation.y<span class="w"> </span>%<span class="w"> </span><span class="m">360</span>
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span>untapped<span class="w"> </span>!<span class="o">((</span>y<span class="w"> </span>-<span class="w"> </span><span class="m">90</span><span class="w"> </span>&lt;<span class="w"> </span>facing<span class="w"> </span>+<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>y<span class="w"> </span>-<span class="w"> </span><span class="m">90</span><span class="w"> </span>&gt;<span class="w"> </span>facing<span class="w"> </span>-<span class="w"> </span><span class="m">10</span><span class="o">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">(</span>y<span class="w"> </span>+<span class="w"> </span><span class="m">270</span><span class="w"> </span>&lt;<span class="w"> </span>facing<span class="w"> </span>+<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>y<span class="w"> </span>+<span class="w"> </span><span class="m">270</span><span class="w"> </span>&gt;<span class="w"> </span>facing<span class="w"> </span>-<span class="w"> </span><span class="m">10</span><span class="o">))</span>
+<span class="w">  </span><span class="c1"># Bump card up a bit into the air (0.5 along Y axis).</span>
+<span class="w">  </span>component_move<span class="w"> </span><span class="o">{{</span>guid<span class="o">}}</span><span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>-
+<span class="w">  </span>skip<span class="w"> </span>:tap<span class="w"> </span>untapped
+:untap
+<span class="w">  </span><span class="c1"># Set rotation to player facing. Use `-` on X and Z axis so they are unaffected.</span>
+<span class="w">  </span>component_rotation<span class="w"> </span><span class="o">{{</span>guid<span class="o">}}</span><span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="o">{{</span>facing<span class="o">}}</span><span class="w"> </span>-
+<span class="w">  </span><span class="nb">exit</span>
+:tap
+<span class="w">  </span><span class="nb">eval</span><span class="w"> </span>y<span class="w"> </span>facing<span class="w"> </span>+<span class="w"> </span><span class="m">90</span>
+<span class="w">  </span>component_rotation<span class="w"> </span><span class="o">{{</span>guid<span class="o">}}</span><span class="w"> </span>-f<span class="w"> </span>-<span class="w"> </span><span class="o">{{</span>y<span class="o">}}</span><span class="w"> </span>-
+end<span class="w"> </span>tap_script
+
+<span class="nb">bind</span><span class="w"> </span>Mouse4<span class="w"> </span>@run<span class="w"> </span>tap_script
+</code></pre></div></p>
+<h2 id="some-useful-commands">Some useful commands<a class="headerlink" href="#some-useful-commands" title="Permanent link">&para;</a></h2>
+<p>As noted above, <code>help</code>, <code>commands</code>, and <code>variables</code> will let you find out everything you can do with the system console.  Having said that, here is a selection of some of the more useful commands available:</p>
+<ul>
+<li><code>add</code>, <code>subtract</code>, and <code>multiply</code> will let you do simple arithmetic on a variable.  <code>add</code> is useful for cycling a modal variable (it has an optional third parameter which sets a modulus), while <code>subtract</code> subtracts the variable <em>from</em> the value, so is useful for ping-ponging between two numbers.</li>
+<li><code>alias</code> is overloaded with several functions:<ul>
+<li>Its basic use is to create a new name for another command, while retaining any parameters you type in. Good for making shorter names for commands you use a lot.  Use with <code>store_text</code> and <code>exec</code> to make your own commands from scripts.</li>
+<li>It can also be used to attach commands to each value of a toggle variable, which will run when the variable is set to that value.  You can see this in the example script above, with the <code>private_room</code> variable.</li>
+<li>Finally, if there are a collection of commands sharing a prefix which you want to make short versions of you can use <code>*</code> to do so (e.g. <code>alias cam_* spectator_camera_*</code>)</li>
+</ul>
+</li>
+<li><code>append</code> will append text to a text variable.  If you only provide the variable parameter, without text, it will append the last entered command. This is useful for adding commands to <code>autoexec</code>; you can try the command out in the console until you get it correct, before appending it to the script.</li>
+<li><code>bind</code>, <code>unbind</code> control attaching commands to keypresses.  You may use <code>+</code> and <code>-</code> before the keycode to specify if you want it to trigger on <em>press</em> or <em>release</em>, respectively. <a href="https://docs.unity3d.com/ScriptReference/KeyCode.html">(list of Unity keycodes)</a></li>
+<li><code>broadcast</code> will broadcast the provided message.</li>
+<li><code>chat_font_size</code> sets the size of the font in the chat / console window.</li>
+<li><code>clear</code> will clear a text variable.</li>
+<li><code>color</code> reports/sets your player color.</li>
+<li><code>component_examine</code> lets you specify a component, which can then be examined with the <code>examine_position</code> and <code>examine_rotation</code> variables.  If you specify a color then that seat's primary hand zone will be examined instead.</li>
+<li><code>component_move</code>, <code>component_rotate</code>, <code>component_position</code>, <code>component_rotation</code> let you apply movements to components.  The first two add the specified vector to the component's current position/rotation, while the second two set it to the specified vector in world space.  You may use<code>'-'</code> in place of a vector axis to indicate that axis is to be left alone.</li>
+<li><code>console_hotkey_lock</code> When enabled, locks whichever key is bound to toggling the system console, so that hitting it always toggles the console (this makes the key untypeable in text input boxes).</li>
+<li><code>default_host_name</code> and <code>default_password</code> set those values.</li>
+<li><code>dice_roll_height_multiplier</code> sets how high dice go when randomized.</li>
+<li><code>displays</code> outputs information on currently connected monitors.</li>
+<li><code>drawing_erase_all</code> erases all drawings.</li>
+<li><code>drawing_render_fully_visible</code> will cause drawings to render fully in 3d space (which is neat if you have VR)</li>
+<li><code>echo</code> displays its parameters in the system console.</li>
+<li><code>edit</code> allow you to edit a text variable with the in-game GUI (you may also do this by passing the variable the <code>-e</code> parameter, e.g. <code>autoexec -e</code>)</li>
+<li><code>escape</code> will display a text variable in the console, and will  escape all the formatting characters (i.e. all the <code>[</code> and <code>]</code> characters).</li>
+<li><code>eval</code> sets a variable by evaluating a formula.  Most arithmetic operators and functions are provided.  You may also refer to vector axes, i.e. <code>examine_rotation.y</code>.</li>
+<li><code>find</code> finds a component on the table.</li>
+<li><code>grabbed</code>, <code>hovered</code> output the GUID of the component you are interacting with.</li>
+<li><code>highlight</code> a component.</li>
+<li><code>host_game</code> creates a table; you can specify single player, multiplayer, or hotseat.</li>
+<li><code>host_name</code> and <code>host_password</code> set those values for current game.</li>
+<li><code>last</code> is a special variable which holds the value returned from the most recent command.</li>
+<li><code>lua</code> executes lua code as if run by the current mod.</li>
+<li><code>mirror_all</code> will mirror all text displayed in every other chat tab into the system console.  This means you can always be in the system console without missing any messages.</li>
+<li><code>quiet_mode</code> will, when enabled, stop command names being echoed in the console.  Unlike silencing commands with <code>@</code>, this will still display the commands' output.</li>
+<li><code>reset</code> will reset a persistent variable to its default value.</li>
+<li><code>sendkey</code> will emulate a keypress.  Primarily useful for binding things to VR controllers.</li>
+<li><code>status</code> will display some key information about the current game. </li>
+<li><code>stats_monitor</code> will display some graphs/info which update in real time.</li>
+<li><code>team</code> reports/sets your team.</li>
+<li><code>ui_anchor</code> lets you set the position on the screen which custom UI components are placed relative to. It defaults to 0,0 which is the center of the screen.</li>
+<li><code>ui_button</code> / <code>ui_label</code> / <code>ui_toggle</code> will add custom UI components to the screen which will, respectively, perform a command when clicked / display some text / be attached to a toggle variable.</li>
+<li><code>ui_dialog_input</code> will display the text entry UI, and store the typed text in <code>last</code>.</li>
+<li><code>ui_games_click</code> will click on a button on the game select UI, if it is open.  </li>
+<li><code>ui_games_hide</code> will hide the game select UI without clicking on anything.</li>
+<li><code>wait</code> is a command which can be inserted into a script to cause it to pause for some amount of time.  Useful for fudging a script to work with asynchronous commands which take some time to execute.</li>
+</ul>
+<p>Commands are named with their topic first, so commands which affect the same part of the game have the same prefix.  The following are some useful groups of commands: get more info on them by running <code>help prefix_</code>.  For instance, <code>help camera_</code></p>
+<ul>
+<li><code>camera_</code> commands control the position and behaviour of the player camera (i.e. your point-of-view)</li>
+<li><code>chat_</code> commands control the chat window.</li>
+<li><code>component_</code> commands deal with the game components on the table.  Notably the <code>component_default_</code> commands let you specify what toggles new component are created with, which is useful if you are creating a lot of similar components.</li>
+<li><code>errors_</code> commands handle how Lua errors are displayed.</li>
+<li><code>jigsaw_</code> commands let you mess with jigsaws.</li>
+<li><code>log_</code> commands control formatting of lua <code>log</code> calls.</li>
+<li><code>mirror_</code> commands govern mirroring text from other tabs into the system console.</li>
+<li><code>mod_</code> commands control various performance settings when loading mods.</li>
+<li><code>music_</code> commands let you control the in-game music player.</li>
+<li><code>say_</code> commands let you output messages to the chat channels.</li>
+<li><code>spectator_</code> commands control the spectator view.</li>
+<li><code>timestamp_</code> commands let you add timestamps to the chat channels / console.</li>
+<li><code>tool_</code> commands let you check and set the currently used tool (grab, draw, etc).</li>
+<li><code>ui_</code> commands deal with the game's User Interface.</li>
+<li><code>vr_</code> commands perform all VR related tasks.</li>
+</ul>
+<h2 id="all-console-commands">All Console Commands<a class="headerlink" href="#all-console-commands" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Berserk-Games/Tabletop-Simulator-Console-Commands/blob/main/Commands.md#console-commands">(All Console Commands)</a></li>
+</ul>
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

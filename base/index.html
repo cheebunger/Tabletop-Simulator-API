@@ -1,0 +1,3355 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Base - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/theme.css">
+    
+      <link rel="stylesheet" href="../css/table.css">
+    
+      <link rel="stylesheet" href="../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#function-summary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Base
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Base
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Base
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-functions" class="md-nav__link">
+    Global Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rewind-state-functions" class="md-nav__link">
+    Rewind State Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotkey-functions" class="md-nav__link">
+    Hotkey Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-functions" class="md-nav__link">
+    Message Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-function-details" class="md-nav__link">
+    Global Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addcontextmenuitem" class="md-nav__link">
+    addContextMenuItem(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearcontextmenu" class="md-nav__link">
+    clearContextMenu()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroyobject" class="md-nav__link">
+    destroyObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fliptable" class="md-nav__link">
+    flipTable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getallobjects" class="md-nav__link">
+    getAllObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectfromguid" class="md-nav__link">
+    getObjectFromGUID(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjects" class="md-nav__link">
+    getObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithalltags" class="md-nav__link">
+    getObjectsWithAllTags(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithanytags" class="md-nav__link">
+    getObjectsWithAnyTags(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithtag" class="md-nav__link">
+    getObjectsWithTag(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getseatedplayers" class="md-nav__link">
+    getSeatedPlayers()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    group(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paste" class="md-nav__link">
+    paste(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlookingforplayers" class="md-nav__link">
+    setLookingForPlayers(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobject" class="md-nav__link">
+    spawnObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobjectdata" class="md-nav__link">
+    spawnObjectData(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobjectjson" class="md-nav__link">
+    spawnObjectJSON(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startluacoroutine" class="md-nav__link">
+    startLuaCoroutine(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcolortorgb" class="md-nav__link">
+    stringColorToRGB(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewind-state-function-details" class="md-nav__link">
+    Rewind State Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Rewind State Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allowrewindstore" class="md-nav__link">
+    allowRewindStore()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storerewindstate" class="md-nav__link">
+    storeRewindState(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotkey-function-details" class="md-nav__link">
+    Hotkey Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Hotkey Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addhotkey" class="md-nav__link">
+    addHotkey(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearhotkeys" class="md-nav__link">
+    clearHotkeys()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showhotkeyconfig" class="md-nav__link">
+    showHotkeyConfig()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-function-details" class="md-nav__link">
+    Message Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#broadcasttoall" class="md-nav__link">
+    broadcastToAll(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcasttocolor" class="md-nav__link">
+    broadcastToColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    log(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logstring" class="md-nav__link">
+    logString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logstyle" class="md-nav__link">
+    logStyle(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    print(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printtoall" class="md-nav__link">
+    printToAll(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printtocolor" class="md-nav__link">
+    printToColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendexternalmessage" class="md-nav__link">
+    sendExternalMessage(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hand-select-mode-function-details" class="md-nav__link">
+    Hand Select Mode Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Hand Select Mode Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chooseinhand" class="md-nav__link">
+    chooseInHand(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chooseinhandorcancel" class="md-nav__link">
+    chooseInHandOrCancel(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearchooseinhand" class="md-nav__link">
+    clearChooseInHand(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currentchooseinhand" class="md-nav__link">
+    currentChooseInHand(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-functions" class="md-nav__link">
+    Global Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rewind-state-functions" class="md-nav__link">
+    Rewind State Functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotkey-functions" class="md-nav__link">
+    Hotkey Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-functions" class="md-nav__link">
+    Message Functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-function-details" class="md-nav__link">
+    Global Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addcontextmenuitem" class="md-nav__link">
+    addContextMenuItem(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearcontextmenu" class="md-nav__link">
+    clearContextMenu()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#destroyobject" class="md-nav__link">
+    destroyObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fliptable" class="md-nav__link">
+    flipTable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getallobjects" class="md-nav__link">
+    getAllObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectfromguid" class="md-nav__link">
+    getObjectFromGUID(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjects" class="md-nav__link">
+    getObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithalltags" class="md-nav__link">
+    getObjectsWithAllTags(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithanytags" class="md-nav__link">
+    getObjectsWithAnyTags(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getobjectswithtag" class="md-nav__link">
+    getObjectsWithTag(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getseatedplayers" class="md-nav__link">
+    getSeatedPlayers()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    group(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paste" class="md-nav__link">
+    paste(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setlookingforplayers" class="md-nav__link">
+    setLookingForPlayers(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobject" class="md-nav__link">
+    spawnObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobjectdata" class="md-nav__link">
+    spawnObjectData(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spawnobjectjson" class="md-nav__link">
+    spawnObjectJSON(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startluacoroutine" class="md-nav__link">
+    startLuaCoroutine(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcolortorgb" class="md-nav__link">
+    stringColorToRGB(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rewind-state-function-details" class="md-nav__link">
+    Rewind State Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Rewind State Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#allowrewindstore" class="md-nav__link">
+    allowRewindStore()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storerewindstate" class="md-nav__link">
+    storeRewindState(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hotkey-function-details" class="md-nav__link">
+    Hotkey Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Hotkey Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addhotkey" class="md-nav__link">
+    addHotkey(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearhotkeys" class="md-nav__link">
+    clearHotkeys()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showhotkeyconfig" class="md-nav__link">
+    showHotkeyConfig()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-function-details" class="md-nav__link">
+    Message Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#broadcasttoall" class="md-nav__link">
+    broadcastToAll(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcasttocolor" class="md-nav__link">
+    broadcastToColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    log(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logstring" class="md-nav__link">
+    logString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logstyle" class="md-nav__link">
+    logStyle(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    print(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printtoall" class="md-nav__link">
+    printToAll(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#printtocolor" class="md-nav__link">
+    printToColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendexternalmessage" class="md-nav__link">
+    sendExternalMessage(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hand-select-mode-function-details" class="md-nav__link">
+    Hand Select Mode Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Hand Select Mode Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chooseinhand" class="md-nav__link">
+    chooseInHand(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chooseinhandorcancel" class="md-nav__link">
+    chooseInHandOrCancel(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearchooseinhand" class="md-nav__link">
+    clearChooseInHand(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currentchooseinhand" class="md-nav__link">
+    currentChooseInHand(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/base.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    Base
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>These are a loose collection of functions which can be used to perform a variety of actions within Tabletop Simulator.</p>
+<p>These functions can utilize in-game Objects, but none of them can be enacted on in-game Objects. They all deal with the game space.</p>
+<h2 id="function-summary">Function Summary<a class="headerlink" href="#function-summary" title="Permanent link">&para;</a></h2>
+<h3 id="global-functions">Global Functions<a class="headerlink" href="#global-functions" title="Permanent link">&para;</a></h3>
+<p>General functions which work within any script.</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addContextMenuItem(<a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag fun"></span></a> toRunFunc, <a href="../types/"><span class="tag boo"></span></a> keep_open, <a href="../types/"><span class="tag boo"></span></a> require_table)</td>
+<td>Adds a menu item to the Global right-click context menu. Global menu is shown when player right-clicks on empty space or table.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#addcontextmenuitem"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="clearcontextmenu_1" style="position: relative;">clearContextMenu()<h6 data-toc-mock-searchable="" id="clearcontextmenu" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">clearContextMenu()</h6></td>
+<td>Clears all menu items added by function <a href="#addcontextmenuitem">addContextMenuItem(...)</a>.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>chooseInHand(<a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag int"></span></a> min_selected_count, <a href="../types/"><span class="tag int"></span></a> min_selected_count, <a href="../types/"><span class="tag str"></span></a> prompt, <a href="../types/"><span class="tag tab"></span></a> player_colors)</td>
+<td>Start hand select mode.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#chooseinhand"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>chooseInHandOrCancel(<a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag int"></span></a> min_selected_count, <a href="../types/"><span class="tag int"></span></a> min_selected_count, <a href="../types/"><span class="tag str"></span></a> prompt, <a href="../types/"><span class="tag tab"></span></a> player_colors)</td>
+<td>Start hand select mode with additional Cancel button.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#chooseinhandorcancel"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>clearChooseInHand(<a href="../types/"><span class="tag tab"></span></a> player_colors)</td>
+<td>Clear hand select mode.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#clearchooseinhand"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>currentChooseInHand(<a href="../types/"><span class="tag str"></span></a> player_color)</td>
+<td>Get label of current hand select mode for given player.</td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td><a href="#currentchooseinhand"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>copy(<a href="../types/"><span class="tag tab"></span></a> object_list)</td>
+<td>Copy a list of Objects to the clipboard. Works with <a href="#paste">paste(...)</a>.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#copy"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>destroyObject(<a href="../types/"><span class="tag obj"></span></a> obj)</td>
+<td>Destroy an Object.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#destroyobject"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>executeScript(<a href="../types/"><span class="tag str"></span></a> script)</td>
+<td>Execute a Lua script on an object or Global.</td>
+<td><a href="../types/"><span class="ret var"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td id="fliptable" style="position: relative;">flipTable()<h6 data-toc-mock-searchable="" id="fliptable" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">flipTable()</h6></td>
+<td>Flip the table.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td id="getallobjects" style="position: relative;">getAllObjects()<h6 data-toc-mock-searchable="" id="getallobjects" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getAllObjects()</h6></td>
+<td><p><a href="../intro/#deprecated"><span class="tag deprecated"></span></a> <em>Use <a href="#getobjects">getObjects()</a></em>.</p>Returns a Table of all <a href="../object/">Objects</a> in the game <em>except hand zones</em>.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>getObjectFromGUID(<a href="../types/"><span class="tag str"></span></a> guid)</td>
+<td>Returns Object by its GUID. Will return <code>nil</code> if this GUID doesn't currently exist.</td>
+<td><a href="../types/"><span class="ret obj"></span></a></td>
+<td><a href="#getobjectfromguid"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getObjects()</td>
+<td>Returns a Table of all <a href="../object/">Objects</a> in the game.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getobjects"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getObjectsWithTag(<a href="../types/"><span class="tag str"></span></a> tag)</td>
+<td>Returns Table of all <a href="../object/">Objects</a> which have the specified tag attached.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getobjectswithtag"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getObjectsWithAnyTags(<a href="../types/"><span class="tag tab"></span></a> tags)</td>
+<td>Returns Table of all <a href="../object/">Objects</a> which have at least one of the specified tags attached.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getobjectswithanytags"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getObjectsWithAllTags(<a href="../types/"><span class="tag tab"></span></a> tags)</td>
+<td>Returns Table of all <a href="../object/">Objects</a> which have all of the specified tags attached.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getobjectswithalltags"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="getseatedplayers" style="position: relative;">getSeatedPlayers()<h6 data-toc-mock-searchable="" id="getseatedplayers" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getSeatedPlayers()</h6></td>
+<td>Returns a Table of the <a href="../player/colors/">Player Colors</a> strings of seated players.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>group(<a href="../types/"><span class="tag tab"></span></a> objects)</td>
+<td>Groups objects together, like how the <kbd class="keys"><kbd class="key-g">G</kbd></kbd> key does for players.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#group"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>paste(<a href="../types/"><span class="tag tab"></span></a> parameters)</td>
+<td>Pastes Objects in-game that were copied to the in-game clipboard. Works with <a href="#copy">copy(...)</a>.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#paste"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="setlookingforplayers" style="position: relative;">setLookingForPlayers(<h6 data-toc-mock-searchable="" id="setlookingforplayers" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">setLookingForPlayers(...)</h6><a href="../types/"><span class="tag boo"></span></a> lfp)</td>
+<td>Enables/disables looking for group. This is visible in the server browsers, indicating if you are recruiting for a game.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>spawnObject(<a href="../types/"><span class="tag tab"></span></a> parameters)</td>
+<td>Spawns an object.</td>
+<td><a href="../types/"><span class="ret obj"></span></a></td>
+<td><a href="#spawnobject"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>spawnObjectData(<a href="../types/"><span class="tag tab"></span></a> parameters)</td>
+<td>Spawns an object from a data table.</td>
+<td><a href="../types/"><span class="ret obj"></span></a></td>
+<td><a href="#spawnobjectdata"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>spawnObjectJSON(<a href="../types/"><span class="tag tab"></span></a> parameters)</td>
+<td>Spawns an object from a JSON string.</td>
+<td><a href="../types/"><span class="ret obj"></span></a></td>
+<td><a href="#spawnobjectjson"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>startLuaCoroutine(<a href="../types/"><span class="tag obj"></span></a> function_owner, <a href="../types/"><span class="tag str"></span></a> function_name)</td>
+<td>Start a coroutine.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#startluacoroutine"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>stringColorToRGB(<a href="../types/"><span class="tag str"></span></a> player_color)</td>
+<td>Converts a <a href="../player/colors/">Player Color</a> string into a Color Table for tinting.</td>
+<td><a href="../types/#color"><span class="ret col"></span></a></td>
+<td><a href="#stringcolortorgb"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="rewind-state-functions">Rewind State Functions<a class="headerlink" href="#rewind-state-functions" title="Permanent link">&para;</a></h4>
+<p>Rewind states are stored periodically. If a store happens <strong>in the middle of a complex scripted change</strong>, you can end up with bad intermediate states. These helpers let you control when rewinds are saved.</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>storeRewindState(<a href="../types/"><span class="tag fun"></span></a> and_then, <a href="../types/"><span class="tag boo"></span></a> block_further_stores)</td>
+<td>Stores a rewind state.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#storerewindstate"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>allowRewindStore()</td>
+<td>Clears the block on storing rewind states.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#allowrewindstore"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="hotkey-functions">Hotkey Functions<a class="headerlink" href="#hotkey-functions" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addHotkey(<a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag fun"></span></a> toRunFunc, <a href="../types/"><span class="tag boo"></span></a> trigger_on_key_up)</td>
+<td>Adds a bindable hotkey to the game.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#addhotkey"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="clearhotkeys" style="position: relative;">clearHotkeys()<h6 data-toc-mock-searchable="" id="clearhotkeys" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">clearHotkeys()</h6></td>
+<td>Clears all hotkeys previously added via <a href="#addhotkey">addHotkey(...)</a>.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td id="showhotkeyconfig" style="position: relative;">showHotkeyConfig()<h6 data-toc-mock-searchable="" id="showhotkeyconfig" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">showHotkeyConfig()</h6></td>
+<td>Shows the hotkey configuration window under Options-&gt;Game Keys.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="message-functions">Message Functions<a class="headerlink" href="#message-functions" title="Permanent link">&para;</a></h3>
+<p>Functions which handle sending and displaying data.</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>broadcastToAll(<a href="../types/"><span class="tag str"></span></a> message, <a href="../types/#color"><span class="tag col"></span></a> message_tint)</td>
+<td>Print an on-screen message to all Players, as well as their in-game chat.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#broadcasttoall"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>broadcastToColor(<a href="../types/"><span class="tag str"></span></a> message, <a href="../types/"><span class="tag str"></span></a> player_color, <a href="../types/#color"><span class="tag col"></span></a> message_tint)</td>
+<td>Print an on-screen message to a specified Player, as well as their in-game chat.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#broadcasttocolor"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>log(<a href="../types/"><span class="tag var"></span></a> value, <a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag str"></span></a> tags)</td>
+<td>Logs a message to the <em>host's</em> System Console. (Shortcut: ~)</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#log"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>logString(<a href="../types/"><span class="tag var"></span></a> value, <a href="../types/"><span class="tag str"></span></a> label, <a href="../types/"><span class="tag str"></span></a> tags, <a href="../types/"><span class="tag boo"></span></a> concise, <a href="../types/"><span class="tag boo"></span></a> displayTag)</td>
+<td><em>Returns</em> a String formatted similarly to the output of <a href="#log">log(...)</a>.</td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td><a href="#logstring"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>logStyle(<a href="../types/"><span class="tag str"></span></a> tag, <a href="../types/#color"><span class="tag col"></span></a> tint, <a href="../types/"><span class="tag str"></span></a> prefix, <a href="../types/"><span class="tag str"></span></a> postfix)</td>
+<td>Set style options for the specified tag type for the log.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#logstyle"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>print(<a href="../types/"><span class="tag str"></span></a> message)</td>
+<td>Prints a string into chat that only the host is able to see. Used for debugging scripts.</td>
+<td><a href="../types/"><span class="ret nil"></span></a></td>
+<td><a href="#print"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>printToAll(<a href="../types/"><span class="tag str"></span></a> message, <a href="../types/#color"><span class="tag col"></span></a> message_tint)</td>
+<td>Print a message into the chat of all connected players.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#printtoall"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>printToColor(<a href="../types/"><span class="tag str"></span></a> message, <a href="../types/"><span class="tag str"></span></a> player_color, <a href="../types/#color"><span class="tag col"></span></a> message_tint)</td>
+<td>Print a message to a specific <a href="../player/colors/">Player Color</a>.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#printtocolor"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="sendexternalmessage" style="position: relative;">sendExternalMessage(<h6 data-toc-mock-searchable="" id="sendexternalmessage" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">sendExternalMessage(...)</h6><a href="../types/"><span class="tag tab"></span></a> data)</td>
+<td>Send a table to your external script editor, most likely Atom. This is for custom editor functionality.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="function-details">Function Details<a class="headerlink" href="#function-details" title="Permanent link">&para;</a></h2>
+<h3 id="global-function-details">Global Function Details<a class="headerlink" href="#global-function-details" title="Permanent link">&para;</a></h3>
+<h4 id="addcontextmenuitem">addContextMenuItem(...)<a class="headerlink" href="#addcontextmenuitem" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Adds a menu item to the Global right-click context menu. Global menu is shown when player right-clicks on empty space or table.</p>
+<div class="admonition info">
+<p class="admonition-title">addContextMenuItem(label, toRunFunc, keep_open, require_table)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: Label for the menu item.</li>
+<li><a href="../types/"><span class="tag fun"></span></a> <strong>toRunFunc</strong>: Execute if menu item is selected.<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>player_color</strong> <a href="../player/colors/">Player Color</a> who selected the menu item.</li>
+<li><a href="../types/"><span class="tag vec"></span></a> <strong>menu_position</strong> Global position of the right-click context menu.</li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>keep_open</strong>: Keep context menu open after menu
+ item was selected.<ul>
+<li><span class="critic comment">Optional, Default: keep_open = false. Close context menu after selection.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>require_table</strong>: Show added menu item when right-clicked on empty space or table.<ul>
+<li><span class="critic comment">Optional, Default: require_table = false. Show when right-clicked on empty space or table </span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="nf">addContextMenuItem</span><span class="p">(</span><span class="s2">&quot;doStuff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">itemAction</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">itemAction</span><span class="p">(</span><span class="nv">player_color</span><span class="p">,</span><span class="w"> </span><span class="nv">menu_position</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">player_color</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h4 id="copy">copy(...)<a class="headerlink" href="#copy" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Copy a list of Objects to the clipboard. Works with <a href="#paste">paste(...)</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">copy(object_list)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>object_list</strong>: A Table of in-game objects to be copied.<ul>
+<li><span class="critic comment">This is similar to highlighting the objects in-game and copying them.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">object_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="nf">copy</span><span class="p">(</span><span class="nv">object_list</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h4 id="destroyobject">destroyObject(...)<a class="headerlink" href="#destroyobject" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Destroy an Object.</p>
+<div class="admonition info">
+<p class="admonition-title">destroyObject(obj)</p>
+<ul>
+<li><a href="../types/"><span class="tag obj"></span></a> <strong>obj</strong>: The Object you wish to delete from the instance.</li>
+</ul>
+</div>
+<hr />
+<h4 id="getobjectfromguid">getObjectFromGUID(...)<a class="headerlink" href="#getobjectfromguid" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret obj"></span></a> Returns Object by its GUID. Will return <code>nil</code> if this GUID doesn't currently exist.</p>
+<div class="admonition info">
+<p class="admonition-title">getObjectFromGUID(guid)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>guid</strong>: GUID of the Object to get a reference of.<ul>
+<li><span class="critic comment">GUID can be obtained by right clicking an object and going to Scripting.</span></li>
+<li><span class="critic comment">In a script, it can be obtained from any Object by using .getGUID().</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h4 id="getobjects">getObjects()<a class="headerlink" href="#getobjects" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table of all Objects.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>This can be used to identify objects in any way, for example the name:
+<div class="highlight"><pre><span></span><code><span class="c1">-- Gets all Objects with the name &quot;Apple&quot;</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">getApples</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">allApples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">object</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nf">getObjects</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">object</span><span class="p">.</span><span class="nf">getName</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Apple&quot;</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">            </span><span class="nb">table.insert</span><span class="p">(</span><span class="nv">allApples</span><span class="p">,</span><span class="w"> </span><span class="nv">object</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nv">allApples</span>
+<span class="kr">end</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="getobjectswithtag">getObjectsWithTag(...)<a class="headerlink" href="#getobjectswithtag" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table of all Objects which have the specified tag attached.</p>
+<div class="admonition info">
+<p class="admonition-title">getObjectsWithTag(tag)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>tag</strong>: The tag to search for on Objects.<ul>
+<li><span class="critic comment">Tags can be added to objects via right-click -&gt; Tags.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Gets all Objects with the tag &quot;RedCube&quot;</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">allRedCubes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getObjectsWithTag</span><span class="p">(</span><span class="s2">&quot;RedCube&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">log</span><span class="p">(</span><span class="nv">allRedCubes</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+</div>
+<hr />
+<h4 id="getobjectswithanytags">getObjectsWithAnyTags(...)<a class="headerlink" href="#getobjectswithanytags" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table of all Objects which have at least one of the specified tags attached.</p>
+<div class="admonition info">
+<p class="admonition-title">getObjectsWithAnyTags(tags)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>tags</strong>: A table of tags to search for. An Object must have at least one of these tags to be returned.<ul>
+<li><span class="critic comment">Tags can be added to objects via right-click -&gt; Tags.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Gets all Objects that have either the &quot;Player1&quot; or &quot;Player2&quot; tag</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Player1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Player2&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">matchingObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getObjectsWithAnyTags</span><span class="p">(</span><span class="nv">tags</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">log</span><span class="p">(</span><span class="nv">matchingObjects</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+</div>
+<hr />
+<h4 id="getobjectswithalltags">getObjectsWithAllTags(...)<a class="headerlink" href="#getobjectswithalltags" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table of all Objects which have all of of the specified tags attached.</p>
+<div class="admonition info">
+<p class="admonition-title">getObjectsWithAllTags(tags)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>tags</strong>: A table of tags to search for. An Object must have every tag in this table to be returned.<ul>
+<li><span class="critic comment">Tags can be added to objects via right-click -&gt; Tags.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Gets all Objects that have either the &quot;Player1&quot; or &quot;Player2&quot; tag</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">tagList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Player1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Player2&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">matchingObjects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getObjectsWithAnyTags</span><span class="p">(</span><span class="nv">tagList</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">log</span><span class="p">(</span><span class="nv">matchingObjects</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+</div>
+<hr />
+<h4 id="group">group(...)<a class="headerlink" href="#group" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Groups objects together, like how the <kbd class="keys"><kbd class="key-g">G</kbd></kbd> key does for players. It returns a table of object references to any decks/stacks formed.</p>
+<p>Not all objects CAN be grouped. If the <kbd class="keys"><kbd class="key-g">G</kbd></kbd> key won't work on them, neither will this function.</p>
+<div class="admonition info">
+<p class="admonition-title">group(objects)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>objects</strong>: A list of objects to be grouped together.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Format of the returned table</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> A table containing the grouped objects, numerically indexed.<ul>
+<li><a href="../types/"><span class="tag obj"></span></a> Object(s)<ul>
+<li><span class="critic comment">Different types of object are grouped independently i.e. cards will form into a deck, each type of checker will form their own stack.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">-- IMPORTANT: To get the example to work, you need to replace ###### with a real GUID of the object.</span>
+<span class="w">            </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">-- card</span>
+<span class="w">            </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">-- card</span>
+<span class="w">            </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">-- checker</span>
+<span class="w">            </span><span class="nf">getObjectFromGUID</span><span class="p">(</span><span class="s2">&quot;######&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">-- checker</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">objGroupedList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">group</span><span class="p">(</span><span class="nv">objects</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">log</span><span class="p">(</span><span class="nv">objGroupedList</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+``` Lua
+-- Possible Output for objGroupedList
+{
+    1: <Deck>
+    2: <CheckerStack>
+}</p>
+</div>
+<p>```</p>
+<hr />
+<h4 id="paste">paste(...)<a class="headerlink" href="#paste" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Pastes Objects in-game that were copied to the in-game clipboard. Works with <a href="#copy">copy(...)</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">paste(parameters)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A Table containing instructions of where to spawn the Objects.<ul>
+<li><a href="../types/#vector"><span class="tag vec"></span></a> <strong>parameters.position</strong>: Position of the first object to paste.<ul>
+<li><span class="critic comment">Optional, defaults to {0, 3, 0}.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>parameters.snap_to_grid</strong>: If snap-to-grid is active on the spawned item/s.<ul>
+<li><span class="critic comment">Optional, defaults to false (off).</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h4 id="spawnobject">spawnObject(...)<a class="headerlink" href="#spawnobject" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret obj"></span></a> Spawns an object.</p>
+<p>Refer to the spawnable <a href="../built-in-object/">Built-in Object</a> and <a href="../custom-game-objects/">Custom Object</a> pages for
+details about the types of objects that can be spawned.</p>
+<p>If you are spawning a <a href="../custom-game-objects/">Custom Object</a>, you should immediately call
+<a href="../object/#setcustomobject">setCustomObject(...)</a> on the object returned from <code>spawnObject(...)</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">spawnObject(parameters)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A table of <a href="#spawnobject-spawn-parameters">spawn parameters</a>.</li>
+</ul>
+</div>
+<h5 id="spawnobject-spawn-parameters">Spawn Parameters<a class="headerlink" href="#spawnobject-spawn-parameters" title="Permanent link">&para;</a></h5>
+<p><code>parameters</code> must be provided as a table, which may have the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><a href="../types/"><span class="tag str"></span></a></td>
+<td><em>Mandatory</em></td>
+<td><a href="../built-in-object/">Built-in</a> or <a href="../custom-game-objects/">Custom Game Object</a> name.</td>
+</tr>
+<tr>
+<td>position</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><nobr><code>{0, 0, 0}</code></nobr></td>
+<td>Position where the object will be spawned.</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><nobr><code>{0, 0, 0}</code></nobr></td>
+<td>Rotation of the spawned object.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><nobr><code>{1, 1, 1}</code></nobr></td>
+<td>Scale of the spawned object.</td>
+</tr>
+<tr>
+<td>sound</td>
+<td><a href="../types/"><span class="tag boo"></span></a></td>
+<td><code>true</code></td>
+<td>Whether a sound will be played as the object spawns.</td>
+</tr>
+<tr>
+<td>snap_to_grid</td>
+<td><a href="../types/"><span class="tag boo"></span></a></td>
+<td><code>false</code></td>
+<td>Whether upon spawning, the object will snap to nearby grid lines (or snap points).</td>
+</tr>
+<tr>
+<td>callback_function</td>
+<td><a href="../types/"><span class="tag fun"></span></a></td>
+<td><code>nil</code></td>
+<td>Called when the object has finished spawning. The spawned object will be passed as the first and only parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><code>type</code> is mandatory, all other properties are optional. When a property is omitted, it will be given the corresponding
+default value (above).</p>
+<p>Objects take a moment to spawn. The purpose of <code>callback_function</code> is to allow you to execute additional code after
+the object has finished spawning.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Spawn (with sound disabled) a 2x scale "RPG Bear" object in the center of the table and initiate a
+<a href="../object/#setpositionsmooth">smooth move</a> on the object. Once the object has finished spawning, <a href="#log">log</a> the
+object's <a href="../object/#getbounds">bounds</a>.
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">spawnObject</span><span class="p">({</span>
+<span class="w">    </span><span class="nb">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rpg_BEAR&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="nv">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+<span class="w">    </span><span class="nv">sound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">callback_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">log</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">.</span><span class="nf">getBounds</span><span class="p">())</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">})</span>
+<span class="nv">object</span><span class="p">.</span><span class="nf">setPositionSmooth</span><span class="p">({</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">})</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="spawnobjectdata">spawnObjectData(...)<a class="headerlink" href="#spawnobjectdata" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret obj"></span></a> Spawns an object from an object data table representation.</p>
+<p>This API gives you complete control over all persistent properties that an object has.</p>
+<div class="admonition info">
+<p class="admonition-title">spawnObjectData(parameters)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A table of <a href="#spawnobjectdata-spawn-parameters">spawn parameters</a>.</li>
+</ul>
+</div>
+<h5 id="spawnobjectdata-spawn-parameters">Spawn Parameters<a class="headerlink" href="#spawnobjectdata-spawn-parameters" title="Permanent link">&para;</a></h5>
+<p><code>parameters</code> must be provided as a table, which may have the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td><a href="../types/"><span class="tag tab"></span></a></td>
+<td><em>Mandatory</em></td>
+<td><p>Table with properties describing the object that will be spawned.</p><p>Required content depends on the type of object being spawned.</p></td>
+</tr>
+<tr>
+<td>position</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Position where the object will be spawned. When specified, overrides the <code>Transform</code> position in <code>data</code>.</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Rotation of the spawned object. When specified, overrides the <code>Transform</code> rotation in <code>data</code>.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Scale of the spawned object. When specified, overrides the <code>Transform</code> scale in <code>data</code>.</td>
+</tr>
+<tr>
+<td>callback_function</td>
+<td><a href="../types/"><span class="tag fun"></span></a></td>
+<td><code>nil</code></td>
+<td>Called when the object has finished spawning. The spawned object will be passed as the first and only parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><code>data</code> is mandatory, all other properties are optional. When a property is omitted, it will be given the corresponding
+default value (above).</p>
+<p>Objects take a moment to spawn. The purpose of <code>callback_function</code> is to allow you to execute additional code after
+the object has finished spawning.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can derive your <code>data</code> table from another object by calling <a href="../object/#getdata">getData()</a> on it, and
+manipulating the resultant table as you see fit.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Spawn a 2x scale "RPG Bear" object with a blue base in the center of the table and initiate a
+<a href="../object/#setpositionsmooth">smooth move</a> on the object. Once the object has finished spawning, <a href="#log">log</a> the
+object's <a href="../object/#getbounds">bounds</a>.
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">spawnObjectData</span><span class="p">({</span>
+<span class="w">    </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rpg_BEAR&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">Transform</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nv">posX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">posY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">posZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">rotX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">rotY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">rotZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">scaleX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">scaleY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">scaleZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nv">ColorDiffuse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.8</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nv">callback_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">log</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">.</span><span class="nf">getBounds</span><span class="p">())</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">})</span>
+<span class="nv">object</span><span class="p">.</span><span class="nf">setPositionSmooth</span><span class="p">({</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">})</span>
+</code></pre></div></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Advanced example</p>
+<p>Spawn a copy of a card by name that is inside a deck.
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">spawnCardFromDeckByName</span><span class="p">(</span><span class="nv">deck</span><span class="p">,</span><span class="w"> </span><span class="nv">nickname</span><span class="p">,</span><span class="w"> </span><span class="nv">spawnPosition</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">-- Obtain the data of the deck</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">deckData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">deck</span><span class="p">.</span><span class="nf">getData</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">-- Loop through the deck data to find the requested card</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">cardData</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">ipairs</span><span class="p">(</span><span class="nv">deckData</span><span class="p">.</span><span class="py">ContainedObjects</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+
+<span class="w">        </span><span class="c1">-- Check if the nickname matches</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="nv">cardData</span><span class="p">[</span><span class="s2">&quot;Nickname&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">nickname</span><span class="w"> </span><span class="kr">then</span>
+
+<span class="w">            </span><span class="c1">-- Perform the card spawning with the data of the matching card</span>
+<span class="w">            </span><span class="nf">spawnObjectData</span><span class="p">({</span>
+<span class="w">                </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">cardData</span><span class="p">,</span>
+<span class="w">                </span><span class="nv">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">spawnPosition</span>
+<span class="w">            </span><span class="p">})</span>
+
+<span class="w">            </span><span class="c1">-- Stop the function here since we found a matching card</span>
+<span class="w">            </span><span class="kr">return</span>
+<span class="w">        </span><span class="kr">end</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="spawnobjectjson">spawnObjectJSON(...)<a class="headerlink" href="#spawnobjectjson" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret obj"></span></a> Spawns an object from a JSON string.</p>
+<p>This API gives you complete control over all persistent properties that an object has.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Unless you've already got an object's JSON representation at your disposal then <a href="#spawnobjectdata">spawnObjectData(...)</a> is the
+preferred API as it's less resource intensive.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">spawnObjectJSON(parameters)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A table of <a href="#spawnobjectjson-spawn-parameters">spawn parameters</a>.</li>
+</ul>
+</div>
+<h5 id="spawnobjectjson-spawn-parameters">Spawn Parameters<a class="headerlink" href="#spawnobjectjson-spawn-parameters" title="Permanent link">&para;</a></h5>
+<p><code>parameters</code> must be provided as a table, which may have the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>json</td>
+<td><a href="../types/"><span class="tag str"></span></a></td>
+<td><em>Mandatory</em></td>
+<td><p>JSON string describing the object that will be spawned.</p><p>Required content depends on the type of object being spawned.</p></td>
+</tr>
+<tr>
+<td>position</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Position where the object will be spawned. When specified, overrides the <code>Transform</code> position in <code>json</code>.</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Rotation of the spawned object. When specified, overrides the <code>Transform</code> rotation in <code>json</code>.</td>
+</tr>
+<tr>
+<td>scale</td>
+<td><a href="../types/"><span class="tag vec"></span></a></td>
+<td><code>nil</code></td>
+<td>Scale of the spawned object. When specified, overrides the <code>Transform</code> scale in <code>json</code>.</td>
+</tr>
+<tr>
+<td>callback_function</td>
+<td><a href="../types/"><span class="tag fun"></span></a></td>
+<td><code>nil</code></td>
+<td>Called when the object has finished spawning. The spawned object will be passed as the first and only parameter.</td>
+</tr>
+</tbody>
+</table>
+<p><code>json</code> is mandatory, all other properties are optional. When a property is omitted, it will be given the corresponding
+default value (above).</p>
+<p>Objects take a moment to spawn. The purpose of <code>callback_function</code> is to allow you to execute additional code after
+the object has finished spawning.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Spawn a 2x scale "RPG Bear" object with a blue base in the center of the table and initiate a
+<a href="../object/#setpositionsmooth">smooth move</a> on the object. Once the object has finished spawning, <a href="#log">log</a> the
+object's <a href="../object/#getbounds">bounds</a>.
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">spawnObjectJSON</span><span class="p">({</span>
+<span class="w">    </span><span class="nv">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">[[{</span>
+<span class="s">        &quot;Name&quot;: &quot;rpg_BEAR&quot;,</span>
+<span class="s">        &quot;Transform&quot;: {</span>
+<span class="s">            &quot;posX&quot;: 0,</span>
+<span class="s">            &quot;posY&quot;: 3,</span>
+<span class="s">            &quot;posZ&quot;: 0,</span>
+<span class="s">            &quot;rotX&quot;: 0,</span>
+<span class="s">            &quot;rotY&quot;: 180,</span>
+<span class="s">            &quot;rotZ&quot;: 0,</span>
+<span class="s">            &quot;scaleX&quot;: 2,</span>
+<span class="s">            &quot;scaleY&quot;: 2,</span>
+<span class="s">            &quot;scaleZ&quot;: 2</span>
+<span class="s">        },</span>
+<span class="s">        &quot;ColorDiffuse&quot;: {</span>
+<span class="s">            &quot;r&quot;: 0.3,</span>
+<span class="s">            &quot;g&quot;: 0.5,</span>
+<span class="s">            &quot;b&quot;: 0.8</span>
+<span class="s">        }</span>
+<span class="s">    }]]</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">callback_function</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">)</span>
+<span class="w">        </span><span class="nf">log</span><span class="p">(</span><span class="nv">spawned_object</span><span class="p">.</span><span class="nf">getBounds</span><span class="p">())</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">})</span>
+<span class="nv">object</span><span class="p">.</span><span class="nf">setPositionSmooth</span><span class="p">({</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">})</span>
+</code></pre></div>
+The <code>[[</code>...<code>]]</code> syntax above <a href="https://www.lua.org/pil/2.4.html">denotes a multi-line string</a>.</p>
+</div>
+<hr />
+<h4 id="startluacoroutine">startLuaCoroutine(...)<a class="headerlink" href="#startluacoroutine" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Start a coroutine. A coroutine is similar to a function, but has the unique ability to have its run paused until the next frame of the game using <code>coroutine.yield(0)</code>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>You MUST return a 1 at the end of any coroutine or it will throw an error.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">startLuaCoroutine(function_owner, function_name)</p>
+<ul>
+<li><a href="../types/"><span class="tag obj"></span></a> <strong>function_owner</strong>: The Object that the function being called is on. Global is a valid target.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>function_name</strong>: Name of the function being called as a coroutine.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="nf">startLuaCoroutine</span><span class="p">(</span><span class="nv">Global</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;print_coroutine&quot;</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Prints a message, waits 250 frames, prints another message</span>
+<span class="kr">function</span><span class="w"> </span><span class="nf">print_coroutine</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Routine has Started&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="kr">while</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">250</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="nv">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nb">coroutine.yield</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Routine has Finished&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h4 id="stringcolortorgb">stringColorToRGB(...)<a class="headerlink" href="#stringcolortorgb" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret col"></span></a> Converts a <a href="../player/colors/">Player Color</a> string into a Color Table for tinting.</p>
+<div class="admonition info">
+<p class="admonition-title">stringColorToRGB(player_color)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>player_color</strong> A String of a <a href="../player/colors/">Player Color</a>.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nf">printToAll</span><span class="p">(</span><span class="s2">&quot;Blue message&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">stringColorToRGB</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">))</span>
+</code></pre></div>
+<hr />
+<h3 id="rewind-state-function-details">Rewind State Function Details<a class="headerlink" href="#rewind-state-function-details" title="Permanent link">&para;</a></h3>
+<h4 id="storerewindstate">storeRewindState(...)<a class="headerlink" href="#storerewindstate" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Attempts to store a rewind state.</p>
+<p>If the game has changed since the last rewind state was store, a new rewind state is stored.  The <code>and_then</code> function is then called with <code>and_then(success, new_state_was_stored)</code>.  <code>success</code> is true if a new state was successfully stored, or if no store was necessary.  <code>new_state_was_stored</code> is true if a new state was stored.</p>
+<div class="admonition info">
+<p class="admonition-title">storeRewindState(and_then, block_further_stores)</p>
+<ul>
+<li><a href="../types/"><span class="tag fun"></span></a> <strong>and_then</strong>(success, new_state_was_stored): The function that will be executed after the attempt to store a rewind state.</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>block_further_stores</strong>: If true then rewind states will not be automatically stored again until either <strong>60s</strong> has passed, or you call <code>allowRewindStore()</code>.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nf">storeRewindState</span><span class="p">(</span>
+<span class="w">    </span><span class="kr">function</span><span class="p">(</span><span class="nv">success</span><span class="p">,</span><span class="w"> </span><span class="nv">did_store</span><span class="p">)</span>
+<span class="w">        </span><span class="kr">if</span><span class="w"> </span><span class="o">~</span><span class="nv">success</span><span class="w"> </span><span class="kr">then</span>
+<span class="w">            </span><span class="nf">log</span><span class="p">(</span><span class="s2">&quot;Failed to store a rewind state.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;storeRewindState&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="kr">return</span>
+<span class="w">        </span><span class="kr">end</span>
+
+<span class="w">        </span><span class="nf">clearCurrentLevel</span><span class="p">()</span>
+<span class="w">        </span><span class="nf">spawnNextLevel</span><span class="p">()</span>
+<span class="w">        </span><span class="nf">allowRewindStore</span><span class="p">()</span>
+<span class="w">    </span><span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="c1">-- block_further_stores</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<hr />
+<h4 id="allowrewindstore">allowRewindStore()<a class="headerlink" href="#allowrewindstore" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Clears the block on automatically storing rewind states.  You should always call this after you call <code>storeRewindState</code>, once you have completed whatever sweeping changes you are making.</p>
+<hr />
+<h3 id="hotkey-function-details">Hotkey Function Details<a class="headerlink" href="#hotkey-function-details" title="Permanent link">&para;</a></h3>
+<h4 id="addhotkey">addHotkey(...)<a class="headerlink" href="#addhotkey" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Adds a bindable hotkey to the game.</p>
+<p>Players can bind key to hotkeys from the <code>Options</code> -&gt; <code>Game Keys</code> UI after this function is called.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Added hotkeys are unable to persist between loads/rewinds, because the bound callback function may no longer exist.
+Therefore <a href="#addhotkey">addHotkey(...)</a> needs to be called each time the game is loaded. As long as the same labels
+are used, then player hotkey bindings will persist.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">addHotkey(label, callback, triggerOnKeyUp)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: A label displayed to users.</li>
+<li><a href="../types/"><span class="tag fun"></span></a> <strong>callback</strong>(playerColor, hoveredObject, pointerPosition, isKeyUp): The function that will be executed whenever the hotkey is pressed, and <em>also</em> when released if <code>triggerOnKeyUp</code> is <code>true</code>.<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>playerColor</strong>: <a href="../player/colors/">Player Color</a> of the player that pressed the hotkey.</li>
+<li><a href="../types/"><span class="tag obj"></span></a> <strong>hoveredObject</strong>: The object that the Player's pointer was hovering over at the moment the key was pressed/released. <code>nil</code> if no object was under the Player's pointer at the time.</li>
+<li><a href="../types/"><span class="tag vec"></span></a> <strong>pointerPosition</strong>: <a href="../types/#position">World Position</a> of the Player's pointer at the moment the key was pressed/released.</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>isKeyUp</strong>: Whether this callback is being triggered in response to a hotkey being released.</li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>triggerOnKeyUp</strong>: Whether the <code>callback</code> is <em>also</em> executed when the hotkey is released. The <code>callback</code> is always triggered when the hotkey is pressed.<ul>
+<li><span class="critic comment">Optional, defaults to false.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Hotkey bindings do not prevent the behavior of Settings key bindings i.e. if <kbd class="keys"><kbd class="key-r">R</kbd></kbd> (shuffle by default) is assigned as a
+hotkey, the hotkey callback and the default shuffle behavior will both be executed whenever <kbd class="keys"><kbd class="key-r">R</kbd></kbd> is pressed.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nf">addHotkey</span><span class="p">(</span><span class="s2">&quot;My Hotkey&quot;</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">playerColor</span><span class="p">,</span><span class="w"> </span><span class="nv">object</span><span class="p">,</span><span class="w"> </span><span class="nv">pointerPosition</span><span class="p">,</span><span class="w"> </span><span class="nv">isKeyUp</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">isKeyUp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="s2">&quot;released&quot;</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s2">&quot;pressed&quot;</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">playerColor</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="nv">action</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; the hotkey&quot;</span><span class="p">)</span>
+<span class="kr">end</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<hr />
+<h3 id="message-function-details">Message Function Details<a class="headerlink" href="#message-function-details" title="Permanent link">&para;</a></h3>
+<h4 id="broadcasttoall">broadcastToAll(...)<a class="headerlink" href="#broadcasttoall" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Print an on-screen message to all Players.</p>
+<div class="admonition info">
+<p class="admonition-title">broadcastToAll(message, message_tint)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>message</strong>: Message to display on-screen.</li>
+<li><a href="../types/#color"><span class="tag col"></span></a> <strong>message_tint</strong>: A Table containing the RGB color tint for the text.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello all.&quot;</span>
+<span class="nv">rgb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span>
+<span class="nf">broadcastToAll</span><span class="p">(</span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">rgb</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h4 id="broadcasttocolor">broadcastToColor(...)<a class="headerlink" href="#broadcasttocolor" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Print an on-screen message to a specified Player and their in-game chat.</p>
+<div class="admonition info">
+<p class="admonition-title">broadcastToColor(message, player_color, message_tint)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>message</strong>: Message to display on-screen.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>player_color</strong>: <a href="../player/colors/">Player Color</a> to receive the message.</li>
+<li><a href="../types/#color"><span class="tag col"></span></a> <strong>message_tint</strong>: RGB color tint for the text.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Hello White.&quot;</span>
+<span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;White&quot;</span>
+<span class="nv">rgb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="o">=</span><span class="mi">0</span><span class="p">}</span>
+<span class="nf">broadcastToColor</span><span class="p">(</span><span class="nv">msg</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="p">,</span><span class="w"> </span><span class="nv">rgb</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h4 id="log">log(...)<a class="headerlink" href="#log" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Logs a message to the <em>host's</em> System Console (accessible from <code>~</code> pane of in-game chat window).</p>
+<div class="admonition info">
+<p class="admonition-title">log(value, label, tags)</p>
+<ul>
+<li><a href="../types/"><span class="tag var"></span></a> <strong>value</strong>: The value you want to log.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: Text to be logged before <code>value</code>.<ul>
+<li><span class="critic comment">Optional, defaults to an empty String. Empty Strings are not displayed.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>tags</strong>: The log tag/style <em>or</em> a space separated list of log tags/styles. (See: <a href="#logstyle">logStyle(...)</a>)<ul>
+<li><span class="critic comment">Optional, defaults to logging with the &lt;default&gt; log style.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If <code>value</code> is not already a <a href="../types/"><span class="tag str"></span></a>, then it will be converted to a human-readable representation.</p>
+<p>If <code>value</code> is a <a href="../types/"><span class="tag tab"></span></a>, then the table's contents (keys &amp; values) will be displayed. The contents of nested tables will also be displayed up to a user-configurable depth.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Table contents max depth is configurable via the <code>log_max_table_depth</code> System Console command.</p>
+</div>
+<p>As an advanced feature, multiple log tags may be provided by space-separating several tags (in the one String) provided as the <code>tags</code> parameter. The message style will be taken from the <em>first</em> tag that the user has not explicitly disabled.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Log a simple message:
+<div class="highlight"><pre><span></span><code><span class="nf">log</span><span class="p">(</span><span class="s2">&quot;Something happened&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Log a table (of objects):
+<div class="highlight"><pre><span></span><code><span class="nf">log</span><span class="p">(</span><span class="nf">getObjects</span><span class="p">())</span>
+</code></pre></div></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Log a message with a label and using the <code>"error"</code> log style:
+<div class="highlight"><pre><span></span><code><span class="nf">log</span><span class="p">(</span><span class="s2">&quot;Something unexpected happened.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Oh no!&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="logstring">logString(...)<a class="headerlink" href="#logstring" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret str"></span></a> <em>Returns</em> a String formatted similarly to the output of <a href="#log">log(...)</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">logString(value, label, tags, concise, displayTag)</p>
+<ul>
+<li><a href="../types/"><span class="tag var"></span></a> <strong>value</strong>: The value you want to log.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: Text to be logged before <code>value</code>.<ul>
+<li><span class="critic comment">Optional, defaults to an empty String. Empty Strings are not displayed.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>tags</strong>: The log tag/style <em>or</em> a space separated list of log tags/styles.<ul>
+<li><span class="critic comment">Optional, defaults to logging without any tags.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>concise</strong>: Whether the resultant String should be generated in a more compact form (less newline characters).<ul>
+<li><span class="critic comment">Optional, defaults to `false`.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>displayTag</strong>: Whether the specified tag(s) should be included as prefix of the resultant String.<ul>
+<li><span class="critic comment">Optional, defaults to `false`.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If <code>value</code> is not already a <a href="../types/"><span class="tag str"></span></a>, then it will be converted to a human-readable representation.</p>
+<p>If <code>value</code> is a <a href="../types/"><span class="tag tab"></span></a>, then the table's contents (keys &amp; values) will be included in the resultant String. The contents of nested tables will also be displayed up to a user-configurable depth.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Table contents max depth is configurable via the <code>log_max_table_depth</code> System Console command.</p>
+</div>
+<p>In some circumstances log strings have newlines inserted e.g. between the <code>label</code> and the textual representation of <code>value</code>. Providing <code>true</code> as the value for <code>concise</code> will use space separators instead of newlines.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><em>Print</em>, as opposed to log, the contents of a table (of objects):
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nf">logString</span><span class="p">(</span><span class="nf">getObjects</span><span class="p">()))</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="logstyle">logStyle(...)<a class="headerlink" href="#logstyle" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Configures style options for a <a href="#log">log(...)</a> tag.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Tag log styles can also be set via the System Console with the <code>log_style_tag</code> command.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">logStyle(tag, tint, prefix, postfix)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>tag</strong>: A String of the log's tag.</li>
+<li><a href="../types/#color"><span class="tag col"></span></a> <strong>tint</strong>: RGB value to tint the log entry's text.<ul>
+<li><span class="critic comment">String color will also work. Example: &quot;Red&quot;</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>prefix</strong>: Text to place before this type of log entry.<ul>
+<li><span class="critic comment">Optional, defaults to an empty String. Empty Strings are not displayed.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>postfix</strong>: Text to place after this type of log entry.<ul>
+<li><span class="critic comment">Optional, defaults to an empty String. Empty Strings are not displayed.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Sets the log style (grey text and a suffix) for the log tag <code>"seats"</code>. Then proceeds to log a table of available seat colors, using this tag/style.
+<div class="highlight"><pre><span></span><code><span class="nf">logStyle</span><span class="p">(</span><span class="s2">&quot;seats&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;End List&quot;</span><span class="p">)</span>
+<span class="nf">log</span><span class="p">(</span><span class="nv">Player</span><span class="p">.</span><span class="nf">getAvailableColors</span><span class="p">(),</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;seats&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h4 id="print">print(...)<a class="headerlink" href="#print" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret nil"></span></a> Print a string into chat that only the host is able to see. Used for debugging scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">print(message)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>message</strong>: Text to print into the chat log.</li>
+</ul>
+</div>
+<hr />
+<h4 id="printtoall">printToAll(...)<a class="headerlink" href="#printtoall" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Print a message into the in-game chat of all connected players.</p>
+<div class="admonition info">
+<p class="admonition-title">printToAll(message, message_tint)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>message</strong>: Message to place into players' in-game chats.</li>
+<li><a href="../types/#color"><span class="tag col"></span></a> <strong>message_tint</strong>: RGB values for the text's color tint.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nf">printToAll</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nv">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nv">b</span><span class="o">=</span><span class="mi">0</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h4 id="printtocolor">printToColor(...)<a class="headerlink" href="#printtocolor" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Print a message to the in-game chat of a specific player.</p>
+<div class="admonition info">
+<p class="admonition-title">printToColor(message, player_color, message_tint)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>message</strong>: Message to place into the player's in-game chat.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>player_color</strong>: <a href="../player/colors/">Player Color</a> of the player that will receive the message.</li>
+<li><a href="../types/#color"><span class="tag col"></span></a> <strong>message_tint</strong>: RGB values for the text's color tint.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nf">printToColor</span><span class="p">(</span><span class="s2">&quot;Hello Red.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nv">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nv">g</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nv">b</span><span class="o">=</span><span class="mi">0</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h3 id="hand-select-mode-function-details">Hand Select Mode Function Details<a class="headerlink" href="#hand-select-mode-function-details" title="Permanent link">&para;</a></h3>
+<h4 id="chooseinhand">chooseInHand(...)<a class="headerlink" href="#chooseinhand" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Begins the hand selection mode (or enqueues it if one is already in effect).  Returns a list of the affected player colors.</p>
+<div class="admonition info">
+<p class="admonition-title">chooseInHand(label, min_selection_count, max_selection_count, prompt, players)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: Label associated with this mode.  This is how you will tell which hand select is active in the callback.</li>
+<li><a href="../types/"><span class="tag int"></span></a> <strong>min_selection_count</strong>: The minimum number of cards the player must select.</li>
+<li><a href="../types/"><span class="tag int"></span></a> <strong>max_selection_count</strong>: The maximum number of cards the player can select.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>prompt</strong>: The prompt displayed to the player during this mode.</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>player_colors</strong>: Optional list of player colors to activate the mode for.  If omitted the currently seated players will be selected.<ul>
+<li><span class="critic comment">Optional</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>See <a href="../wait/#collect">Wait.collect</a> for an example.</p>
+<hr />
+<h4 id="chooseinhandorcancel">chooseInHandOrCancel(...)<a class="headerlink" href="#chooseinhandorcancel" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Begins the hand selection mode (or enqueues it if one is already in effect), and also displays a Cancel button.  Returns a list of the affected player colors.</p>
+<div class="admonition info">
+<p class="admonition-title">chooseInHandOrCancel(label, min_selection_count, max_selection_count, prompt, players)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>label</strong>: Label associated with this mode.  This is how you will tell which hand select is active in the callback.</li>
+<li><a href="../types/"><span class="tag int"></span></a> <strong>min_selection_count</strong>: The minimum number of cards the player must select.</li>
+<li><a href="../types/"><span class="tag int"></span></a> <strong>max_selection_count</strong>: The maximum number of cards the player can select.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>prompt</strong>: The prompt displayed to the player during this mode.</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>player_colors</strong>: Optional list of player colors to activate the mode for.  If omitted the currently seated players will be selected.<ul>
+<li><span class="critic comment">Optional</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>See <a href="../wait/#collect">Wait.collect</a> for an example.</p>
+<hr />
+<h4 id="clearchooseinhand">clearChooseInHand(...)<a class="headerlink" href="#clearchooseinhand" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Clears the current hand selection mode for the specified players.  Returns a list of the affected players.</p>
+<div class="admonition info">
+<p class="admonition-title">clearChooseInHand(players)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>player_colors</strong>: List of player colors to clear the mode for.</li>
+</ul>
+</div>
+<hr />
+<h4 id="currentchooseinhand">currentChooseInHand(...)<a class="headerlink" href="#currentchooseinhand" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret str"></span></a> Returns the current hand selection label for the given player.</p>
+<div class="admonition info">
+<p class="admonition-title">currentChooseInHand(player_color)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>player_color</strong>: Player color to query.</li>
+</ul>
+</div>
+<hr />
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

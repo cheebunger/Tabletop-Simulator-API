@@ -1,0 +1,2411 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Color - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/theme.css">
+    
+      <link rel="stylesheet" href="../css/table.css">
+    
+      <link rel="stylesheet" href="../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#constructors-summary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Color
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Color
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Color
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructors-summary" class="md-nav__link">
+    Constructors summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors-examples" class="md-nav__link">
+    Constructors examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#element-access-summary" class="md-nav__link">
+    Element access summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Element access summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-access-examples" class="md-nav__link">
+    Element access examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetics-summary" class="md-nav__link">
+    Arithmetics summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Arithmetics summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arithmetics-examples" class="md-nav__link">
+    Arithmetics examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-summary" class="md-nav__link">
+    Methods summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods-not-modifying-self" class="md-nav__link">
+    Methods not modifying self
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors-details" class="md-nav__link">
+    Constructors details
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colornew" class="md-nav__link">
+    Color.new(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorfromstring" class="md-nav__link">
+    Color.fromString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorblue" class="md-nav__link">
+    Color.Blue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#element-access-details" class="md-nav__link">
+    Element access details
+  </a>
+  
+    <nav class="md-nav" aria-label="Element access details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setat" class="md-nav__link">
+    setAt(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    set(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-details" class="md-nav__link">
+    Methods details
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods-not-modifying-self_1" class="md-nav__link">
+    Methods not modifying self
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods not modifying self">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tohex" class="md-nav__link">
+    toHex(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring" class="md-nav__link">
+    toString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equals" class="md-nav__link">
+    equals(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lerp" class="md-nav__link">
+    lerp(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    dump(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods_1" class="md-nav__link">
+    Other methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Other methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colorlist" class="md-nav__link">
+    Color.list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coloradd" class="md-nav__link">
+    Color.Add(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulation-examples" class="md-nav__link">
+    Manipulation examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructors-summary" class="md-nav__link">
+    Constructors summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors-examples" class="md-nav__link">
+    Constructors examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#element-access-summary" class="md-nav__link">
+    Element access summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Element access summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-access-examples" class="md-nav__link">
+    Element access examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetics-summary" class="md-nav__link">
+    Arithmetics summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Arithmetics summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arithmetics-examples" class="md-nav__link">
+    Arithmetics examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-summary" class="md-nav__link">
+    Methods summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods-not-modifying-self" class="md-nav__link">
+    Methods not modifying self
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods" class="md-nav__link">
+    Other methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors-details" class="md-nav__link">
+    Constructors details
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colornew" class="md-nav__link">
+    Color.new(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorfromstring" class="md-nav__link">
+    Color.fromString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#colorblue" class="md-nav__link">
+    Color.Blue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#element-access-details" class="md-nav__link">
+    Element access details
+  </a>
+  
+    <nav class="md-nav" aria-label="Element access details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setat" class="md-nav__link">
+    setAt(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    set(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods-details" class="md-nav__link">
+    Methods details
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods-not-modifying-self_1" class="md-nav__link">
+    Methods not modifying self
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods not modifying self">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tohex" class="md-nav__link">
+    toHex(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tostring" class="md-nav__link">
+    toString(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equals" class="md-nav__link">
+    equals(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lerp" class="md-nav__link">
+    lerp(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dump" class="md-nav__link">
+    dump(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods_1" class="md-nav__link">
+    Other methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Other methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colorlist" class="md-nav__link">
+    Color.list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coloradd" class="md-nav__link">
+    Color.Add(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulation-examples" class="md-nav__link">
+    Manipulation examples
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/color.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    Color
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>Color is a type of Table that is used to define RGBA values for tinting. R for red, G for green, B for blue and A for alpha (transparency)</p>
+<p>Besides the functions listed below, other classes can be used to manipulate colors as well.</p>
+<p>Example Usage: <code class="highlight"><span class="nv">orange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">):</span><span class="nf">lerp</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span></code></p>
+<p>Check <a href="#manipulation-examples">Manipulation examples</a> for more detailed usage.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Vector and Color are the first classes to be defined in pure Lua. This means you <strong>have</strong> to use colon operator (e.g. <code>col:lerp()</code>) to call member functions, not the dot operator. Failing to do so will fail with cryptic error messages displayed.</p>
+</div>
+<h2 id="constructors-summary">Constructors summary<a class="headerlink" href="#constructors-summary" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Every place that returns a coordinate table, like <code class="highlight"><span class="nv">obj</span><span class="p">.</span><span class="nf">getColorTint</span><span class="p">()</span></code>, serves a Color class instance already - you do not have to explicitly construct it.
+When constructing Color instances, the <code>.new</code> part can be omitted, making e.g. <code class="highlight"><span class="nf">Color</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span></code> equivalent to <code class="highlight"><span class="nv">Color</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span></code>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th style="text-align: right;">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color(<a href="../types/"><span class="tag flo"></span></a> r, <a href="../types/"><span class="tag flo"></span></a> g, <a href="../types/"><span class="tag flo"></span></a> b)</td>
+<td>Return a color with specified (r, g, b) components.</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#colornew"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color(<a href="../types/"><span class="tag flo"></span></a> r, <a href="../types/"><span class="tag flo"></span></a> g, <a href="../types/"><span class="tag flo"></span></a> b, <a href="../types/"><span class="tag flo"></span></a> a)</td>
+<td>Return a color with specified (r, g, b, a) components.</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#colornew"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color(<a href="../types/"><span class="tag tab"></span></a> t)</td>
+<td>Return a color with r&#47;g&#47;b&#47;a <!-- (Not work in 12.3.5) or 1&#47;2&#47;3&#47;4 --> components from source table<!-- (r&#47;g&#47;b&#47;a first)-->.</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#colornew"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color.new(...)</td>
+<td>Same as Color(...).</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#colornew"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color.fromString(<a href="../types/"><span class="tag str"></span></a> colorStr)</td>
+<td>Return a color from a color string ('Red', 'Green' etc), capitalization ignored.</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#colorfromstring"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color.Blue</td>
+<td>Shorthand for Color.fromString('Blue'), works for all <a href="../player/colors/">Player</a> and <a href="#coloradd">added colors</a>, capitalization ignored. Also return the color name.</td>
+<td><a href="../types/"><span class="ret col"></span></a><a href="../types/"><span class="ret str"></span></a></td>
+<td style="text-align: right;"><a href="#colorblue"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<!--
+This function exist but in version 12.3.5 she is not working.
+
+Color.fromHex([<span class="tag str"></span>](types.md) hexStr) | Return a color from a hex representation string ('#ff112233', 'ff1122'), hash sign and alpha are optional. | [<span class="ret col"></span>](types.md)
+-->
+
+<h3 id="constructors-examples">Constructors examples<a class="headerlink" href="#constructors-examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- same as Color.new(0, 1, 0)</span>
+
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">orangePlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="s2">&quot;Orange&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">purplePlayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Purple</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h2 id="element-access-summary">Element access summary<a class="headerlink" href="#element-access-summary" title="Permanent link">&para;</a></h2>
+<p>In addition to accessing color components by their numeric indices (1, 2, 3, 4) and textual identifiers (r, g, b, a), the following methods may also be utilized.</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>setAt(<a href="../types/"><span class="tag str"></span></a> k, <a href="../types/"><span class="tag flo"></span></a> value)</td>
+<td>Sets a component to value and returns self.</td>
+<td><a href="../types/#vector"><span class="ret sel"></span></a></td>
+<td><a href="#setat"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>set(<a href="../types/"><span class="tag flo"></span></a> r, <a href="../types/"><span class="tag flo"></span></a> g, <a href="../types/"><span class="tag flo"></span></a> b, <a href="../types/"><span class="tag flo"></span></a> a)</td>
+<td>Sets <code>r</code>, <code>g</code>, <code>b</code>, <code>a</code> components to given values and returns self, alpha is optional</td>
+<td><a href="../types/#vector"><span class="ret sel"></span></a></td>
+<td><a href="#set"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>get()</td>
+<td>Returns <code>r</code>, <code>g</code>, <code>b</code>, <code>a</code> components as four separate values.</td>
+<td><a href="../types/"><span class="ret flo"></span></a><br><a href="../types/"><span class="ret flo"></span></a><br><a href="../types/"><span class="ret flo"></span></a><br><a href="../types/"><span class="ret flo"></span></a></td>
+<td><a href="#get"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>copy()</td>
+<td>Returns a separate Color with identical component values.</td>
+<td><a href="../types/#vector"><span class="ret col"></span></a></td>
+<td><a href="#copy"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before <code>Color</code> was introduced, color tables contained separate values under 1, 2, 3, 4 and r, g, b, a keys, with letter keys taking precedence when they were different. This is no longer the case, and using letter and numerical keys is equivalent. However, when iterating over Color components you have to use <code>pairs</code> and only letter keys will be read there.</p>
+</div>
+<h3 id="element-access-examples">Element access examples<a class="headerlink" href="#element-access-examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span>
+<span class="w">    </span><span class="nv">col</span><span class="p">.</span><span class="py">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">-- set the first component</span>
+<span class="w">    </span><span class="nv">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.25</span><span class="w"> </span><span class="c1">-- set the second component</span>
+<span class="w">    </span><span class="nv">col</span><span class="p">:</span><span class="nf">setAt</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="c1">-- set the third component</span>
+
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">:</span><span class="nf">get</span><span class="p">())</span><span class="w"> </span><span class="c1">--&gt; same as print(col.r, col.g, col.b, col.a)</span>
+
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">colorCode</span><span class="p">,</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nv">col</span><span class="p">)</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="nb">print</span><span class="p">(</span><span class="nv">colorCode</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot;=&quot;</span><span class="o">..</span><span class="nv">value</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; r=1 then g=0.25 then b=1 and finally a=1</span>
+<span class="w">    </span><span class="kr">end</span>
+
+<span class="w">    </span><span class="nv">col</span><span class="p">:</span><span class="nf">copy</span><span class="p">():</span><span class="nf">setAt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">.</span><span class="py">a</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; 1, because we only changed &#39;a&#39; on a copy</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h2 id="arithmetics-summary">Arithmetics summary<a class="headerlink" href="#arithmetics-summary" title="Permanent link">&para;</a></h2>
+<p>Color also allows you to use arithmetic operators to performs basic operations:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../types/"><span class="tag col"></span></a> one == <a href="../types/"><span class="tag col"></span></a> two</td>
+<td>Return true if both colors identical or within a small margin of each other, false otherwise. See also <a href="#equals">color:equals()</a>.</td>
+<td><a href="../types/"><span class="tag boo"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>tostring(<a href="../types/"><span class="tag col"></span></a> col)</td>
+<td>Return a string description of a color.</td>
+<td><a href="../types/"><span class="tag str"></span></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="arithmetics-examples">Arithmetics examples<a class="headerlink" href="#arithmetics-examples" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">({</span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">})</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">blue</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; true</span>
+
+<span class="w">    </span><span class="c1">-- Color : Blue { r = 0.118, g = 0.53, b = 1, a = 1}</span>
+<span class="w">    </span><span class="nb">tostring</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+
+<span class="w">    </span><span class="c1">--&gt; Color : { r = 0.3, g = 0.5, b = 1, a = 1}</span>
+<span class="w">    </span><span class="nb">tostring</span><span class="p">(</span><span class="nf">Color</span><span class="p">({</span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">}))</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h2 id="methods-summary">Methods summary<a class="headerlink" href="#methods-summary" title="Permanent link">&para;</a></h2>
+<h3 id="methods-not-modifying-self">Methods not modifying self<a class="headerlink" href="#methods-not-modifying-self" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th>Description</th>
+<th>Return</th>
+<th style="text-align: right;">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col:toHex(<a href="../types/"><span class="tag boo"></span></a> includeAlpha)</td>
+<td>Returns a hex string for <code>col</code>, boolean parameter <code>includeAlpha</code>.</td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td style="text-align: right;"><a href="#tohex"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>col:toString(<a href="../types/"><span class="tag flo"></span></a> tolerance)</td>
+<td>Returns a color string if matching this instance, nil otherwise, optional numeric <code>tolerance</code> param.</td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td style="text-align: right;"><a href="#tostring"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>col:equals(<a href="../types/"><span class="tag col"></span></a> otherCol, <a href="../types/"><span class="tag flo"></span></a> num)</td>
+<td>Returns true if <code>otherCol</code> same as <code>col</code>, false otherwise, optional numeric tolerance param.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td style="text-align: right;"><a href="#equals"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>col:lerp(<a href="../types/"><span class="tag col"></span></a> otherCol, <a href="../types/"><span class="tag flo"></span></a> num)</td>
+<td>Return a color some part of the way between <code>col</code> and <code>otherCol</code>, numeric arg [0, 1] is the fraction.</td>
+<td><a href="../types/"><span class="ret col"></span></a></td>
+<td style="text-align: right;"><a href="#lerp"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>col:dump(<a href="../types/"><span class="tag str"></span></a> prefix)</td>
+<td>Return a string description of a color with an optional <code>prefix</code>.</td>
+<td><a href="../types/"><span class="ret str"></span></a><br><a href="../types/"><span class="ret flo"></span></a></td>
+<td style="text-align: right;"><a href="#dump"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-methods">Other methods<a class="headerlink" href="#other-methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method Name</th>
+<th>Description</th>
+<th>Return</th>
+<th style="text-align: right;">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color.list</td>
+<td>Returns a table of all color strings.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td style="text-align: right;"><a href="#colorlist"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>Color.Add(<a href="../types/"><span class="tag str"></span></a> name, <a href="../types/"><span class="tag col"></span></a> yourColor)</td>
+<td>Add your own color definition to the class.</td>
+<td><a href="../types/"><span class="ret nil"></span></a></td>
+<td style="text-align: right;"><a href="#coloradd"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="constructors-details">Constructors details<a class="headerlink" href="#constructors-details" title="Permanent link">&para;</a></h2>
+<h3 id="colornew">Color.new(...)<a class="headerlink" href="#colornew" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret col"></span></a> Return a color with specified components.</p>
+<div class="admonition info">
+<p class="admonition-title">Color.new(r, g, b)</p>
+<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>r</strong>: Red component between 0 and 1.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>g</strong>: Green component between 0 and 1.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>b</strong>: Blue component between 0 and 1.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Color.new(r, g, b, a)</p>
+<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>r</strong>: Red component between 0 and 1.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>g</strong>: Green component between 0 and 1.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>b</strong>: Blue component between 0 and 1.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>a</strong>: Alpha component between 0 and 1.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Color.new(t)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>t</strong>: The table should use the <code>r</code>, <code>g</code>, <code>b</code> and <code>a</code> index. <br>By default the value is 0 for color and 1 for alpha.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c1">-- same as Color.new(0, 1, 0)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">river</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">52</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">152</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">219</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">160</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">teal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">({</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.129</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.694</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.607</span><span class="p">})</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you want to use value between 0 and 255 you should divide them by 255 before construct the object.</p>
+</div>
+<h3 id="colorfromstring">Color.fromString(...)<a class="headerlink" href="#colorfromstring" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret col"></span></a> Return a color from a color string ('Red', 'Green' etc), capitalization ignored.</p>
+<div class="admonition info">
+<p class="admonition-title">Color.fromString(colorStr)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>colorStr</strong>: Any <a href="../player/colors/">Player Color</a> or color added with <a href="#coloradd">Color.Add</a>.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="nf">fromString</span><span class="p">(</span><span class="s2">&quot;Blue&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Color: Blue { r = 0.118, g = 0.53, b = 1, a = 1 }</span>
+</code></pre></div>
+<h3 id="colorblue">Color.Blue<a class="headerlink" href="#colorblue" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret col" style="margin-right:5px;"></span></a>
+<a href="../types/"><span class="ret str"></span></a> Return a color from a color string ('Red', 'Green' etc).</p>
+<p>Any <a href="../player/colors/">Player Color</a> or color added with <a href="#coloradd">Color.Add</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">color</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Color: Blue { r = 0.118, g = 0.53, b = 1, a = 1 }</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Blue</span>
+
+<span class="kd">local</span><span class="w"> </span><span class="nv">color</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Red</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Color: Red { r = 0.856, g = 0.1, b = 0.094, a = 1 }</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Red</span>
+</code></pre></div>
+<hr />
+<h2 id="element-access-details">Element access details<a class="headerlink" href="#element-access-details" title="Permanent link">&para;</a></h2>
+<h3 id="setat">setAt(...)<a class="headerlink" href="#setat" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret sel"></span></a> Update one component of the color and returning self.</p>
+<div class="admonition info">
+<p class="admonition-title">setAt(key, num)</p>
+<ul>
+<li><a href="../types/"><span class="tag int"></span></a> <strong>key</strong>: Index of component (1, 2, 3 or 4 for r, g, b or a).</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>num</strong>: New value.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span>
+<span class="nv">col</span><span class="p">:</span><span class="nf">setAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">):</span><span class="nf">setAt</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Color: { r = 0.501961, g = 0.53, b = 1, a = 0.5 }</span>
+</code></pre></div>
+<h3 id="set">set(...)<a class="headerlink" href="#set" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret sel"></span></a> Update all components of the vector and returning self.</p>
+<p>Providing a nil value makes it ignore that argument.</p>
+<div class="admonition info">
+<p class="admonition-title">set(r, g, b)</p>
+<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>r</strong>: New value of Red component.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>g</strong>: New value of Green component.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>b</strong>: New value of Blue component.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">set(r, g, b, a)</p>
+<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>r</strong>: New value of Red component.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>g</strong>: New value of Green component.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>b</strong>: New value of Blue component.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>a</strong>: New value of Alpha component.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">black</span>
+<span class="nv">col</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="mi">41</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">185</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Color: { r = 0.160784, g = 0.501961, b = 0.72549, a = 1 }</span>
+</code></pre></div>
+<h3 id="get">get()<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret flo" style="margin-right:5px;"></span></a>
+<a href="../types/"><span class="ret flo" style="margin-right:5px;"></span></a>
+<a href="../types/"><span class="ret flo" style="margin-right:5px;"></span></a>
+<a href="../types/"><span class="ret flo"></span></a> Returns <code>r</code>, <code>g</code>, <code>b</code>, <code>a</code> components as four separate values.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span>
+<span class="nv">r</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="p">,</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">col</span><span class="p">:</span><span class="nf">get</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; 2.648</span>
+</code></pre></div>
+<h3 id="copy">copy()<a class="headerlink" href="#copy" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret col"></span></a> Copy self into a new Color and return it.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">col1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span>
+<span class="nv">col2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">col1</span><span class="p">:</span><span class="nf">copy</span><span class="p">()</span>
+<span class="nv">col1</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col1</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Color: { r = 0.75, g = 1, b = 0.25, a = 1 }</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col2</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Color: { r = 1, g = 0.5, b = 0.75, a = 1 }</span>
+</code></pre></div>
+<h2 id="methods-details">Methods details<a class="headerlink" href="#methods-details" title="Permanent link">&para;</a></h2>
+<h3 id="methods-not-modifying-self_1">Methods not modifying self<a class="headerlink" href="#methods-not-modifying-self_1" title="Permanent link">&para;</a></h3>
+<h4 id="tohex">toHex(...)<a class="headerlink" href="#tohex" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret str"></span></a> Returns a hex string representation of self.</p>
+<div class="admonition info">
+<p class="admonition-title">toHex(includeAlpha)</p>
+<ul>
+<li><a href="../types/"><span class="tag boo"></span></a> <strong>includeAlpha</strong>: Include or not the <code>a</code> value. (Default true)</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">blue</span><span class="p">:</span><span class="nf">toHex</span><span class="p">())</span><span class="w"> </span><span class="c1">-- 1e87ffff</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">blue</span><span class="p">:</span><span class="nf">toHex</span><span class="p">(</span><span class="kc">true</span><span class="p">))</span><span class="w"> </span><span class="c1">-- 1e87ffff</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">blue</span><span class="p">:</span><span class="nf">toHex</span><span class="p">(</span><span class="kc">false</span><span class="p">))</span><span class="w"> </span><span class="c1">-- 1e87ff</span>
+</code></pre></div>
+<h4 id="tostring">toString(...)<a class="headerlink" href="#tostring" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret str"></span></a> Returns a color string if matching this instance, nil otherwise, optional numeric <code>tolerance</code> param.</p>
+<div class="admonition info">
+<p class="admonition-title">toString(tolerance)</p>
+<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>tolerance</strong>: Numeric <code>tolerance</code>, by default 0.01.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="w"> </span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">):</span><span class="nf">toString</span><span class="p">())</span><span class="w"> </span><span class="c1">-- Blue</span>
+</code></pre></div>
+<h4 id="equals">equals(...)<a class="headerlink" href="#equals" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret boo"></span></a> Returns true if <code>otherCol</code> same as self, false otherwise, optional numeric <code>tolerance</code> param.</p>
+<div class="admonition info">
+<p class="admonition-title">equals(otherCol, tolerance)</p>
+<ul>
+<li><a href="../types/"><span class="tag col"></span></a> <strong>otherCol</strong>: The color to compare with.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>tolerance</strong>: Numeric <code>tolerance</code>, by default 0.01.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="w"> </span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">):</span><span class="nf">equals</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span><span class="p">:</span><span class="nf">copy</span><span class="p">()))</span><span class="w"> </span><span class="c1">-- true</span>
+<span class="nb">print</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="w"> </span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span><span class="p">)</span><span class="w"> </span><span class="c1">-- true</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nf">Color</span><span class="p">(</span><span class="w"> </span><span class="mf">0.118</span><span class="p">,</span><span class="w"> </span><span class="mf">0.53</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">):</span><span class="nf">equals</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span><span class="p">))</span><span class="w"> </span><span class="c1">-- Throw errors</span>
+</code></pre></div>
+<h4 id="lerp">lerp(...)<a class="headerlink" href="#lerp" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret col"></span></a> Return a color some part of the way between self and <code>otherCol</code>, numeric arg [0, 1] is the fraction.</p>
+<div class="admonition info">
+<p class="admonition-title">lerp(otherCol, fraction)</p>
+<ul>
+<li><a href="../types/"><span class="tag col"></span></a> <strong>otherCol</strong>: The color to compare with.</li>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>fraction</strong>: Numeric <code>fraction</code>.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kd">local</span><span class="w"> </span><span class="nv">pink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Red</span><span class="p">:</span><span class="nf">lerp</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">White</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">pink</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Color: { r = 0.928, g = 0.55, b = 0.547, a = 1 }</span>
+</code></pre></div>
+<h4 id="dump">dump(...)<a class="headerlink" href="#dump" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret str" style="margin-right:5px;"></span></a>
+<a href="../types/"><span class="ret flo"></span></a> Return string describing self, optional string prefix.</p>
+<div class="admonition info">
+<p class="admonition-title">dump(prefix)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>prefix</strong>: The prefix of return string.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function returns one extra float that will be displayed in print function. This value is returned by the last gsub used in internal function.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Blue</span>
+<span class="nv">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">col</span><span class="p">:</span><span class="nf">dump</span><span class="p">(</span><span class="s1">&#39;Prefix&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">str</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt; Prefix: Blue { r = 0.118, g = 0.53, b = 1, a = 1 }</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">col</span><span class="p">:</span><span class="nf">dump</span><span class="p">(</span><span class="s1">&#39;Prefix&#39;</span><span class="p">))</span><span class="w"> </span><span class="c1">--&gt; Prefix: Blue { r = 0.118, g = 0.53, b = 1, a = 1 } 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="nv">col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Prefix&#39;</span><span class="p">))</span><span class="w"> </span><span class="c1">--&gt; Prefix: Blue { r = 0.118, g = 0.53, b = 1, a = 1 } 2</span>
+</code></pre></div>
+<h3 id="other-methods_1">Other methods<a class="headerlink" href="#other-methods_1" title="Permanent link">&para;</a></h3>
+<h4 id="colorlist">Color.list<a class="headerlink" href="#colorlist" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table of all color strings.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">list</span>
+<span class="c1">-- Same as</span>
+<span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;White&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Brown&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Red&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Orange&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Yellow&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Green&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Teal&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Purple&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Pink&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Grey&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s2">&quot;Black&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="coloradd">Color.Add(...)<a class="headerlink" href="#coloradd" title="Permanent link">&para;</a></h4>
+<p><a href="../types/"><span class="ret nil"></span></a> Add your own color definition to the class.</p>
+<div class="admonition info">
+<p class="admonition-title">dump(name, yourColor)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>name</strong>: The name of the color.</li>
+<li><a href="../types/"><span class="tag col"></span></a> <strong>yourColor</strong>: The color value.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">Color</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s2">&quot;River&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="mi">52</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">152</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">219</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">))</span>
+<span class="kd">local</span><span class="w"> </span><span class="nv">color</span><span class="p">,</span><span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">River</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span><span class="w"> </span><span class="c1">-- Color: River { r = 0.203922, g = 0.596078, b = 0.858824, a = 1 }</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">name</span><span class="p">)</span><span class="w"> </span><span class="c1">-- River</span>
+</code></pre></div>
+<hr />
+<h2 id="manipulation-examples">Manipulation examples<a class="headerlink" href="#manipulation-examples" title="Permanent link">&para;</a></h2>
+<p>Tint all object in scene in orange.
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">red</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Red</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">green</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Color</span><span class="p">.</span><span class="py">Green</span>
+
+<span class="w">    </span><span class="c1">-- Get a color between red and green</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">yellow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">red</span><span class="p">:</span><span class="nf">lerp</span><span class="p">(</span><span class="nv">green</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Make the color brighter</span>
+<span class="w">    </span><span class="nv">yellow</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="nv">yellow</span><span class="p">.</span><span class="py">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="nv">yellow</span><span class="p">.</span><span class="py">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="nv">yellow</span><span class="p">.</span><span class="py">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Get a color between yellow and red</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">orange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">yellow</span><span class="p">:</span><span class="nf">lerp</span><span class="p">(</span><span class="nv">Color</span><span class="p">.</span><span class="py">Red</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Iterate through all scene objects and set the color tint to orange</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nf">getObjects</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="nv">obj</span><span class="p">.</span><span class="nf">setColorTint</span><span class="p">(</span><span class="nv">orange</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+</code></pre></div></p>
+<p>Tint all object in a random color.
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onLoad</span><span class="p">()</span>
+<span class="w">    </span><span class="c1">-- Iterate through all scene objects and generate a random color</span>
+<span class="w">    </span><span class="kr">for</span><span class="w"> </span><span class="nv">k</span><span class="p">,</span><span class="w"> </span><span class="nv">obj</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nb">pairs</span><span class="p">(</span><span class="nf">getObjects</span><span class="p">())</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">colorA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getRandomColor</span><span class="p">()</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">colorB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">getRandomColor</span><span class="p">()</span>
+
+<span class="w">        </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">colorA</span><span class="p">:</span><span class="nf">lerp</span><span class="p">(</span><span class="nv">colorB</span><span class="p">,</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+
+<span class="w">        </span><span class="c1">-- Make the color darker or brighter</span>
+<span class="w">        </span><span class="kd">local</span><span class="w"> </span><span class="nv">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">color</span><span class="p">:</span><span class="nf">set</span><span class="p">(</span><span class="nv">color</span><span class="p">.</span><span class="py">r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">factor</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="p">.</span><span class="py">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">factor</span><span class="p">,</span><span class="w"> </span><span class="nv">color</span><span class="p">.</span><span class="py">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">factor</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">-- Apply the color to object</span>
+<span class="w">        </span><span class="nv">obj</span><span class="p">.</span><span class="nf">setColorTint</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">function</span><span class="w"> </span><span class="nf">getRandomColor</span><span class="p">()</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">local</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">math.random</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="nf">Color</span><span class="p">(</span><span class="nv">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="nv">g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div></p>
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

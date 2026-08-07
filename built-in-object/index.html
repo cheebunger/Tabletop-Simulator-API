@@ -1,0 +1,3285 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Built-in - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/theme.css">
+    
+      <link rel="stylesheet" href="../css/table.css">
+    
+      <link rel="stylesheet" href="../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#object-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Built-in
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" checked>
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Built-in
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Built-in
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#object-types" class="md-nav__link">
+    Object Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    Blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boards" class="md-nav__link">
+    Boards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkers" class="md-nav__link">
+    Checkers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chess-pieces" class="md-nav__link">
+    Chess Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chips" class="md-nav__link">
+    Chips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dice" class="md-nav__link">
+    Dice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominos" class="md-nav__link">
+    Dominos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#figurines" class="md-nav__link">
+    Figurines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-pieces" class="md-nav__link">
+    Go Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics" class="md-nav__link">
+    Graphics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piecepack" class="md-nav__link">
+    Piecepack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpg-figurines" class="md-nav__link">
+    RPG Figurines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tileset-pieces" class="md-nav__link">
+    Tileset Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    Zones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawnable-names" class="md-nav__link">
+    Spawnable Names
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#object-types" class="md-nav__link">
+    Object Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Object Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    Blocks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boards" class="md-nav__link">
+    Boards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkers" class="md-nav__link">
+    Checkers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chess-pieces" class="md-nav__link">
+    Chess Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chips" class="md-nav__link">
+    Chips
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dice" class="md-nav__link">
+    Dice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dominos" class="md-nav__link">
+    Dominos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#figurines" class="md-nav__link">
+    Figurines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-pieces" class="md-nav__link">
+    Go Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics" class="md-nav__link">
+    Graphics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piecepack" class="md-nav__link">
+    Piecepack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpg-figurines" class="md-nav__link">
+    RPG Figurines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tileset-pieces" class="md-nav__link">
+    Tileset Pieces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    Zones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spawnable-names" class="md-nav__link">
+    Spawnable Names
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/built-in-object.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    Built-in
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>This page has information on each type of non-custom object, including the internal names used in the object's save data, which can be used in the <code>json.Name</code>, <code>data.Name</code>, and <code>type</code> fields of <a href="../base/#spawnobjectjson"><code>spawnObjectJSON()</code></a>, <a href="../base/#spawnobjectdata"><code>spawnObjectData()</code></a>, and <a href="../base/#spawnobject"><code>spawnObject()</code></a> respectively.</p>
+<p>For Custom Objects, see <a href="../custom-game-objects/">Custom Game Objects</a>.</p>
+<h2 id="object-types">Object Types<a class="headerlink" href="#object-types" title="Permanent link">&para;</a></h2>
+<p>Each item listed below is treated as a unique object type. (ie. A red checker tinted black will not stack on top of a regular black checker.)</p>
+<h3 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="BlockRectangle">BlockRectangle</td>
+<td><code>Block</code></td>
+<td>A blue rectangular prism.</td>
+<td></td>
+</tr>
+<tr>
+<td id="BlockSquare">BlockSquare</td>
+<td><code>Block</code></td>
+<td>A red cube.</td>
+<td></td>
+</tr>
+<tr>
+<td id="BlockTriangle">BlockTriangle</td>
+<td><code>Block</code></td>
+<td>A green triangular prism.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="boards">Boards<a class="headerlink" href="#boards" title="Permanent link">&para;</a></h3>
+<p>All boards spawn locked by default.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="backgammon_board">backgammon_board</td>
+<td><code>Board</code></td>
+<td>The fold-open board of Backgammon.</td>
+<td>Includes snap-points along each triangle, totalling 120.</td>
+</tr>
+<tr>
+<td id="CardBot_Board">CardBot_Board</td>
+<td><code>Board</code></td>
+<td>The main board and 4 player boards of CardBots, Build &amp; Destroy.</td>
+<td>Includes snap-points on each card and deck location, totally 79.</td>
+</tr>
+<tr>
+<td id="Checker_Board">Checker_Board</td>
+<td><code>Board</code></td>
+<td>The 8x8 board of Checkers.</td>
+<td>Includes snap-points on each grid square, totalling 64.</td>
+</tr>
+<tr>
+<td id="Chess_Board">Chess_Board</td>
+<td><code>Board</code></td>
+<td>The 8x8 board of Chess.</td>
+<td>Includes snap-points on each grid square, totalling 64.</td>
+</tr>
+<tr>
+<td id="Chinese_Checkers_Board">Chinese_Checkers_Board</td>
+<td><code>Board</code></td>
+<td>The 6-pointed board of Sternhalma, or Chinese Checkers.</td>
+<td>Includes snap-points on each indent, totalling 121.</td>
+</tr>
+<tr>
+<td id="Go_Board">Go_Board</td>
+<td><code>Board</code></td>
+<td>The 9-starred board of Go.</td>
+<td>Includes snap-points on each line intersection, totalling 361.</td>
+</tr>
+<tr>
+<td id="Pachisi_board">Pachisi_board</td>
+<td><code>Board</code></td>
+<td>A 6-player Pachisi board.</td>
+<td>Includes snap-points on each indent, totall 133.</td>
+</tr>
+<tr>
+<td id="reversi_board">reversi_board</td>
+<td><code>Board</code></td>
+<td>The 8x8 board of Reversi.</td>
+<td>Includes snap-points on each grid square, totalling 64.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cards">Cards<a class="headerlink" href="#cards" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Card">Card</td>
+<td><code>Card</code></td>
+<td>A blank card, standard playing card, or Cardbots card.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Deck">Deck</td>
+<td><code>Deck</code></td>
+<td>A deck of the 52 standard playing cards.</td>
+<td>Shuffles immediately when spawned.</td>
+</tr>
+<tr>
+<td id="Deck_CardBot_Head">Deck_CardBot_Head</td>
+<td><code>Deck</code></td>
+<td>A deck of the 10 head cards for CardBots, Build &amp; Destroy.</td>
+<td>Shuffles immediately when spawned.</td>
+</tr>
+<tr>
+<td id="Deck_CardBot_Main">Deck_CardBot_Main</td>
+<td><code>Deck</code></td>
+<td>A deck of the 152 main cards for CardBots, Build &amp; Destroy.</td>
+<td>Shuffles immediately when spawned.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="checkers">Checkers<a class="headerlink" href="#checkers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Checker_black">Checker_black</td>
+<td><code>Checker</code></td>
+<td>A black checker with a crown emblem on the top side.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Checker_red">Checker_red</td>
+<td><code>Checker</code></td>
+<td>A red checker with a crown emblem on the top side.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Checker_white">Checker_white</td>
+<td><code>Checker</code></td>
+<td>A white checker with a crown emblem on the top side.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Chinese_Checkers_Piece">Chinese_Checkers_Piece</td>
+<td><code>Checker</code></td>
+<td>A marble for use in Sternhalma, or Chinese Checkers.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="chess-pieces">Chess Pieces<a class="headerlink" href="#chess-pieces" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Chess_Bishop">Chess_Bishop</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess bishop.</td>
+<td>Faces visually to the left.</td>
+</tr>
+<tr>
+<td id="Chess_King">Chess_King</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess king.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Chess_Knight">Chess_Knight</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess knight.</td>
+<td>Faces visually backward (a common chess practice).</td>
+</tr>
+<tr>
+<td id="Chess_Pawn">Chess_Pawn</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess pawn.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Chess_Queen">Chess_Queen</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess queen.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Chess_Rook">Chess_Rook</td>
+<td><code>Chess</code></td>
+<td>A chrome Chess rook.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="chips">Chips<a class="headerlink" href="#chips" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Chip_10">Chip_10</td>
+<td><code>Chip</code></td>
+<td>A blue casino chip worth $10</td>
+<td>Faces visually to the left.</td>
+</tr>
+<tr>
+<td id="Chip_50">Chip_50</td>
+<td><code>Chip</code></td>
+<td>A green casino chip worth $50</td>
+<td>Faces visually to the left.</td>
+</tr>
+<tr>
+<td id="Chip_100">Chip_100</td>
+<td><code>Chip</code></td>
+<td>A red casino chip worth $100</td>
+<td>Faces visually to the left.</td>
+</tr>
+<tr>
+<td id="Chip_500">Chip_500</td>
+<td><code>Chip</code></td>
+<td>A silver casino chip worth $500</td>
+<td>Faces visually to the left.</td>
+</tr>
+<tr>
+<td id="Chip_1000">Chip_1000</td>
+<td><code>Chip</code></td>
+<td>A gold casino chip worth $1000</td>
+<td>Faces visually to the left.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dice">Dice<a class="headerlink" href="#dice" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Die_4">Die_4</td>
+<td><code>Dice</code></td>
+<td>A 4-sided die.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_6">Die_6</td>
+<td><code>Dice</code></td>
+<td>A 6-sided die with dots.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_6_Rounded">Die_6_Rounded</td>
+<td><code>Dice</code></td>
+<td>A 6-sided die with dots and rounded corners.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_8">Die_8</td>
+<td><code>Dice</code></td>
+<td>An 8-sided die.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_10">Die_10</td>
+<td><code>Dice</code></td>
+<td>A 10-sided die.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_12">Die_12</td>
+<td><code>Dice</code></td>
+<td>A 12-sided die.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_20">Die_20</td>
+<td><code>Dice</code></td>
+<td>A 20-sided die.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Die_Piecepack">Die_Piecepack</td>
+<td><code>Dice</code></td>
+<td>A wooden 6-sided die.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dominos">Dominos<a class="headerlink" href="#dominos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Domino">Domino</td>
+<td><code>Domino</code></td>
+<td>A blank domino.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Mahjong_Coin">Mahjong_Coin</td>
+<td><code>Domino</code></td>
+<td>A coin used in Mahjong.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Mahjong_Stick">Mahjong_Stick</td>
+<td><code>Domino</code></td>
+<td>A stick used in Mahjong.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Mahjong_Tile">Mahjong_Tile</td>
+<td><code>Domino</code></td>
+<td>A tile used in Mahjong.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="figurines">Figurines<a class="headerlink" href="#figurines" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Figurine_Card_Bot">Figurine_Card_Bot</td>
+<td><code>Figurine</code></td>
+<td>A rectangle-based figurine of a CardBot from CardBots, Build &amp; Destroy.</td>
+<td>Faces visually to the side.</td>
+</tr>
+<tr>
+<td id="Figurine_Kimi_Kat">Figurine_Kimi_Kat</td>
+<td><code>Figurine</code></td>
+<td>A rectangle-based figurine of two sitting cats.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Figurine_Knil">Figurine_Knil</td>
+<td><code>Figurine</code></td>
+<td>A baseless figurine of a sword-wielding knight in full-plate armor.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Figurine_Mara">Figurine_Mara</td>
+<td><code>Figurine</code></td>
+<td>A baseless figurine of a bearded man in slacks.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Figurine_Sir_Loin">Figurine_Sir_Loin</td>
+<td><code>Figurine</code></td>
+<td>A rectangle-based figurine of a sword-wielding warrior with a shield on his back.</td>
+<td>Faces visually backwards.</td>
+</tr>
+<tr>
+<td id="Figurine_Zeke">Figurine_Zeke</td>
+<td><code>Figurine</code></td>
+<td>A baseless figurine of a cloaked character wielding a sword.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Figurine_Zomblor">Figurine_Zomblor</td>
+<td><code>Figurine</code></td>
+<td>A baseless figurine of a zombified riot-officer with knives for hands, wearing a skirt.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Metal-Ball">Metal Ball</td>
+<td><code>Figurine</code></td>
+<td>A metallic marble.</td>
+<td>This object's internal name includes a space character and not an underline.</td>
+</tr>
+<tr>
+<td id="PlayerPawn">PlayerPawn</td>
+<td><code>Figurine</code></td>
+<td>A small game piece representing a player.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="go-pieces">Go Pieces<a class="headerlink" href="#go-pieces" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="go_game_piece_black">go_game_piece_black</td>
+<td><code>GoPiece</code></td>
+<td>A black Go stone.</td>
+<td>Spawned from a <a href="#go_game_bowl_black">black Go bowl</a>.</td>
+</tr>
+<tr>
+<td id="go_game_piece_white">go_game_piece_white</td>
+<td><code>GoPiece</code></td>
+<td>A white Go stone.</td>
+<td>Spawned from a <a href="#go_game_bowl_white">white Go bowl</a>.</td>
+</tr>
+<tr>
+<td id="go_game_bowl_black">go_game_bowl_black</td>
+<td><code>GoPiece</code></td>
+<td>A bowl that any number of <a href="#go_game_piece_black">Black Go Stones</a> can be taken from and dropped back into.</td>
+<td></td>
+</tr>
+<tr>
+<td id="go_game_bowl_white">go_game_bowl_white</td>
+<td><code>GoPiece</code></td>
+<td>A bowl that any number of <a href="#go_game_piece_white">White Go Stones</a> can be taken from and dropped back into.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="graphics">Graphics<a class="headerlink" href="#graphics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="3DText">3DText</td>
+<td>The text that the <a href="https://kb.tabletopsimulator.com/game-tools/text-tool/">Text Tool</a> spawns.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="piecepack">Piecepack<a class="headerlink" href="#piecepack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="PiecePack_Arms">PiecePack_Arms</td>
+<td><code>Piecepack</code></td>
+<td>A wooden coin with a blue fleur-de-lis on the underside.</td>
+<td></td>
+</tr>
+<tr>
+<td id="PiecePack_Crowns">PiecePack_Crowns</td>
+<td><code>Piecepack</code></td>
+<td>A wooden coin with a green crown on the underside.</td>
+<td></td>
+</tr>
+<tr>
+<td id="PiecePack_Moons">PiecePack_Moons</td>
+<td><code>Piecepack</code></td>
+<td>A wooden coin with a black moon on the underside.</td>
+<td></td>
+</tr>
+<tr>
+<td id="PiecePack_Suns">PiecePack_Suns</td>
+<td><code>Piecepack</code></td>
+<td>A wooden coin with a red sun on the underside.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="rpg-figurines">RPG Figurines<a class="headerlink" href="#rpg-figurines" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="rpg_BARGHEST">rpg_BARGHEST</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical barghest.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_BASILISK">rpg_BASILISK</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical basilisk (a.k.a. cockatrice).</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_BEAR">rpg_BEAR</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a bear.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_BLACK_DRAGON">rpg_BLACK_DRAGON</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an eastern dragon.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_CENTAUR">rpg_CENTAUR</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an armoured centaur.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_CERBERUS">rpg_CERBERUS</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an infernal 3-headed dog.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_CHIMERA">rpg_CHIMERA</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical chimera.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_CRASC">rpg_CRASC</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a one-eyed manta-like creature.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_CYCLOP">rpg_CYCLOP</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a club-wielding cyclops.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_DARKNESS_WARLORD">rpg_DARKNESS_WARLORD</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an armoured, morningstar-wielding orc.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_DRAGONIDE">rpg_DRAGONIDE</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an armored humanoid lizard.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_EVIL_WATCHER">rpg_EVIL_WATCHER</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a cycloptic scaled head with eye-stalks and bat-wings.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_GHOUL">rpg_GHOUL</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an undead humanoid</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_GIANT_VIPER">rpg_GIANT_VIPER</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large snake.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_GOBLIN">rpg_GOBLIN</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a lightly-armored goblin with two knives.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_GOLEM">rpg_GOLEM</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large earthen golem.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_GRIFFON">rpg_GRIFFON</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical griffon.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_HYDRA">rpg_HYDRA</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large 3-headed lizard.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_KNIGHT">rpg_KNIGHT</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a knight in full-plate armor wielding a sword and shield.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_KOBOLD">rpg_KOBOLD</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a small helmeted humanoid.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_LIZARD_WARRIOR">rpg_LIZARD_WARRIOR</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a sword-wielding lizard-like humanoid</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_MAGE">rpg_MAGE</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a staff-wielding mage.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_MANTICORA">rpg_MANTICORA</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical manticore.</td>
+<td>This type is spelled with an A.</td>
+</tr>
+<tr>
+<td id="rpg_MUMMY">rpg_MUMMY</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a living mummy.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_OGRE">rpg_OGRE</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large boiled humanoid.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_ORC">rpg_ORC</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an axe-wielding orc.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_RANGER">rpg_RANGER</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a bow-wielding ranger.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_RAT">rpg_RAT</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a giant rat.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_SKELETON_KNIGHT">rpg_SKELETON_KNIGHT</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of an armored living skeleton.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_TEMPLATE">rpg_TEMPLATE</td>
+<td><code>rpgFigurine</code></td>
+<td>The base of an RPG figurine.</td>
+<td>It has the same animatable triggers as any other RPG Figurine, but no associated animations.</td>
+</tr>
+<tr>
+<td id="rpg_THIEF">rpg_THIEF</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a cowled knife-wielding thief.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_TREE_ENT">rpg_TREE_ENT</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large tree creature.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_TROLL">rpg_TROLL</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large green humanoid.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_VAMPIRE">rpg_VAMPIRE</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a large wingless bat.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_WARRIOR">rpg_WARRIOR</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a stout, bearded, axe-wielding warrior in scale mail.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_WEREWOLF">rpg_WEREWOLF</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical werewolf.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_WOLF">rpg_WOLF</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical wolf.</td>
+<td></td>
+</tr>
+<tr>
+<td id="rpg_WYVERN">rpg_WYVERN</td>
+<td><code>rpgFigurine</code></td>
+<td>An animated figurine of a mythical wyvern.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tileset-pieces">Tileset Pieces<a class="headerlink" href="#tileset-pieces" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Tileset_Barrel">Tileset_Barrel</td>
+<td><code>Tileset</code></td>
+<td>A small barrel for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Chair">Tileset_Chair</td>
+<td><code>Tileset</code></td>
+<td>A small chair for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Chest">Tileset_Chest</td>
+<td><code>Tileset</code></td>
+<td>A small chest for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Corner">Tileset_Corner</td>
+<td><code>Tileset</code></td>
+<td>A floor tile with two walls for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Floor">Tileset_Floor</td>
+<td><code>Tileset</code></td>
+<td>A floor tile for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Rock">Tileset_Rock</td>
+<td><code>Tileset</code></td>
+<td>A small rock for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Table">Tileset_Table</td>
+<td><code>Tileset</code></td>
+<td>A small table for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Tree">Tileset_Tree</td>
+<td><code>Tileset</code></td>
+<td>A small tree for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Tileset_Wall">Tileset_Wall</td>
+<td><code>Tileset</code></td>
+<td>A floor tile with a wall for use in RPG Tilesets.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="backgammon_piece_brown">backgammon_piece_brown</td>
+<td><code>Backgammon Piece</code></td>
+<td>A brown Backgammon piece.</td>
+<td></td>
+</tr>
+<tr>
+<td id="backgammon_piece_white">backgammon_piece_white</td>
+<td><code>Backgammon Piece</code></td>
+<td>A white Backgammon piece.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Bag">Bag</td>
+<td><code>Bag</code></td>
+<td>A pouch that objects can be stored in and taken from.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Bowl">Bowl</td>
+<td><code>Generic</code></td>
+<td>A wooden bowl that objects can be dropped in.</td>
+<td>The bowl does not have an inventory, objects merely rest within it visually.</td>
+</tr>
+<tr>
+<td id="Calculator">Calculator</td>
+<td><code>Calculator</code></td>
+<td>An interactive calculator.</td>
+<td>Faces visually backwards.</td>
+</tr>
+<tr>
+<td id="Counter">Counter</td>
+<td><code>Counter</code></td>
+<td>An interactive digital counter.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Digital_Clock">Digital_Clock</td>
+<td><code>Clock</code></td>
+<td>An interactive digital clock.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Infinite_Bag">Infinite_Bag</td>
+<td><code>Infinite</code></td>
+<td>A pouch that any number of copies of a single object can be taken from and dropped back into.</td>
+<td>An object must be put into the bag to become the source object.</td>
+</tr>
+<tr>
+<td id="Notecard">Notecard</td>
+<td><code>Notecard</code></td>
+<td>An editable notecard.</td>
+<td></td>
+</tr>
+<tr>
+<td id="Quarter">Quarter</td>
+<td><code>Coin</code></td>
+<td>An american quarter minted in 1942.</td>
+<td>Spawns tails-up, facing to the right.</td>
+</tr>
+<tr>
+<td id="reversi_chip">reversi_chip</td>
+<td><code>Generic</code></td>
+<td>A dual-colored Reversi chip.</td>
+<td>Spawns white-side up.</td>
+</tr>
+<tr>
+<td id="Tablet">Tablet</td>
+<td><code>Tablet</code></td>
+<td>A tablet that displays a webpage.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="zones">Zones<a class="headerlink" href="#zones" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="FogOfWar">FogOfWar</td>
+<td><code>Fog</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#fog-of-war-zone">Fog of War Zone</a>.</td>
+</tr>
+<tr>
+<td id="FogOfWarTrigger">FogOfWarTrigger</td>
+<td><code>FogOfWar</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#hidden-zone">Hidden Zone</a>.</td>
+</tr>
+<tr>
+<td id="HandTrigger">HandTrigger</td>
+<td><code>Hand</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#hand-zone">Hand Zone</a>.</td>
+</tr>
+<tr>
+<td id="LayoutZone">LayoutZone</td>
+<td><code>Layout</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#layout-zone">Layout Zone</a>.</td>
+</tr>
+<tr>
+<td id="RandomizeTrigger">RandomizeTrigger</td>
+<td><code>Randomize</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#randomize-zone">Randomize Zone</a>.</td>
+</tr>
+<tr>
+<td id="ScriptingTrigger">ScriptingTrigger</td>
+<td><code>Scripting</code></td>
+<td>A <a href="https://kb.tabletopsimulator.com/game-tools/zone-tools/#scripting-zone">Scripting Zone</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spawnable-names">Spawnable Names<a class="headerlink" href="#spawnable-names" title="Permanent link">&para;</a></h2>
+<p>When using <a href="../base/#spawnobject"><code>spawnObject()</code></a>, the <code>type</code> parameter can be any of the above object types, or any of the below names, which spawns an object of a certain type, and with certain properties different from default.</p>
+<table>
+<thead>
+<tr>
+<th>Alternate&nbsp;Name</th>
+<th>Object</th>
+<th>Differences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="Arms-Dice">Arms Dice</td>
+<td><a href="#Die_Piecepack"><code>Die_Piecepack</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Backgammon-Board">Backgammon Board</td>
+<td><a href="#backgammon_board"><code>backgammon_board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Barrel">Barrel</td>
+<td><a href="#Tileset_Barrel"><code>Tileset_Barrel</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Bear">Bear</td>
+<td><a href="#rpg_BEAR"><code>rpg_BEAR</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Bishop-Cast-Iron">Bishop Cast Iron</td>
+<td><a href="#Chess_Bishop"><code>Chess_Bishop</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Bishop-Chrome">Bishop Chrome</td>
+<td><a href="#Chess_Bishop"><code>Chess_Bishop</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Bishop-Dark-Wood">Bishop Dark Wood</td>
+<td><a href="#Chess_Bishop"><code>Chess_Bishop</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Bishop-Light-Wood">Bishop Light Wood</td>
+<td><a href="#Chess_Bishop"><code>Chess_Bishop</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Black-Ball">Black Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>6</code>.</td>
+</tr>
+<tr>
+<td id="Black-Checker">Black Checker</td>
+<td><a href="#Checker_black"><code>Checker_black</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Black-Pawn">Black Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>8</code>.</td>
+</tr>
+<tr>
+<td id="Blue-10">Blue 10</td>
+<td><a href="#Chip_10"><code>Chip_10</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Blue-Ball">Blue Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>4</code>.</td>
+</tr>
+<tr>
+<td id="Blue-Pawn">Blue Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>5</code>.</td>
+</tr>
+<tr>
+<td id="Blue-Rectangle">Blue Rectangle</td>
+<td><a href="#BlockRectangle"><code>BlockRectangle</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Brown-Backgammon">Brown Backgammon</td>
+<td><a href="#backgammon_piece_brown"><code>backgammon_piece_brown</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="CardBot">CardBot</td>
+<td><a href="#Figurine_Card_Bot"><code>Figurine_Card_Bot</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="CardBots-Head-Deck">CardBots Head Deck</td>
+<td><a href="#Deck_CardBot_Head"><code>Deck_CardBot_Head</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="CardBots-Main-Deck">CardBots Main Deck</td>
+<td><a href="#Deck_CardBot_Main"><code>Deck_CardBot_Main</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Chair">Chair</td>
+<td><a href="#Tileset_Chair"><code>Tileset_Chair</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Checkers-Board">Checkers Board</td>
+<td><a href="#Checker_Board"><code>Checker_Board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Chess-Board">Chess Board</td>
+<td><a href="#Chess_Board"><code>Chess_Board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Chest">Chest</td>
+<td><a href="#Tileset_Chest"><code>Tileset_Chest</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Chimera">Chimera</td>
+<td><a href="#rpg_CHIMERA"><code>rpg_CHIMERA</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Chinese-Checkers-Board">Chinese Checkers Board</td>
+<td><a href="#Chinese_Checkers_Board"><code>Chinese_Checkers_Board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Corner">Corner</td>
+<td><a href="#Tileset_Corner"><code>Tileset_Corner</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Crowns-Dice">Crowns Dice</td>
+<td><a href="#Die_Piecepack"><code>Die_Piecepack</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Custom-Board">Custom Board</td>
+<td><a href="../custom-game-objects/#custom-board"><code>Custom_Board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Custom-Deck">Custom Deck</td>
+<td><a href="../custom-game-objects/#custom-deck"><code>DeckCustom</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Custom-Figurine">Custom Figurine</td>
+<td><a href="../custom-game-objects/#custom-figurine"><code>Figurine_Custom</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Custom-Model">Custom Model</td>
+<td><a href="../custom-game-objects/#custom-model"><code>Custom_Model</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Cyclops">Cyclops</td>
+<td><a href="#rpg_CYCLOP"><code>rpg_CYCLOP</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="D10">D10</td>
+<td><a href="#Die_10"><code>Die_10</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D10-Chrome">D10 Chrome</td>
+<td><a href="#Die_10"><code>Die_10</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="D12">D12</td>
+<td><a href="#Die_12"><code>Die_12</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D12-Chrome">D12 Chrome</td>
+<td><a href="#Die_12"><code>Die_12</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="D20">D20</td>
+<td><a href="#Die_20"><code>Die_20</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D20-Chrome">D20 Chrome</td>
+<td><a href="#Die_20"><code>Die_20</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="D4">D4</td>
+<td><a href="#Die_4"><code>Die_4</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D4-Chrome">D4 Chrome</td>
+<td><a href="#Die_4"><code>Die_4</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="D6">D6</td>
+<td><a href="#Die_6"><code>Die_6</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D6-Black">D6 Black</td>
+<td><a href="#Die_6_Rounded"><code>Die_6_Rounded</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D6-Blue">D6 Blue</td>
+<td><a href="#Die_6_Rounded"><code>Die_6_Rounded</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="D6-Chrome">D6 Chrome</td>
+<td><a href="#Die_6"><code>Die_6</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="D6-Green">D6 Green</td>
+<td><a href="#Die_6_Rounded"><code>Die_6_Rounded</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="D6-Red">D6 Red</td>
+<td><a href="#Die_6_Rounded"><code>Die_6_Rounded</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="D8">D8</td>
+<td><a href="#Die_8"><code>Die_8</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="D8-Chrome">D8 Chrome</td>
+<td><a href="#Die_8"><code>Die_8</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>, <code>AltSound</code> of <code>true</code>.</td>
+</tr>
+<tr>
+<td id="Digital-Clock">Digital Clock</td>
+<td><a href="#Digital_Clock"><code>Digital_Clock</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Dragonide">Dragonide</td>
+<td><a href="#rpg_DRAGONIDE"><code>rpg_DRAGONIDE</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Evil-Watcher">Evil Watcher</td>
+<td><a href="#rpg_EVIL_WATCHER"><code>rpg_EVIL_WATCHER</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Floor">Floor</td>
+<td><a href="#Tileset_Floor"><code>Tileset_Floor</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Ghoul">Ghoul</td>
+<td><a href="#rpg_GHOUL"><code>rpg_GHOUL</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Giant-Rat">Giant Rat</td>
+<td><a href="#rpg_RAT"><code>rpg_RAT</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Giant-Viper">Giant Viper</td>
+<td><a href="#rpg_GIANT_VIPER"><code>rpg_GIANT_VIPER</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Go-Board">Go Board</td>
+<td><a href="#Go_Board"><code>Go_Board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="GO-Bowl-Black">GO Bowl Black</td>
+<td><a href="#go_game_bowl_black"><code>go_game_bowl_black</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="GO-Bowl-White">GO Bowl White</td>
+<td><a href="#go_game_bowl_white"><code>go_game_bowl_white</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="GO-Piece-Black">GO Piece Black</td>
+<td><a href="#go_game_piece_black"><code>go_game_piece_black</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="GO-Piece-White">GO Piece White</td>
+<td><a href="#go_game_piece_white"><code>go_game_piece_white</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Goblin">Goblin</td>
+<td><a href="#rpg_GOBLIN"><code>rpg_GOBLIN</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Gold-1000">Gold 1000</td>
+<td><a href="#Chip_1000"><code>Chip_1000</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Golem">Golem</td>
+<td><a href="#rpg_GOLEM"><code>rpg_GOLEM</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Green-50">Green 50</td>
+<td><a href="#Chip_50"><code>Chip_50</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Green-Ball">Green Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Green-Pawn">Green Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>4</code>.</td>
+</tr>
+<tr>
+<td id="Green-Triangle">Green Triangle</td>
+<td><a href="#BlockTriangle"><code>BlockTriangle</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Griffon">Griffon</td>
+<td><a href="#rpg_GRIFFON"><code>rpg_GRIFFON</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Hydra">Hydra</td>
+<td><a href="#rpg_HYDRA"><code>rpg_HYDRA</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Joker">Joker</td>
+<td><a href="#Card"><code>Card</code></a></td>
+<td><code>CardID</code> of <code>52</code>.</td>
+</tr>
+<tr>
+<td id="Kimi-Kat">Kimi Kat</td>
+<td><a href="#Figurine_Kimi_Kat"><code>Figurine_Kimi_Kat</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="King-Cast-Iron">King Cast Iron</td>
+<td><a href="#Chess_King"><code>Chess_King</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="King-Chrome">King Chrome</td>
+<td><a href="#Chess_King"><code>Chess_King</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="King-Dark-Wood">King Dark Wood</td>
+<td><a href="#Chess_King"><code>Chess_King</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="King-Light-Wood">King Light Wood</td>
+<td><a href="#Chess_King"><code>Chess_King</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Knight-Cast-Iron">Knight Cast Iron</td>
+<td><a href="#Chess_Knight"><code>Chess_Knight</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Knight-Chrome">Knight Chrome</td>
+<td><a href="#Chess_Knight"><code>Chess_Knight</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Knight-Dark-Wood">Knight Dark Wood</td>
+<td><a href="#Chess_Knight"><code>Chess_Knight</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Knight-Light-Wood">Knight Light Wood</td>
+<td><a href="#Chess_Knight"><code>Chess_Knight</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Knight-of-Knil">Knight of Knil</td>
+<td><a href="#Figurine_Knil"><code>Figurine_Knil</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Kobold">Kobold</td>
+<td><a href="#rpg_KOBOLD"><code>rpg_KOBOLD</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Lizard-Warrior">Lizard Warrior</td>
+<td><a href="#rpg_LIZARD_WARRIOR"><code>rpg_LIZARD_WARRIOR</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Loot-Bag">Loot Bag</td>
+<td><a href="#Bag"><code>Bag</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Manticora">Manticora</td>
+<td><a href="#rpg_MANTICORA"><code>rpg_MANTICORA</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Mara">Mara</td>
+<td><a href="#Figurine_Mara"><code>Figurine_Mara</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Moons-Dice">Moons Dice</td>
+<td><a href="#Die_Piecepack"><code>Die_Piecepack</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Mummy">Mummy</td>
+<td><a href="#rpg_MUMMY"><code>rpg_MUMMY</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Ogre">Ogre</td>
+<td><a href="#rpg_OGRE"><code>rpg_OGRE</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Orange-Pawn">Orange Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Orc">Orc</td>
+<td><a href="#rpg_ORC"><code>rpg_ORC</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Pachisi-Board">Pachisi Board</td>
+<td><a href="#Pachisi_board"><code>Pachisi_board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Pawn-Cast-Iron">Pawn Cast Iron</td>
+<td><a href="#Chess_Pawn"><code>Chess_Pawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Pawn-Chrome">Pawn Chrome</td>
+<td><a href="#Chess_Pawn"><code>Chess_Pawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Pawn-Dark-Wood">Pawn Dark Wood</td>
+<td><a href="#Chess_Pawn"><code>Chess_Pawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Pawn-Light-Wood">Pawn Light Wood</td>
+<td><a href="#Chess_Pawn"><code>Chess_Pawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Pink-Ball">Pink Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>5</code>.</td>
+</tr>
+<tr>
+<td id="Pink-Pawn">Pink Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>7</code>.</td>
+</tr>
+<tr>
+<td id="Purple-Pawn">Purple Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>6</code>.</td>
+</tr>
+<tr>
+<td id="Quarter">Quarter</td>
+<td><a href="#Quarter"><code>Quarter</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Queen-Cast-Iron">Queen Cast Iron</td>
+<td><a href="#Chess_Queen"><code>Chess_Queen</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Queen-Chrome">Queen Chrome</td>
+<td><a href="#Chess_Queen"><code>Chess_Queen</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Queen-Dark-Wood">Queen Dark Wood</td>
+<td><a href="#Chess_Queen"><code>Chess_Queen</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Queen-Light-Wood">Queen Light Wood</td>
+<td><a href="#Chess_Queen"><code>Chess_Queen</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Random-Card">Random Card</td>
+<td><a href="#Card"><code>Card</code></a></td>
+<td>Random <code>CardID</code> between <code>0</code> and <code>51</code> (inclusive).</td>
+</tr>
+<tr>
+<td id="Random-Domino">Random Domino</td>
+<td><a href="#Domino"><code>Domino</code></a></td>
+<td>Random <code>MeshIndex</code> between <code>0</code> and <code>27</code> (inclusive).</td>
+</tr>
+<tr>
+<td id="Random-Mahjong">Random Mahjong</td>
+<td><a href="#Mahjong_Tile"><code>Mahjong_Tile</code></a></td>
+<td>Random <code>MeshIndex</code> between <code>0</code> and <code>35</code> (inclusive).</td>
+</tr>
+<tr>
+<td id="Red-100">Red 100</td>
+<td><a href="#Chip_100"><code>Chip_100</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Red-Ball">Red Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Red-Checker">Red Checker</td>
+<td><a href="#Checker_red"><code>Checker_red</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Red-Pawn">Red Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Red-Square">Red Square</td>
+<td><a href="#BlockSquare"><code>BlockSquare</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Reversi-Board">Reversi Board</td>
+<td><a href="#reversi_board"><code>reversi_board</code></a></td>
+<td>Snaps to table level immediately upon spawn.</td>
+</tr>
+<tr>
+<td id="Reversi-Chip">Reversi Chip</td>
+<td><a href="#reversi_chip"><code>reversi_chip</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Rock">Rock</td>
+<td><a href="#Tileset_Rock"><code>Tileset_Rock</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Rook-Cast-Iron">Rook Cast Iron</td>
+<td><a href="#Chess_Rook"><code>Chess_Rook</code></a></td>
+<td><code>MaterialIndex</code> of <code>1</code>.</td>
+</tr>
+<tr>
+<td id="Rook-Chrome">Rook Chrome</td>
+<td><a href="#Chess_Rook"><code>Chess_Rook</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Rook-Dark-Wood">Rook Dark Wood</td>
+<td><a href="#Chess_Rook"><code>Chess_Rook</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Rook-Light-Wood">Rook Light Wood</td>
+<td><a href="#Chess_Rook"><code>Chess_Rook</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Silver-500">Silver 500</td>
+<td><a href="#Chip_500"><code>Chip_500</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Sir-Loin">Sir Loin</td>
+<td><a href="#Figurine_Sir_Loin"><code>Figurine_Sir_Loin</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Skeleton-Knight">Skeleton Knight</td>
+<td><a href="#rpg_SKELETON_KNIGHT"><code>rpg_SKELETON_KNIGHT</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Standard-Deck">Standard Deck</td>
+<td><a href="#Deck"><code>Deck</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Suns-Dice">Suns Dice</td>
+<td><a href="#Die_Piecepack"><code>Die_Piecepack</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Table">Table</td>
+<td><a href="#Tileset_Table"><code>Tileset_Table</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Tree">Tree</td>
+<td><a href="#Tileset_Tree"><code>Tileset_Tree</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Tree-Ent">Tree Ent</td>
+<td><a href="#rpg_TREE_ENT"><code>rpg_TREE_ENT</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Troll">Troll</td>
+<td><a href="#rpg_TROLL"><code>rpg_TROLL</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Vampire">Vampire</td>
+<td><a href="#rpg_VAMPIRE"><code>rpg_VAMPIRE</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Wall">Wall</td>
+<td><a href="#Tileset_Wall"><code>Tileset_Wall</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Werewolf">Werewolf</td>
+<td><a href="#rpg_WEREWOLF"><code>rpg_WEREWOLF</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="White-Backgammon">White Backgammon</td>
+<td><a href="#backgammon_piece_white"><code>backgammon_piece_white</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="White-Ball">White Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="White-Checker">White Checker</td>
+<td><a href="#Checker_white"><code>Checker_white</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="White-Pawn">White Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>0</code>.</td>
+</tr>
+<tr>
+<td id="Wolf">Wolf</td>
+<td><a href="#rpg_WOLF"><code>rpg_WOLF</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Wyvern">Wyvern</td>
+<td><a href="#rpg_WYVERN"><code>rpg_WYVERN</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Yellow-Ball">Yellow Ball</td>
+<td><a href="#Chinese_Checkers_Piece"><code>Chinese_Checkers_Piece</code></a></td>
+<td><code>MaterialIndex</code> of <code>2</code>.</td>
+</tr>
+<tr>
+<td id="Yellow-Pawn">Yellow Pawn</td>
+<td><a href="#PlayerPawn"><code>PlayerPawn</code></a></td>
+<td><code>MaterialIndex</code> of <code>3</code>.</td>
+</tr>
+<tr>
+<td id="Zeke-Kodoku">Zeke Kodoku</td>
+<td><a href="#Figurine_Zeke"><code>Figurine_Zeke</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td id="Zomblor">Zomblor</td>
+<td><a href="#Figurine_Zomblor"><code>Figurine_Zomblor</code></a></td>
+<td><em>(none)</em></td>
+</tr>
+</tbody>
+</table>
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

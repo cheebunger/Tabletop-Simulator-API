@@ -1,0 +1,2168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>UI - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/theme.css">
+    
+      <link rel="stylesheet" href="../css/table.css">
+    
+      <link rel="stylesheet" href="../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#global-and-object" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href=".."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          UI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        UI
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-and-object" class="md-nav__link">
+    Global and Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-variable-summary" class="md-nav__link">
+    Member Variable Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getattribute" class="md-nav__link">
+    getAttribute(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattributes" class="md-nav__link">
+    getAttributes(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcustomassets" class="md-nav__link">
+    getCustomAssets()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalue" class="md-nav__link">
+    getValue(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getxml" class="md-nav__link">
+    getXml()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getxmltable" class="md-nav__link">
+    getXmlTable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide" class="md-nav__link">
+    hide(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattribute" class="md-nav__link">
+    setAttribute(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattributes" class="md-nav__link">
+    setAttributes(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setclass" class="md-nav__link">
+    setClass(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcustomassets" class="md-nav__link">
+    setCustomAssets(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvalue" class="md-nav__link">
+    setValue(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setxml" class="md-nav__link">
+    setXml(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setxmltable" class="md-nav__link">
+    setXmlTable(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show" class="md-nav__link">
+    show(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#global-and-object" class="md-nav__link">
+    Global and Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-variable-summary" class="md-nav__link">
+    Member Variable Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getattribute" class="md-nav__link">
+    getAttribute(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getattributes" class="md-nav__link">
+    getAttributes(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcustomassets" class="md-nav__link">
+    getCustomAssets()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getvalue" class="md-nav__link">
+    getValue(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getxml" class="md-nav__link">
+    getXml()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getxmltable" class="md-nav__link">
+    getXmlTable()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide" class="md-nav__link">
+    hide(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattribute" class="md-nav__link">
+    setAttribute(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setattributes" class="md-nav__link">
+    setAttributes(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setclass" class="md-nav__link">
+    setClass(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcustomassets" class="md-nav__link">
+    setCustomAssets(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setvalue" class="md-nav__link">
+    setValue(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setxml" class="md-nav__link">
+    setXml(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setxmltable" class="md-nav__link">
+    setXmlTable(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show" class="md-nav__link">
+    show(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/ui.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    UI
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>UI, a static global class AND an Object class. It is the method to interact with custom UI elements. It allows you to read/write attributes of elements defined in the XML of the UI. It also allows you to receive information from various inputs (like buttons) on-screen and on objects.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This class allows for the <strong>manipulation</strong> of UI <strong>at runtime</strong>. It does <strong>NOT</strong> modify or fetch <strong>the original XML</strong> in the editor, but rather what is displayed as it continues to run during a game. Just like with Lua, you can only get/set dynamic values during runtime. You can use <a href="../events/#onsave">onSave</a> and <a href="../events/#onload">onLoad</a> to record any data you want to persist through save/load/undo.</p>
+<p>For more information on how to build UI elements within XML, view the <a href="introUI/">UI API</a>.</p>
+</div>
+<h2 id="global-and-object">Global and Object<a class="headerlink" href="#global-and-object" title="Permanent link">&para;</a></h2>
+<p>UI can either be placed on the screen by using the <strong>Global UI</strong> or placed on an Object using <strong>Object UI</strong>. Depending on which you are using, these commands are used differently.</p>
+<div class="codehilite"><pre><span></span><code>Example of calling a function targeted at the Global UI:
+    UI.getAttributes(id)
+Example of calling a function targeted at an Object UI:
+    object.UI.getAttributes(id)
+</code></pre></div>
+
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<p><a href="inputelements/">Input Elements</a> are able to trigger a function. By default, Global UI will trigger a function in Global and Object UI will trigger a function in the Object's script.  To change the target script for an input, <a href="inputelements/#targeting-triggers">view more details here</a>.</p>
+<p>When creating the input element in XML, you will select the name of the function it activates. Regardless of its name, it always will pass parameters</p>
+<div class="admonition info">
+<p class="admonition-title">functionName(player, value, id)</p>
+<ul>
+<li><a href="../types/"><span class="tag pla"></span></a> <strong>player</strong>: A direct Player reference to the person that triggered the input.</li>
+<li><a href="../types/"><span class="tag var"></span></a> <strong>value</strong>: The value sent by the input. A numeric value or a string, generally.<ul>
+<li><span class="critic comment">This is not used by buttons!</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>:<ul>
+<li><span class="critic comment">This is only passed if the element was given an Id attribute in the XML.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="kr">function</span><span class="w"> </span><span class="nf">onButtonClick</span><span class="p">(</span><span class="nv">player</span><span class="p">,</span><span class="w"> </span><span class="nv">value</span><span class="p">,</span><span class="w"> </span><span class="nv">id</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">player</span><span class="p">.</span><span class="py">steam_name</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">id</span><span class="p">)</span>
+<span class="kr">end</span>
+</code></pre></div>
+<hr />
+<h2 id="member-variable-summary">Member Variable Summary<a class="headerlink" href="#member-variable-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="loading">loading</td>
+<td>Indicates whether (the server) has finished loading all UI custom assets.</td>
+<td style="text-align: left;"><a href="../types/"><span class="tag boo"></span></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="function-summary">Function Summary<a class="headerlink" href="#function-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+<th>Return</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getAttribute(<a href="../types/"><span class="tag str"></span></a> id, <a href="../types/"><span class="tag str"></span></a> attribute)</td>
+<td>Obtains the value of a specified attribute of a UI element.</td>
+<td><a href="../types/"><span class="ret var"></span></a></td>
+<td><a href="#getattribute"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getAttributes(<a href="../types/"><span class="tag str"></span></a> id)</td>
+<td>Returns the attributes and their values of a UI element.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getattributes"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getCustomAssets()</td>
+<td>Returns a table/array of <a href="#setcustomassets-custom-assets">custom assets</a>.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getcustomassets"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getValue(<a href="../types/"><span class="tag str"></span></a> id)</td>
+<td>Obtains the value between elements tags, like: <code>&lt;Text&gt;ValueToGet&lt;/Text&gt;</code></td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td><a href="#getvalue"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="getxml" style="position: relative;">getXml()<h6 data-toc-mock-searchable="" id="getxml" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getXml()</h6></td>
+<td>Returns the contents of the current UI formatted as XML.</td>
+<td><a href="../types/"><span class="ret str"></span></a></td>
+<td></td>
+</tr>
+<tr>
+<td>getXmlTable()</td>
+<td>Returns the contents of the current UI formatted as a table.</td>
+<td><a href="../types/"><span class="ret tab"></span></a></td>
+<td><a href="#getxmltable"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>hide(<a href="../types/"><span class="tag str"></span></a> id)</td>
+<td>Hides the given UI element. Unlike the "active" attribute, hide triggers animations.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#hide"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setAttribute(<a href="../types/"><span class="tag str"></span></a> id, <a href="../types/"><span class="tag str"></span></a> attribute, <a href="../types/"><span class="tag var"></span></a> value)</td>
+<td>Sets the value of a specified attribute of a UI element.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setattribute"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setAttributes(<a href="../types/"><span class="tag str"></span></a> id, <a href="../types/"><span class="tag tab"></span></a> data)</td>
+<td>Updates the value of the supplied attributes of a UI element.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setattributes"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setClass(<a href="../types/"><span class="tag str"></span></a> id, <a href="../types/"><span class="tag str"></span></a> names)</td>
+<td>Replaces all classes on a UI element.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setclass"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setCustomAssets(<a href="../types/"><span class="tag tab"></span></a> assets)</td>
+<td>Sets/replaces the custom assets which your UI may make use of.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setcustomassets"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setValue(<a href="../types/"><span class="tag str"></span></a> id, <a href="../types/"><span class="tag str"></span></a> value)</td>
+<td>Updates the value between elements tags, like: <code>&lt;Text&gt;ValueChanged&lt;/Text&gt;</code></td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setvalue"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setXml(<a href="../types/"><span class="tag str"></span></a> xml, <a href="../types/"><span class="tag tab"></span></a> assets)</td>
+<td>Sets/replaces the UI with the contents of the provided XML.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setxml"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setXmlTable(<a href="../types/"><span class="tag tab"></span></a> data, <a href="../types/"><span class="tag tab"></span></a> assets)</td>
+<td>Sets/replaces the UI with the contents of the provided UI table.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#setxmltable"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>show(<a href="../types/"><span class="tag str"></span></a> id)</td>
+<td>Displays the given UI element. Unlike the "active" attribute, show triggers animations.</td>
+<td><a href="../types/"><span class="ret boo"></span></a></td>
+<td><a href="#show"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="function-details">Function Details<a class="headerlink" href="#function-details" title="Permanent link">&para;</a></h2>
+<h3 id="getattribute">getAttribute(...)<a class="headerlink" href="#getattribute" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret var"></span></a> Obtains the value of a specified attribute of a UI element. What it returns will typically be a string or a number.</p>
+<div class="admonition info">
+<p class="admonition-title">getAttribute(id, attribute)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>attribute</strong>: The name of the attribute you wish to get the value of.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">self</span><span class="p">.</span><span class="py">UI</span><span class="p">.</span><span class="nf">getAttribute</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fontSize&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="getattributes">getAttributes(...)<a class="headerlink" href="#getattributes" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns the attributes and their values of a UI element. It only returns the attributes (and values) for elements that have had those attributes set by the user.</p>
+<div class="admonition info">
+<p class="admonition-title">getAttributes(id)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Return table</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A Table with the attributes as keys and their XML value as the key's value.<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>texture</strong>: The name of the image element</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>color</strong>: The hex used for the color element's value.</li>
+</ul>
+</li>
+</ul>
+<p><strong>IMPORTANT</strong>: This return table is an example of one you may get back from using it on a RawImage element type. The attribute keys you get back and their values will depend on the element you use the function on as well as the attributes you, the user, have assigned to it.</p>
+</div>
+<hr />
+<h3 id="getcustomassets">getCustomAssets()<a class="headerlink" href="#getcustomassets" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns a table/array of <a href="#setcustomassets-custom-assets">custom assets</a>.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Log the UI's current custom assets.
+<div class="highlight"><pre><span></span><code><span class="nf">log</span><span class="p">(</span><span class="nv">UI</span><span class="p">.</span><span class="nf">getCustomAssets</span><span class="p">())</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h3 id="getvalue">getValue(...)<a class="headerlink" href="#getvalue" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret str"></span></a> Obtains the value between elements tags, like: <code>&lt;Text&gt;ValueObtained&lt;/Text&gt;</code></p>
+<div class="admonition info">
+<p class="admonition-title">getValue(id)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">UI</span><span class="p">.</span><span class="nf">getValue</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nv">string</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="getxmltable">getXmlTable()<a class="headerlink" href="#getxmltable" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret tab"></span></a> Returns the contents of the current UI formatted as a table.</p>
+<p>Example Returned Table:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;HorizontalLayout&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">            </span><span class="nv">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;rgba(0,0,0,0.7)&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nv">children</span><span class="o">=</span><span class="p">{</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">                    </span><span class="nv">fontSize</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nv">value</span><span class="o">=</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">                    </span><span class="nv">text</span><span class="o">=</span><span class="s2">&quot;Message&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">fontSize</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>What the XML would look like which returns that table:
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;HorizontalLayout</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;200&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;1000&quot;</span><span class="w"> </span><span class="na">color=</span><span class="s">&quot;rgba(0,0,0,0.7)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">fontSize=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">color=</span><span class="s">&quot;red&quot;</span><span class="nt">&gt;</span>Example<span class="nt">&lt;/Text&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Text</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;Message&quot;</span><span class="w"> </span><span class="na">fontSize=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">color=</span><span class="s">&quot;blue&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/HorizontalLayout&gt;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="hide">hide(...)<a class="headerlink" href="#hide" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Hides the given UI element. Unlike the "active" attribute, hide triggers animations.</p>
+<div class="admonition info">
+<p class="admonition-title">hide(id)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">self</span><span class="p">.</span><span class="py">UI</span><span class="p">.</span><span class="nf">hide</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="setattribute">setAttribute(...)<a class="headerlink" href="#setattribute" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Sets the value of a specified attribute of a UI element.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This will override the run-time value from the XML UI for all players, forcing them to see the same value.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">setAttribute(id, attribute, value)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>attribute</strong>: The name of the attribute you want to set the value of.</li>
+<li><a href="../types/"><span class="tag var"></span></a> <strong>value</strong>: The value to set for the attribute.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">self</span><span class="p">.</span><span class="py">UI</span><span class="p">.</span><span class="nf">setAttribute</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fontSize&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="setattributes">setAttributes(...)<a class="headerlink" href="#setattributes" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Updates the value of the supplied attributes of a UI element. You do not need to set every attribute with the data table, an element will continue using any previous values you do not overwrite.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This will override the run-time value from the XML UI for all players, forcing them to see the same value.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">setAttributes(id, data)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>data</strong>: A Table with key/value pairs representing attributes and their values.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Example data table</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>data</strong>: A Table with parameters which guide the function.<ul>
+<li><a href="../types/"><span class="tag flo"></span></a> <strong>data.fontSize</strong>: Attribute's desired value value</li>
+<li><a href="../types/#vector"><span class="tag str"></span></a> <strong>data.color</strong>: Attribute's desired value</li>
+</ul>
+</li>
+</ul>
+<p><strong>IMPORTANT</strong>: This table is an example of one you may use when setting a text UI element. The attribute keys you use and their values will depend on the element you use the function on.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">attributeTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#000000&quot;</span>
+<span class="p">}</span>
+<span class="nv">self</span><span class="p">.</span><span class="py">UI</span><span class="p">.</span><span class="nf">setAttributes</span><span class="p">(</span><span class="s2">&quot;exampleText&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">attributeTable</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="setclass">setClass(...)<a class="headerlink" href="#setclass" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Replaces all classes on a UI element.</p>
+<div class="admonition info">
+<p class="admonition-title">setClass(id, names)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The ID of the UI element that should have its classes replaced.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>names</strong>: Space separated class names.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Replace all classes on the element with ID <code>someElementId</code> with two classes "important" and "large".
+<div class="highlight"><pre><span></span><code><span class="nv">UI</span><span class="p">.</span><span class="nf">setClass</span><span class="p">(</span><span class="s2">&quot;someElementId&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;important large&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h3 id="setcustomassets">setCustomAssets(...)<a class="headerlink" href="#setcustomassets" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Sets/replaces the custom assets which your UI may make use of. Providing an empty table will remove all existing UI Assets.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function will overwrite/replace any currently existing assets in Custom UI Assets, not add to them.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">setCustomAssets(assets)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>assets</strong>: A table/array containing sub-tables which each represent a <a href="#setcustomassets-custom-assets">custom asset</a>.</li>
+</ul>
+</div>
+<h5 id="setcustomassets-custom-assets">Custom Assets<a class="headerlink" href="#setcustomassets-custom-assets" title="Permanent link">&para;</a></h5>
+<p>Custom assets are represented as a table with the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><a href="../types/"><span class="tag str"></span></a></td>
+<td><em>Mandatory</em></td>
+<td>The name you'll use to refer to this asset in your XML UI.</td>
+</tr>
+<tr>
+<td>url</td>
+<td><a href="../types/"><span class="tag str"></span></a></td>
+<td><em>Mandatory</em></td>
+<td>The URL this asset will be loaded from.</td>
+</tr>
+</tbody>
+</table>
+<p>Currently, only images are supported as custom assets.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Add two images which can be used within your XML UI.
+<div class="highlight"><pre><span></span><code><span class="nv">UI</span><span class="p">.</span><span class="nf">setCustomAssets</span><span class="p">({</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Image1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://placehold.it/120x120&amp;text=image1&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Image2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://placehold.it/120x120&amp;text=image2&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">})</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h3 id="setvalue">setValue(...)<a class="headerlink" href="#setvalue" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Updates the value between elements tags, like: <code>&lt;Text&gt;ValueChanged&lt;/Text&gt;</code></p>
+<div class="admonition info">
+<p class="admonition-title">setValue(id, value)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>value</strong>: The value to put between the element tags.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">UI</span><span class="p">.</span><span class="nf">setValue</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;New Text To Display&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="setxml">setXml(...)<a class="headerlink" href="#setxml" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Sets/replaces the UI with the contents of the provided XML.</p>
+<div class="admonition info">
+<p class="admonition-title">setXml(xml, assets)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>xml</strong>: A string containing XML representing the desired UI.</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>assets</strong>: A table/array containing sub-tables which each represent a <a href="#setcustomassets-custom-assets">custom asset</a>.<ul>
+<li><span class="critic comment">Optional. When omitted existing custom assets will not be modified. </span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>UI changes do not take effect immediately. Any attempt to query the contents of the XML will return stale results
+until <a href="#loading">loading</a> returns to <code>false</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Display a single text label with the contents "Test".
+<div class="highlight"><pre><span></span><code><span class="nv">UI</span><span class="p">.</span><span class="nf">setXml</span><span class="p">(</span><span class="s2">&quot;&lt;Text&gt;Test&lt;/Text&gt;&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h3 id="setxmltable">setXmlTable(...)<a class="headerlink" href="#setxmltable" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Sets/replaces the UI with the contents of the provided UI table.</p>
+<div class="admonition info">
+<p class="admonition-title">setXmlTable(data, assets)</p>
+<ul>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>data</strong>: A table containing sub-tables. One sub-table for each element being created.<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>tag</strong>: The element type.</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>attributes</strong>: A table containing attribute names for keys. Available attribute types depend on tag's element type.<ul>
+<li><span class="critic comment">Optional, defaults to not being used.</span></li>
+<li><span class="critic comment">Example key/value pairs: text=&quot;Test&quot;, color=&quot;black&quot;</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>value</strong>: Text that appears <code>&lt;Text&gt;Here&lt;/Text&gt;</code>, between the opening and closing tag.<ul>
+<li><span class="critic comment">Optional, defaults to an empty string.</span></li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>children</strong>: A table containing more sub-tables, formatted as above. This does mean the sub-tables can contain their own children as well, containing sub-sub tables, etc.<ul>
+<li><span class="critic comment">Optional, defaults to not being used.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../types/"><span class="tag tab"></span></a> <strong>assets</strong>: A table/array containing sub-tables which each represent a <a href="#setcustomassets-custom-assets">custom asset</a>.<ul>
+<li><span class="critic comment">Optional. When omitted existing custom assets will not be modified. </span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>UI changes do not take effect immediately. Any attempt to query the contents of the XML will return stale results
+until <a href="#loading">loading</a> returns to <code>false</code>.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Display two text labels within a horizontal layout.
+<div class="highlight"><pre><span></span><code><span class="nv">UI</span><span class="p">.</span><span class="nf">setXmlTable</span><span class="p">({</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;HorizontalLayout&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">            </span><span class="nv">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="w">            </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;rgba(0,0,0,0.7)&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nv">children</span><span class="o">=</span><span class="p">{</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">                    </span><span class="nv">fontSize</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nv">value</span><span class="o">=</span><span class="s2">&quot;Example&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nv">tag</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nv">attributes</span><span class="o">=</span><span class="p">{</span>
+<span class="w">                    </span><span class="nv">text</span><span class="o">=</span><span class="s2">&quot;Message&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">fontSize</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                    </span><span class="nv">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></p>
+</div>
+<hr />
+<h3 id="show">show(...)<a class="headerlink" href="#show" title="Permanent link">&para;</a></h3>
+<p><a href="../types/"><span class="ret boo"></span></a> Shows the given UI element. Unlike the "active" attribute, show triggers animations.</p>
+<div class="admonition info">
+<p class="admonition-title">show(id)</p>
+<ul>
+<li><a href="../types/"><span class="tag str"></span></a> <strong>id</strong>: The Id that was assigned, as an attribute, to the desired XML UI element.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">self</span><span class="p">.</span><span class="py">UI</span><span class="p">.</span><span class="nf">show</span><span class="p">(</span><span class="s2">&quot;testElement&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

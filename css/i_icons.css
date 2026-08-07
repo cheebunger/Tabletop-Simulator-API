@@ -1,0 +1,13 @@
+/* Fixed size for icons in links in the last cell of tables i.e. (i) more info links. */
+
+td:last-child > a > .twemoji {
+    height: 22px;
+    margin: -2px 0 0 0;
+}
+
+td:last-child > a > .twemoji > svg {
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
+}

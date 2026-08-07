@@ -1,0 +1,2314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Attributes - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/theme.css">
+    
+      <link rel="stylesheet" href="../../css/table.css">
+    
+      <link rel="stylesheet" href="../../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#attribute-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Attributes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href="../.."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" >
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../player/colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../player/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../player/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Attributes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Attributes
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-types" class="md-nav__link">
+    Attribute types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-attributes" class="md-nav__link">
+    Common Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-attributes" class="md-nav__link">
+    General Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-attributes" class="md-nav__link">
+    Text Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-attributes" class="md-nav__link">
+    Image Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appearance-attributes" class="md-nav__link">
+    Appearance Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-element-attributes" class="md-nav__link">
+    Layout Element Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionsize-attributes-basic" class="md-nav__link">
+    Position/Size Attributes (Basic)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionsize-attributes-advanced" class="md-nav__link">
+    Position/Size Attributes (Advanced)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dragging-attributes" class="md-nav__link">
+    Dragging Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animation-attributes" class="md-nav__link">
+    Animation Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip-attributes" class="md-nav__link">
+    Tooltip Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-attributes" class="md-nav__link">
+    Event Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-element-attributes" class="md-nav__link">
+    Single Element Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Element Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-attribute" class="md-nav__link">
+    One Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-attributes" class="md-nav__link">
+    Multiple Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#many-attributes" class="md-nav__link">
+    Many Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-types" class="md-nav__link">
+    Attribute types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-attributes" class="md-nav__link">
+    Common Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-attributes" class="md-nav__link">
+    General Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-attributes" class="md-nav__link">
+    Text Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-attributes" class="md-nav__link">
+    Image Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#appearance-attributes" class="md-nav__link">
+    Appearance Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout-element-attributes" class="md-nav__link">
+    Layout Element Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionsize-attributes-basic" class="md-nav__link">
+    Position/Size Attributes (Basic)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positionsize-attributes-advanced" class="md-nav__link">
+    Position/Size Attributes (Advanced)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dragging-attributes" class="md-nav__link">
+    Dragging Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animation-attributes" class="md-nav__link">
+    Animation Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tooltip-attributes" class="md-nav__link">
+    Tooltip Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-attributes" class="md-nav__link">
+    Event Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-element-attributes" class="md-nav__link">
+    Single Element Attributes
+  </a>
+  
+    <nav class="md-nav" aria-label="Single Element Attributes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-attribute" class="md-nav__link">
+    One Attribute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-attributes" class="md-nav__link">
+    Multiple Attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#many-attributes" class="md-nav__link">
+    Many Attributes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/ui/attributes.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+  <h1>
+    Attributes
+    
+  </h1>
+
+
+
+<!-- Markdown content -->
+<p>As mentioned in the <a href="../introUI/">Introduction</a>, attributes are modifiers that can be applied to elements. They can be applied to individual elements or to whole groups of them.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>They consists of two parts, a <strong>tag</strong> and a <strong>value</strong>. <strong><em>The value is always in quotation marks.</em></strong></p>
+</div>
+<h2 id="attribute-types">Attribute types<a class="headerlink" href="#attribute-types" title="Permanent link">&para;</a></h2>
+<p>For XML, most of the attribute types are self-explanatory, like string or float (See Lua Scripting section for details on those). However XML has some unique types.</p>
+<ul>
+<li><span class="tag xmlco"></span><ul>
+<li><strong>HTML 6 Char Hex</strong>: <code>#FFFFFF</code> <span class="critic comment">(white 100% opacity)</span></li>
+<li><strong>8 Char Hex</strong>: <code>#FFFFFFCC</code> <span class="critic comment">(white 80% opacity)</span></li>
+<li><strong>RGB Color</strong>: <code>rgb(1,1,1)</code> <span class="critic comment">(white 100% opacity)</span></li>
+<li><strong>RGBA Color</strong>: <code>rgba(1,1,1,0.8)</code> <span class="critic comment">(white 80% opacity)</span></li>
+<li><strong>Player Color</strong>: <code>White</code> <span class="critic comment">(white 100% opacity)</span></li>
+</ul>
+</li>
+<li><span class="tag xmlcb"></span><ul>
+<li>Color block values are used to specify the colors for elements such as buttons and input fields.</li>
+<li>Format: <strong>(normalColor|highlightedColor|pressedColor|disabledColor)</strong> where each color is formatted as above, e.g. <code>#FFFFFF|White|#C8C8C8|rgba(0.78,0.78,0.78,0.5)</code></li>
+</ul>
+</li>
+<li><span class="tag boo"></span><ul>
+<li><strong>True</strong>: <code>1</code> or <code>true</code></li>
+<li><strong>False</strong>: <code>0</code> or <code>false</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="common-attributes">Common Attributes<a class="headerlink" href="#common-attributes" title="Permanent link">&para;</a></h2>
+<p>Elements all share some common attributes which are not repeated under their separate entries. They can be broker down into category.</p>
+<h3 id="general-attributes">General Attributes<a class="headerlink" href="#general-attributes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>active</td>
+<td>Specifies whether or not this element and its children are visible and contribute to layout. Modifying this via script will not trigger animations.</td>
+<td>bool</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>class</td>
+<td>A list of classes, separated by spaces. An element will inherit attributes from any of its classes defined in <a href="../defaults/">Defaults</a>.</td>
+<td>string</td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>id</td>
+<td>A unique string used to identify the element from Lua scripting.</td>
+<td>string</td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>A pipe-separated list of visibility targets. An element is always treated as inactive to players not specified here.</td>
+<td>string</td>
+<td><em>(visible to all)</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Visibility Targets</p>
+<p>Targets for the <code>visibility</code> attribute are as follows:</p>
+<ul>
+<li>The game host: <code>Host</code></li>
+<li>Any promoted player (including the host): <code>Admin</code></li>
+<li>Every <a href="../../player/colors/">player color</a>: <code>White</code>, <code>Brown</code>, <code>Red</code>, <code>Orange</code>, <code>Yellow</code>, <code>Green</code>, <code>Teal</code>, <code>Blue</code>, <code>Purple</code>, <code>Pink</code>, <code>Grey</code>, and <code>Black</code></li>
+<li>Every <a href="../../player/instance/#team">team</a>: <code>Clubs</code>, <code>Diamonds</code>, <code>Hearts</code>, <code>Spades</code>, <code>Jokers</code>, and <code>None</code></li>
+</ul>
+<p>Not setting the visibility attribute (or setting it to an empty string) does not limit the visibility of the element.</p>
+<p>Multiple targets can be listed by separating them with a pipe (<code>|</code>). In this case if <em>any</em> of the targets applies to a player then the element will be active for that player.</p>
+<p>Example: <code>"Red|Blue|Host"</code> would be visible to the red seat, blue seat, and the host of the server.</p>
+</div>
+<h3 id="text-attributes">Text Attributes<a class="headerlink" href="#text-attributes" title="Permanent link">&para;</a></h3>
+<p>Many, but not all, elements have a text attribute.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>Text to be displayed.</td>
+<td>string</td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>Typographic alignment of the text within its bounding box.</td>
+<td><ul><li>UpperLeft</li><li>UpperCenter</li><li>UpperRight</li><li>MiddleLeft</li><li>MiddleCenter</li><li>MiddleRight</li><li>LowerLeft</li><li>LowerCenter</li><li>LowerRight</li></ul></td>
+<td><code>MiddleCenter</code></td>
+</tr>
+<tr>
+<td>color</td>
+<td>Color of the text. Elements that also take an image <code>color</code> use <code>textColor</code> for this.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>#323232</code></td>
+</tr>
+<tr>
+<td>fontStyle</td>
+<td>Typographic emphasis on the text.</td>
+<td><ul><li>Normal</li><li>Bold</li><li>Italic</li><li>BoldAndItalic</li></ul></td>
+<td><code>Normal</code></td>
+</tr>
+<tr>
+<td>fontSize</td>
+<td>Height of the text in pixels.</td>
+<td>float</td>
+<td><code>14</code></td>
+</tr>
+<tr>
+<td>resizeTextForBestFit</td>
+<td>If set then <code>fontSize</code> is ignored and the text will be sized to be as large as possible while still fitting within its bounding box.</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>resizeTextMinSize</td>
+<td>When <code>resizeTextForBestFit</code> is set, text will not be sized smaller than this.</td>
+<td>float</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td>resizeTextMaxSize</td>
+<td>When <code>resizeTextForBestFit</code> is set, text will not be sized larger than this.</td>
+<td>float</td>
+<td><code>40</code></td>
+</tr>
+<tr>
+<td>horizontalOverflow</td>
+<td>Defines what happens when text extends beyond the left or right edges of its bounding box.</td>
+<td><ul><li>Wrap</li><li>Overflow</li></ul></td>
+<td><code>Overflow</code></td>
+</tr>
+<tr>
+<td>verticalOverflow</td>
+<td>Defines what happens when text extends beyond the top or bottom edges of its bounding box.</td>
+<td><ul><li>Truncate</li><li>Overflow</li></ul></td>
+<td><code>Truncate</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="image-attributes">Image Attributes<a class="headerlink" href="#image-attributes" title="Permanent link">&para;</a></h3>
+<p>Applies to elements with an image component. The string that <code>image</code>s all take is the <strong>NAME THE IMAGE WAS GIVEN WHEN YOU PUT IT IN THE IN-GAME ASSET MANAGER</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>Name of the image in the asset manager.</td>
+<td>string</td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>preserveAspect</td>
+<td>If set, the image will not stretch beyond its original aspect ratio, potentially leaving gaps around the image.</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>color</td>
+<td>Color to tint the image, or a flat color to display if no image is given.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>clear</code> or <code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>Defines how the image is drawn.</td>
+<td><ul><li>Simple</li><li>Sliced</li><li>Filled</li><li>Tiled</li></ul></td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>raycastTarget</td>
+<td>If the element blocks clicks.</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It's also possible to use an image URL directly (as string) in the image field. Note that this will <strong>NOT</strong> cache the image.</p>
+</div>
+<h3 id="appearance-attributes">Appearance Attributes<a class="headerlink" href="#appearance-attributes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shadow</td>
+<td>Defines the shadow color of this element.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>shadowDistance</td>
+<td>Defines the distance of the shadow for this element.</td>
+<td>float(x) float(y)</td>
+<td><code>1 -1</code></td>
+</tr>
+<tr>
+<td>outline</td>
+<td>Defines the outline color of this element.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>outlineSize</td>
+<td>Defines the size of this elements outline.</td>
+<td>float(x) float(y)</td>
+<td><code>1 -1</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="layout-element-attributes">Layout Element Attributes<a class="headerlink" href="#layout-element-attributes" title="Permanent link">&para;</a></h3>
+<p>These will only apply to elements within a layout group.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ignoreLayout</td>
+<td>If this element ignores its parent's layout group behavior and treats it as a regular Panel. (This means it would obey regular position/size attributes.)</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>minWidth</td>
+<td>Elements will not be sized thinner than this.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>minHeight</td>
+<td>Elements will not be sized shorter than this.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>preferredWidth</td>
+<td>If there is space after <code>minWidth</code>s are sized, then element widths are sized according to this.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>preferredHeight</td>
+<td>If there is space after <code>minHeight</code>s are sized, then element heights are sized according to this.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>flexibleWidth</td>
+<td>If there is additional space after <code>preferredWidth</code>s are sized, defines how much the element expands to fill the available horizontal space, relative to other elements.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>flexibleHeight</td>
+<td>If there is additional space after <code>preferredHeights</code>s are sized, defines how much the element expands to fill the available vertical space, relative to other elements.</td>
+<td>float</td>
+<td><em>(varies)</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">On Sizing Elements</p>
+<p>Minimum and preferred sizes are defined in regular units, while the flexible sizes are defined in relative units. If any layout element has flexible size greater than zero, it means that all the available space will be filled out. The relative flexible size values of the siblings determines how big a proportion of the available space each sibling fills out. Most commonly, flexible width and height is set to just 0 or 1.</p>
+</div>
+<h3 id="positionsize-attributes-basic">Position/Size Attributes (Basic)<a class="headerlink" href="#positionsize-attributes-basic" title="Permanent link">&para;</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>These attributes do not apply to elements that are direct children of layout groups. To size those elements see <a href="#layout-element-attributes">Layout Element Attributes</a>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rectAlignment</td>
+<td>The element's anchor and pivot point, relative to its parent element.</td>
+<td><ul><li>UpperLeft</li><li>UpperCenter</li><li>UpperRight</li><li>MiddleLeft</li><li>MiddleCenter</li><li>MiddleRight</li><li>LowerLeft</li><li>LowerCenter</li><li>LowerRight</li></ul></td>
+<td><code>MiddleCenter</code></td>
+</tr>
+<tr>
+<td>width</td>
+<td>The width of this element in pixels or as a percentage of the width of its parent.</td>
+<td>float (fixed width) or a Percentage value</td>
+<td><code>100%</code></td>
+</tr>
+<tr>
+<td>height</td>
+<td>The height of this element in pixels or as a percentage of the height of its parent.</td>
+<td>float (fixed width) or a Percentage value</td>
+<td><code>100%</code></td>
+</tr>
+<tr>
+<td>offsetXY</td>
+<td>An offset to the position of this element, e.g. a value of <code>-32 10</code> will cause this element to be 10 pixels up and 32 pixels to the left of where it would otherwise be.</td>
+<td>float(x) float(y)</td>
+<td><code>0 0</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="positionsize-attributes-advanced">Position/Size Attributes (Advanced)<a class="headerlink" href="#positionsize-attributes-advanced" title="Permanent link">&para;</a></h3>
+<p>These provide deeper access to Unity's <a href="https://docs.unity3d.com/ScriptReference/RectTransform.html">RectTransform</a> properties.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Besides <code>rotation</code> and <code>scale</code>, these attributes do not apply to elements that are direct children of layout groups. To size those elements see <a href="#layout-element-attributes">Layout Element Attributes</a>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anchorMin</td>
+<td>The anchor point for the bottom-left corner of the element, where <code>0 0</code> is its parent's bottom-left corner and <code>1 1</code> is its parent's top-right corner.</td>
+<td>float(x) float(y)</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>anchorMax</td>
+<td>The anchor point for the top-right corner of the element, where <code>0 0</code> is its parent's bottom-left corner and <code>1 1</code> is its parent's top-right corner.</td>
+<td>float(x) float(y)</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>sizeDelta</td>
+<td>An offset to the size of the element, e.g. a value of <code>15 -20</code> will cause this element to be 15 pixels wider and 32 pixels shorter than what it would otherwise be.</td>
+<td>float(x) float(y)</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>pivot</td>
+<td>The pivot point this element is positioned, rotated, and scaled around. <code>0 0</code> is the element's bottom-left corner and <code>1 1</code> is its top-right corner.</td>
+<td>float(x) float(y)</td>
+<td><code>0.5 0.5</code></td>
+</tr>
+<tr>
+<td>position</td>
+<td>An offset to the position of this element in 3D space. Z moves the element in and out.</td>
+<td>float(x) float(y) float(z)</td>
+<td><code>0 0 0</code></td>
+</tr>
+<tr>
+<td>rotation</td>
+<td>Rotates the element in 3D space. X and Y tilt it like a dish, Z turns it like a steering wheel.</td>
+<td>float(x) float(y) float(z)</td>
+<td><code>0 0 0</code></td>
+</tr>
+<tr>
+<td>scale</td>
+<td>Scales the component around its pivot. Note that this does not add more pixel detail, text with small font and other elements may appear pixelated or blurry. Z does not affect the thickness of the element (it is always flat), but does affect the transforms of its children.</td>
+<td>float(x) float(y) float(z)</td>
+<td><code>1 1 1</code></td>
+</tr>
+<tr>
+<td>offsetMin</td>
+<td>An offset in pixels from <code>anchorMin</code> to be used as the bottom-left corner of the element.</td>
+<td>float(x) float(y)</td>
+<td><em>(varies)</em></td>
+</tr>
+<tr>
+<td>offsetMax</td>
+<td>An offset in pixels from <code>anchorMax</code> to be used as the top-right corner of the element.</td>
+<td>float(x) float(y)</td>
+<td><em>(varies)</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Mixing Attributes</p>
+<p>Some <a href="#positionsize-attributes-advanced">Advanced Position/Size Attributes</a> affect the same underlying properties as the <a href="#positionsize-attributes-basic">Basic Position/Size Attributes</a> and other Advanced Position/Size Attributes. Using these overlapping attributes on the same element will cause one attribute to be effectively overwritten, and may result in unexpected behaviour.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Elements in 3D Space</p>
+<p>Moving elements in 3D space can achieve parallax and perspective effects, but elements later in the XML will always be drawn on top of elements earlier in the same XML, and will not occlude as other 3d objects would. To avoid any visual glitches, try to make sure unrelated UI elements can't be seen overlapping when viewed from most angles. Global UI has no perspective and is always 2D.</p>
+</div>
+<h3 id="dragging-attributes">Dragging Attributes<a class="headerlink" href="#dragging-attributes" title="Permanent link">&para;</a></h3>
+<p>Allow users to move elements by clicking/dragging.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is currently no reliable way to read the positions of elements, and dragged positions reset when the UI is reloaded.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allowDragging</td>
+<td>Allows the element to be dragged around. <br><span class="critic comment">Does not work on child elements of layout groups)</span></td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>restrictDraggingToParentBounds</td>
+<td>If set, prevents the element from being dragged outside the bounding box of its parent.</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>returnToOriginalPositionWhenReleased</td>
+<td>If this is set to true, then the element will return to its original position when it is released.</td>
+<td><a href="#attribute-types"><span class="tag boo"></span></a></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="animation-attributes">Animation Attributes<a class="headerlink" href="#animation-attributes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>showAnimation</td>
+<td>Animation to play when <code>show()</code> is called for the element.</td>
+<td><ul><li>None</li><li>Grow</li><li>FadeIn</li><li>SlideIn_Left</li><li>SlideIn_Right</li><li>SlideIn_Top</li><li>SlideIn_Bottom</li></ul></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td>hideAnimation</td>
+<td>Animation to play when <code>hide()</code> is called for the element.</td>
+<td><ul><li>None</li><li>Shrink</li><li>FadeOut</li><li>SlideOut_Left</li><li>SlideOut_Right</li><li>SlideOut_Top</li><li>SlideOut_Bottom</li></ul></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td>showAnimationDelay</td>
+<td>Time in seconds to wait before playing this element's show animation. Useful for staggering the animations of multiple elements.</td>
+<td>float</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>hideAnimationDelay</td>
+<td>Time in seconds to wait before playing this element's hide animation. Useful for staggering the animations of multiple elements.</td>
+<td>float</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>animationDuration</td>
+<td>Time in seconds that show/hide animations take to play.</td>
+<td>float</td>
+<td><code>0.25</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tooltip-attributes">Tooltip Attributes<a class="headerlink" href="#tooltip-attributes" title="Permanent link">&para;</a></h3>
+<p>Allow any element to have a tooltip (text that appears when the element is hovered over by the mouse).</p>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tooltip</td>
+<td>Text to display when the element is hovered over.</td>
+<td>string</td>
+<td><em>(none)</em></td>
+</tr>
+<tr>
+<td>tooltipBorderColor</td>
+<td>Color of the tooltip's border.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td>tooltipBackgroundColor</td>
+<td>Color of the tooltip's background.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>rgba(0,0,0,0.62)</code></td>
+</tr>
+<tr>
+<td>tooltipBorderImage</td>
+<td>Image used for the tooltip's border. See <a href="#image-attributes">Image Attributes</a>.</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>tooltipBackgroundImage</td>
+<td>Image used for the tooltip's background. See <a href="#image-attributes">Image Attributes</a>.</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>tooltipTextColor</td>
+<td>Color of the text within this tooltip.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>#FFFFFF</code></td>
+</tr>
+<tr>
+<td>tooltipFontSize</td>
+<td>Font size of the text within this tooltip.</td>
+<td><a href="#attribute-types"><span class="tag xmlco"></span></a></td>
+<td><code>14</code></td>
+</tr>
+<tr>
+<td>tooltipPosition</td>
+<td>Position of this tooltip in relation to the element.</td>
+<td><ul><li>Above</li><li>Below</li><li>Left</li><li>Right</li></ul></td>
+<td><code>Right</code></td>
+</tr>
+<tr>
+<td>tooltipOffset</td>
+<td>Distance in pixels that this tooltip will appear from the element.</td>
+<td>float</td>
+<td><code>8</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-attributes">Event Attributes<a class="headerlink" href="#event-attributes" title="Permanent link">&para;</a></h3>
+<p>Allows Lua scripting functions to be triggered by an element, through a variety of interactions. All elements have no events by default, listed below is the default value passed as the 2<sup>nd</sup> parameter to the triggered function.</p>
+<p>See the <a href="../inputelements/">Input Elements</a> page for how to interact with Lua scripting.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute&nbsp;Name</th>
+<th>Description</th>
+<th>Type&nbsp;/&nbsp;Options</th>
+<th>Default&nbsp;Argument</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onClick</td>
+<td>Called when the mouse is pressed while over the element and then released while still over it.</td>
+<td>string</td>
+<td>The click button</td>
+</tr>
+<tr>
+<td>onMouseEnter</td>
+<td>Called when the pointer enters the boundary of the element.</td>
+<td>string</td>
+<td><code>"-1"</code></td>
+</tr>
+<tr>
+<td>onMouseExit</td>
+<td>Called when the pointer leaves the boundary of the element.</td>
+<td>string</td>
+<td><code>"-1"</code></td>
+</tr>
+<tr>
+<td>onDrag</td>
+<td>Called every frame if the element is being dragged and has moved that frame.</td>
+<td>string</td>
+<td><code>nil</code></td>
+</tr>
+<tr>
+<td>onBeginDrag</td>
+<td>Called once when the element starts being dragged.</td>
+<td>string</td>
+<td><code>nil</code></td>
+</tr>
+<tr>
+<td>onEndDrag</td>
+<td>Called once when the element stops being dragged and the mouse button is released.</td>
+<td>string</td>
+<td><code>nil</code></td>
+</tr>
+<tr>
+<td>onMouseDown</td>
+<td>Called when the mouse is pressed while over the element.</td>
+<td>string</td>
+<td>The click button</td>
+</tr>
+<tr>
+<td>onMouseUp</td>
+<td>Called when the mouse is released, if it had previously been pressed while over the element (no matter where the cursor currently is).</td>
+<td>string</td>
+<td>The click button</td>
+</tr>
+<tr>
+<td>onSubmit</td>
+<td>Called when the <kbd class="keys"><kbd class="key-enter">Enter</kbd></kbd> key is pressed on an <a href="../inputelements/">Input Element</a>.</td>
+<td>string</td>
+<td>The value of the input element</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>onClick</code>, <code>onMouseDown</code> and <code>onMouseUp</code> all pass the click button. They hold digits, but their data type is <strong>string</strong>. The possible values are:</p>
+<ul>
+<li><code>"-1"</code>: Left mouse button</li>
+<li><code>"-2"</code>: Right mouse button</li>
+<li><code>"-3"</code>: Middle mouse button</li>
+<li><code>"1"</code>: Single touch</li>
+<li><code>"2"</code>: Double touch</li>
+<li><code>"3"</code>: Triple touch</li>
+</ul>
+<p><code>onMouseEnter</code> and <code>onMouseExit</code> also pass click buttons, but the value is always <code>"-1"</code>.</p>
+</div>
+<hr />
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="single-element-attributes">Single Element Attributes<a class="headerlink" href="#single-element-attributes" title="Permanent link">&para;</a></h3>
+<p>This is how you would assign attributes to a single element.</p>
+<h4 id="one-attribute">One Attribute<a class="headerlink" href="#one-attribute" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">onClick=</span><span class="s">&quot;test&quot;</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/Button&gt;</span>
+</code></pre></div>
+<h4 id="multiple-attributes">Multiple Attributes<a class="headerlink" href="#multiple-attributes" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Button</span><span class="w"> </span><span class="na">onClick=</span><span class="s">&quot;test&quot;</span><span class="w"> </span><span class="na">allowDragging=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>Hello<span class="nt">&lt;/Button&gt;</span>
+</code></pre></div>
+<h4 id="many-attributes">Many Attributes<a class="headerlink" href="#many-attributes" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;Button</span>
+<span class="w">    </span><span class="na">height=</span><span class="s">&quot;100&quot;</span>
+<span class="w">    </span><span class="na">width=</span><span class="s">&quot;200&quot;</span>
+<span class="w">    </span><span class="na">color=</span><span class="s">&quot;blue&quot;</span>
+<span class="w">    </span><span class="na">onClick=</span><span class="s">&quot;test&quot;</span>
+<span class="w">    </span><span class="na">allowDragging=</span><span class="s">&quot;true&quot;</span>
+<span class="w">    </span><span class="na">rectAlignment=</span><span class="s">&quot;MiddleRight&quot;</span>
+<span class="w">    </span><span class="na">tooltip=</span><span class="s">&quot;Test Tooltip&quot;</span>
+<span class="w">    </span><span class="na">tooltipPosition=</span><span class="s">&quot;Above&quot;</span>
+<span class="w">    </span><span class="na">fontSize=</span><span class="s">&quot;32&quot;</span>
+<span class="w">    </span><span class="na">textColor=</span><span class="s">&quot;#ff0000&quot;</span>
+<span class="nt">&gt;</span>Hello
+<span class="nt">&lt;/Button&gt;</span>
+</code></pre></div>
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>

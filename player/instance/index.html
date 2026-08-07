@@ -1,0 +1,2493 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/Icon-Dice.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-7.0.7">
+    
+    
+      
+        <title>Instance - Tabletop Simulator API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c772ddf0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/theme.css">
+    
+      <link rel="stylesheet" href="../../css/table.css">
+    
+      <link rel="stylesheet" href="../../css/type_icons.css">
+    
+      <link rel="stylesheet" href="../../css/i_icons.css">
+    
+      <link rel="stylesheet" href="../../css/player_color_table.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#player-instance" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tabletop Simulator API" class="md-header__button md-logo" aria-label="Tabletop Simulator API" data-md-component="logo">
+      
+  <img src="../../img/TSIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tabletop Simulator API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Instance
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to configuration -->
+
+
+
+
+<!-- Main navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href="../.."
+      title="Tabletop Simulator API"
+      class="md-nav__button md-logo"
+      aria-label="Tabletop Simulator API"
+      data-md-component="logo"
+    >
+      
+  <img src="../../img/TSIcon.png" alt="logo">
+
+    </a>
+    Tabletop Simulator API
+  </label>
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cheebunger/Tabletop-Simulator-API" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Source
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Render item list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atom/" class="md-nav__link">
+        Atom
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lua-in-tabletop-simulator/" class="md-nav__link">
+        Lua in Tabletop Simulator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systemconsole/" class="md-nav__link">
+        System Console
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/" class="md-nav__link">
+        Virtual Reality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../externaleditorapi/" class="md-nav__link">
+        External Editor API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.tabletopsimulator.com/news/patch-notes" class="md-nav__link">
+        Patch Notes
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Scripting API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Scripting API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Scripting API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/" class="md-nav__link">
+        Types
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/" class="md-nav__link">
+        Events
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../object/" class="md-nav__link">
+        Object
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      <label class="md-nav__link" for="__nav_2_6">
+        Object Behaviors
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Behaviors" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          Object Behaviors
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/assetbundle/" class="md-nav__link">
+        AssetBundle
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/book/" class="md-nav__link">
+        Book
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/clock/" class="md-nav__link">
+        Clock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/container/" class="md-nav__link">
+        Container
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/counter/" class="md-nav__link">
+        Counter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/layoutzone/" class="md-nav__link">
+        LayoutZone
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/rpgfigurine/" class="md-nav__link">
+        RPGFigurine
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../behavior/texttool/" class="md-nav__link">
+        TextTool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      <label class="md-nav__link" for="__nav_2_7">
+        Object Components
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Object Components" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Object Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/gameobject/" class="md-nav__link">
+        GameObject
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/component/" class="md-nav__link">
+        Component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/material/" class="md-nav__link">
+        Material
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../components/examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backgrounds/" class="md-nav__link">
+        Backgrounds
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../color/" class="md-nav__link">
+        Color
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../grid/" class="md-nav__link">
+        Grid
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hands/" class="md-nav__link">
+        Hands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/" class="md-nav__link">
+        Info
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../json/" class="md-nav__link">
+        JSON
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lighting/" class="md-nav__link">
+        Lighting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../musicplayer/" class="md-nav__link">
+        Music Player
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/" class="md-nav__link">
+        Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../physics/" class="md-nav__link">
+        Physics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_18" type="checkbox" id="__nav_2_18" checked>
+      
+      <label class="md-nav__link" for="__nav_2_18">
+        Player
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Player" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_18">
+          <span class="md-nav__icon md-icon"></span>
+          Player
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colors/" class="md-nav__link">
+        Colors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Instance
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Instance
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#member-variables" class="md-nav__link">
+    Member Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attachcameratoobject" class="md-nav__link">
+    attachCameraToObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast" class="md-nav__link">
+    broadcast(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changecolor" class="md-nav__link">
+    changeColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearselectedobjects" class="md-nav__link">
+    clearSelectedObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawhandstash" class="md-nav__link">
+    drawHandStash(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandcount" class="md-nav__link">
+    getHandCount()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandobjects" class="md-nav__link">
+    getHandObjects(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandtransform" class="md-nav__link">
+    getHandTransform(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getholdingobjects" class="md-nav__link">
+    getHoldingObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethoverobject" class="md-nav__link">
+    getHoverObject()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpointerposition" class="md-nav__link">
+    getPointerPosition()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpointerrotation" class="md-nav__link">
+    getPointerRotation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getselectedobjects" class="md-nav__link">
+    getSelectedObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kick" class="md-nav__link">
+    kick()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat" class="md-nav__link">
+    lookAt(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mute" class="md-nav__link">
+    mute()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paste" class="md-nav__link">
+    paste(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pingtable" class="md-nav__link">
+    pingTable(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    print(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promote" class="md-nav__link">
+    promote()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcameramode" class="md-nav__link">
+    setCameraMode(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethandstashlocation" class="md-nav__link">
+    setHandStashLocation(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethandtransform" class="md-nav__link">
+    setHandTransform(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuitheme" class="md-nav__link">
+    setUITheme(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showcolordialog" class="md-nav__link">
+    showColorDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showconfirmdialog" class="md-nav__link">
+    showConfirmDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showinfodialog" class="md-nav__link">
+    showInfoDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showinputdialog" class="md-nav__link">
+    showInputDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showmemodialog" class="md-nav__link">
+    showMemoDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showoptionsdialog" class="md-nav__link">
+    showOptionsDialog(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_19" type="checkbox" id="__nav_2_19" >
+      
+      <label class="md-nav__link" for="__nav_2_19">
+        Spawnable Objects
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Spawnable Objects" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_19">
+          <span class="md-nav__icon md-icon"></span>
+          Spawnable Objects
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../built-in-object/" class="md-nav__link">
+        Built-in
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-game-objects/" class="md-nav__link">
+        Custom
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tables/" class="md-nav__link">
+        Tables
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../time/" class="md-nav__link">
+        Time
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../timer/" class="md-nav__link">
+        Timer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../turns/" class="md-nav__link">
+        Turns
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/" class="md-nav__link">
+        UI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vector/" class="md-nav__link">
+        Vector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wait/" class="md-nav__link">
+        Wait
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_27" type="checkbox" id="__nav_2_27" >
+      
+      <label class="md-nav__link" for="__nav_2_27">
+        Web Request
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Request" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_27">
+          <span class="md-nav__icon md-icon"></span>
+          Web Request
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webrequest/instance/" class="md-nav__link">
+        Instance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webrequest/manager/" class="md-nav__link">
+        Manager
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        UI API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="UI API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          UI API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/introUI/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/attributes/" class="md-nav__link">
+        Attributes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/basicelements/" class="md-nav__link">
+        Basic Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/inputelements/" class="md-nav__link">
+        Input Elements
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/layoutgrouping/" class="md-nav__link">
+        Layout/Grouping
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/defaults/" class="md-nav__link">
+        Defaults
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+
+  <!-- Link to Knowledge Base -->
+  <hr class="custom-line">
+  <a href="https://kb.bunger.top/" class="custom-link">Go To Knowledge Base &#8617</a>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#member-variables" class="md-nav__link">
+    Member Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-summary" class="md-nav__link">
+    Function Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#function-details" class="md-nav__link">
+    Function Details
+  </a>
+  
+    <nav class="md-nav" aria-label="Function Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attachcameratoobject" class="md-nav__link">
+    attachCameraToObject(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#broadcast" class="md-nav__link">
+    broadcast(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changecolor" class="md-nav__link">
+    changeColor(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clearselectedobjects" class="md-nav__link">
+    clearSelectedObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drawhandstash" class="md-nav__link">
+    drawHandStash(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandcount" class="md-nav__link">
+    getHandCount()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandobjects" class="md-nav__link">
+    getHandObjects(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethandtransform" class="md-nav__link">
+    getHandTransform(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getholdingobjects" class="md-nav__link">
+    getHoldingObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gethoverobject" class="md-nav__link">
+    getHoverObject()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpointerposition" class="md-nav__link">
+    getPointerPosition()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getpointerrotation" class="md-nav__link">
+    getPointerRotation()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getselectedobjects" class="md-nav__link">
+    getSelectedObjects()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kick" class="md-nav__link">
+    kick()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat" class="md-nav__link">
+    lookAt(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mute" class="md-nav__link">
+    mute()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paste" class="md-nav__link">
+    paste(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pingtable" class="md-nav__link">
+    pingTable(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    print(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promote" class="md-nav__link">
+    promote()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcameramode" class="md-nav__link">
+    setCameraMode(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethandstashlocation" class="md-nav__link">
+    setHandStashLocation(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sethandtransform" class="md-nav__link">
+    setHandTransform(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setuitheme" class="md-nav__link">
+    setUITheme(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showcolordialog" class="md-nav__link">
+    showColorDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showconfirmdialog" class="md-nav__link">
+    showConfirmDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showinfodialog" class="md-nav__link">
+    showInfoDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showinputdialog" class="md-nav__link">
+    showInputDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showmemodialog" class="md-nav__link">
+    showMemoDialog(...)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showoptionsdialog" class="md-nav__link">
+    showOptionsDialog(...)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+  <a
+    href="https://github.com/cheebunger/Tabletop-Simulator-API/edit/master/docs/player/instance.md"
+    title="Edit this page"
+    class="md-content__button md-icon"
+  >
+  </a>
+
+
+<!--
+  Hack: check whether the content contains a h1 headline. If it
+  doesn't, the page title (or respectively site name) is used
+  as the main headline.
+-->
+
+
+<!-- Markdown content -->
+<h1 id="player-instance">Player Instance<a class="headerlink" href="#player-instance" title="Permanent link">&para;</a></h1>
+<p>Player instances can be retrieved from the <a href="../manager/">Player Manager</a> and are also frequently passed to callbacks.</p>
+<h2 id="member-variables">Member Variables<a class="headerlink" href="#member-variables" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td id="admin">admin</td>
+<td><a href="../../types/"><span class="tag boo"></span></a></td>
+<td>If the player is promoted or the host of the game. Read only.</td>
+</tr>
+<tr>
+<td id="blindfolded">blindfolded</td>
+<td><a href="../../types/"><span class="tag boo"></span></a></td>
+<td>If the player is blindfolded.</td>
+</tr>
+<tr>
+<td id="color">color</td>
+<td><a href="../../types/"><span class="tag str"></span></a></td>
+<td>The player's <a href="../colors/">Player Color</a>. Read only.</td>
+</tr>
+<tr>
+<td id="host">host</td>
+<td><a href="../../types/"><span class="tag boo"></span></a></td>
+<td>If the player is the host. Read only.</td>
+</tr>
+<tr>
+<td id="lift_height">lift_height</td>
+<td><a href="../../types/"><span class="tag flo"></span></a></td>
+<td>The lift height for the player. This is how far an object is raised when held in a player's hand. Value is ranged 0 to 1.</td>
+</tr>
+<tr>
+<td id="promoted">promoted</td>
+<td><a href="../../types/"><span class="tag boo"></span></a></td>
+<td>If the current player is promoted.</td>
+</tr>
+<tr>
+<td id="seated">seated</td>
+<td><a href="../../types/"><span class="tag boo"></span></a></td>
+<td>If a player is currently seated at this color. Read only.</td>
+</tr>
+<tr>
+<td id="steam_id">steam_id</td>
+<td><a href="../../types/"><span class="tag str"></span></a></td>
+<td>The Steam ID of the player. This is unique to each player's Steam account. Read only.</td>
+</tr>
+<tr>
+<td id="steam_name">steam_name</td>
+<td><a href="../../types/"><span class="tag str"></span></a></td>
+<td>The Steam name of the player. Read only.</td>
+</tr>
+<tr>
+<td id="team">team</td>
+<td><a href="../../types/"><span class="tag str"></span></a></td>
+<td>The team of the player.<br>Options: <code>"None", "Clubs", "Diamonds", "Hearts", "Spades", "Jokers"</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="function-summary">Function Summary<a class="headerlink" href="#function-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Return</th>
+<th>Description</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attachCameraToObject(<a href="../../types/"><span class="tag tab"></span></a> parameters)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Makes a Player's camera follow an Object.</td>
+<td><a href="#attachcameratoobject"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>broadcast(<a href="../../types/"><span class="tag str"></span></a> message, <a href="../../types/"><span class="tag col"></span></a> message_color)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Print message on Player's screen and their game chat log.</td>
+<td><a href="#broadcast"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>changeColor(<a href="../../types/"><span class="tag str"></span></a> player_color)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Changes player to this <a href="../colors/">Player Color</a>.</td>
+<td><a href="#changecolor"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="clearselectedobjects" style="position: relative;">clearSelectedObjects()<h6 data-toc-mock-searchable="" id="clearselectedobjects" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">clearSelectedObjects()</h6></td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Clears a player's current selection.</td>
+<td></td>
+</tr>
+<tr>
+<td>copy(<a href="../../types/"><span class="tag tab"></span></a> objects)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Makes the Player take the Copy action with the specified Objects.</td>
+<td><a href="#copy"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>drawHandStash()</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Draws all the cards in the players hand stash into their hand.</td>
+<td><a href="#drawhandstash"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="gethandcount" style="position: relative;">getHandCount()<h6 data-toc-mock-searchable="" id="gethandcount" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getHandCount()</h6></td>
+<td><a href="../../types/"><span class="ret int"></span></a></td>
+<td>Number of <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zones</a> owned by this color.</td>
+<td></td>
+</tr>
+<tr>
+<td>getHandObjects(<a href="../../types/"><span class="tag int"></span></a> hand_index)</td>
+<td><a href="../../types/"><span class="ret tab"></span></a></td>
+<td>Objects that are in this <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zone</a>.</td>
+<td><a href="#gethandobjects"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>getHandTransform(<a href="../../types/"><span class="tag int"></span></a> hand_index)</td>
+<td><a href="../../types/"><span class="ret tab"></span></a></td>
+<td>Returns a Table of data on this <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zone</a>.</td>
+<td><a href="#gethandtransform"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="getholdingobjects" style="position: relative;">getHoldingObjects()<h6 data-toc-mock-searchable="" id="getholdingobjects" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getHoldingObjects()</h6></td>
+<td><a href="../../types/"><span class="ret tab"></span></a></td>
+<td>Objects a Player is holding in their hand.</td>
+<td></td>
+</tr>
+<tr>
+<td id="gethoverobject" style="position: relative;">getHoverObject()<h6 data-toc-mock-searchable="" id="gethoverobject" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getHoverObject()</h6></td>
+<td><a href="../../types/"><span class="ret obj"></span></a></td>
+<td>Object that the Player's pointer is hovering over.</td>
+<td></td>
+</tr>
+<tr>
+<td id="getpointerposition" style="position: relative;">getPointerPosition()<h6 data-toc-mock-searchable="" id="getpointerposition" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getPointerPosition()</h6></td>
+<td><a href="../../types/#vector"><span class="ret vec"></span></a></td>
+<td>Player's pointer coordinates.</td>
+<td></td>
+</tr>
+<tr>
+<td id="getpointerrotation" style="position: relative;">getPointerRotation()<h6 data-toc-mock-searchable="" id="getpointerrotation" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getPointerRotation()</h6></td>
+<td><a href="../../types/"><span class="ret flo"></span></a></td>
+<td>Player's pointer rotation on Y axis.</td>
+<td></td>
+</tr>
+<tr>
+<td id="getselectedobjects" style="position: relative;">getSelectedObjects()<h6 data-toc-mock-searchable="" id="getselectedobjects" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">getSelectedObjects()</h6></td>
+<td><a href="../../types/"><span class="ret tab"></span></a></td>
+<td>Objects that the Player has selected with an area selection.</td>
+<td></td>
+</tr>
+<tr>
+<td id="kick" style="position: relative;">kick()<h6 data-toc-mock-searchable="" id="kick" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">kick()</h6></td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Kicks Player out of the room.</td>
+<td></td>
+</tr>
+<tr>
+<td>lookAt(<a href="../../types/"><span class="tag tab"></span></a> parameters)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Moves a Player's camera, forcing 3'rd person camera mode.</td>
+<td><a href="#lookat"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="mute" style="position: relative;">mute()<h6 data-toc-mock-searchable="" id="mute" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">mute()</h6></td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Mutes or unmutes Player, preventing/allowing voice chat.</td>
+<td></td>
+</tr>
+<tr>
+<td>paste(<a href="../../types/"><span class="tag vec"></span></a> position)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Makes the Player take the Paste action at the specified position</td>
+<td><a href="#paste"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="pingtable" style="position: relative;">pingTable(<h6 data-toc-mock-searchable="" id="pingtable" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">pingTable(...)</h6><a href="../../types/#vector"><span class="tag vec"></span></a> position)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Emulates the player using the ping tool at the given position (tapping Tab).</td>
+<td></td>
+</tr>
+<tr>
+<td>print(<a href="../../types/"><span class="tag str"></span></a> message, <a href="../../types/#color"><span class="tag col"></span></a> message_color)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Prints a message into the Player's game chat.</td>
+<td><a href="#print"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td id="promote" style="position: relative;">promote()<h6 data-toc-mock-searchable="" id="promote" style="position: absolute; top: 0; display: block; height: 0; overflow: hidden">promote()</h6></td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Promotes/demotes a Player. Promoted players have access to most host privileges.</td>
+<td></td>
+</tr>
+<tr>
+<td>setCameraMode(<a href="../../types/"><span class="tag str"></span></a> camera_mode)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Sets the player's camera mode. Camera modes available: "ThirdPerson", "FirstPerson", "TopDown".</td>
+<td><a href="#setcameramode"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setHandStashLocation(<a href="../../types/#vector"><span class="tag vec"></span></a> position, <a href="../../types/"><span class="tag int"></span></a> rotation)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Sets the location of the hand stash within the players primary hand.</td>
+<td><a href="#sethandstashlocation"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setHandTransform(<a href="../../types/"><span class="tag tab"></span></a> parameters, <a href="../../types/"><span class="tag int"></span></a> hand_index)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Sets transform elements of a hand zone.</td>
+<td><a href="#sethandtransform"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>setUITheme(<a href="../../types/"><span class="tag str"></span></a> theme)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Sets the UI theme for the player.</td>
+<td><a href="#setuitheme"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showInfoDialog(<a href="../../types/"><span class="tag str"></span></a> info)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Displays <code>info</code> string to player in the message box dialog.</td>
+<td><a href="#showinfodialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showConfirmDialog(<a href="../../types/"><span class="tag str"></span></a> info, <a href="../../types/"><span class="tag fun"></span></a> callback)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Displays <code>info</code> string to player in the message box dialog, and executes <code>callback</code> if they click <code>OK</code>.</td>
+<td><a href="#showconfirmdialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showInputDialog(<a href="../../types/"><span class="tag str"></span></a> description, <a href="../../types/"><span class="tag str"></span></a> default_text, <a href="../../types/"><span class="tag fun"></span></a> callback)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Shows the text input dialog to the player, and executes <code>callback</code> if they click <code>OK</code>.</td>
+<td><a href="#showinputdialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showMemoDialog(<a href="../../types/"><span class="tag str"></span></a> description, <a href="../../types/"><span class="tag str"></span></a> default_text, <a href="../../types/"><span class="tag fun"></span></a> callback)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Shows the memo input dialog (large text input) to the player, and executes <code>callback</code> if they click <code>OK</code>.</td>
+<td><a href="#showmemodialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showOptionsDialog(<a href="../../types/"><span class="tag str"></span></a> description, <a href="../../types/"><span class="tag tab"></span></a> options, <a href="../../types/"><span class="tag int"></span></a> default_value, <a href="../../types/"><span class="tag fun"></span></a> callback)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Shows the dropdown options dialog to the player, and executes <code>callback</code> if they click <code>OK</code>.</td>
+<td><a href="#showoptionsdialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+<tr>
+<td>showColorDialog(<a href="../../types/"><span class="tag col"></span></a> default_color, <a href="../../types/"><span class="tag fun"></span></a> callback)</td>
+<td><a href="../../types/"><span class="ret boo"></span></a></td>
+<td>Shows the color picker dialog to the player with optional <code>default_color</code>, and executes <code>callback</code> if they click <code>OK</code>.</td>
+<td><a href="#showcolordialog"><span class="twemoji"><?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="mdi-information-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"/></svg></span></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="function-details">Function Details<a class="headerlink" href="#function-details" title="Permanent link">&para;</a></h2>
+<h3 id="attachcameratoobject">attachCameraToObject(...)<a class="headerlink" href="#attachcameratoobject" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Makes a Player's camera follow an Object.</p>
+<div class="admonition info">
+<p class="admonition-title">attachCameraToObject(parameters)</p>
+<ul>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A Table with parameters which guide the function.<ul>
+<li><a href="../../types/"><span class="tag obj"></span></a> <strong>parameters.object</strong>: The Object to attach the camera to.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>parameters.offset</strong>: A Vector to offset the camera by.<ul>
+<li><span class="critic comment">Optional, defaults to {x=0, y=0, z=0}.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">self</span><span class="p">.</span><span class="nf">attachCameraToObject</span><span class="p">({</span><span class="nv">object</span><span class="o">=</span><span class="nv">self</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h3 id="broadcast">broadcast(...)<a class="headerlink" href="#broadcast" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Print message on Player's screen and their game chat log.</p>
+<div class="admonition info">
+<p class="admonition-title">broadcast(message, message_color)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>message</strong>: The message to be displayed.</li>
+<li><a href="../../types/#color"><span class="tag col"></span></a> <strong>message_color</strong>: Tint of the message text.<ul>
+<li><span class="critic comment">Optional, defaults to {r=1, g=1, b=1}.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h3 id="changecolor">changeColor(...)<a class="headerlink" href="#changecolor" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Changes player to this <a href="../colors/">Player Color</a> (seat).</p>
+<div class="admonition info">
+<p class="admonition-title">changeColor(player_color)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>player_color</strong>: The <a href="../colors/">Player Color</a> seat to move the Player to.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">[</span><span class="s2">&quot;White&quot;</span><span class="p">].</span><span class="nf">changeColor</span><span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="copy">copy(...)<a class="headerlink" href="#copy" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Makes the Player take the Copy action with the specified Objects.</p>
+<div class="admonition info">
+<p class="admonition-title">copy(objects)</p>
+<ul>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>objects</strong>: A Table of Objects.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">.</span><span class="py">Green</span><span class="p">.</span><span class="nf">copy</span><span class="p">({</span><span class="nv">the_dice</span><span class="p">,</span><span class="w"> </span><span class="nv">the_deck</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h3 id="drawhandstash">drawHandStash(...)<a class="headerlink" href="#drawhandstash" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Draws all cards in the player's hand stash into their hand.</p>
+<p>See <a href="../../wait/#collect">Wait.collect</a> for an example of using the hand stash.</p>
+<hr />
+<h3 id="gethandobjects">getHandObjects(...)<a class="headerlink" href="#gethandobjects" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret tab"></span></a> Returns a Table of Objects that are in this <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zone</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">getHandObjects(hand_index)</p>
+<ul>
+<li><a href="../../types/"><span class="tag int"></span></a> <strong>hand_index</strong>: An index, representing which hand zone to return Objects for.<ul>
+<li><span class="critic comment">Optional, defaults to 1.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Indexing</p>
+<p>Hand indexes start at 1 and are numbered in the order of their creation. Each Player color has its own indexes.</p>
+</div>
+<hr />
+<h3 id="gethandtransform">getHandTransform(...)<a class="headerlink" href="#gethandtransform" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret tab"></span></a> Returns a Table of data on this <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zone</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">getHandTransform(hand_index)</p>
+<ul>
+<li><a href="../../types/"><span class="tag int"></span></a> <strong>hand_index</strong>: An index, representing which hand zone to return data on.<ul>
+<li><span class="critic comment">Optional, defaults to 1.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Return Data Table</p>
+<ul>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>data</strong>: The Table the data is returned in.<ul>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.position</strong>: Position of the hand zone.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.rotation</strong>: Rotation of the hand zone.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.scale</strong>: Scale of the hand zone.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.forward</strong>: Forward direction of the hand zone.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.right</strong>: Right direction of the hand zone.</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>data.up</strong>: Up direction of the hand zone.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Indexing</p>
+<p>Hand indexes start at 1 and are numbered in the order of their creation. Each Player color has its own indexes.</p>
+</div>
+<hr />
+<h3 id="lookat">lookAt(...)<a class="headerlink" href="#lookat" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Moves a Player's camera, forcing 3'rd person camera mode.</p>
+<div class="admonition info">
+<p class="admonition-title">lookAt(parameters)</p>
+<ul>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: A Table of controlling parameters to point the player camera.<ul>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>parameters.position</strong>: Position to center the camera on.</li>
+<li><a href="../../types/"><span class="tag flo"></span></a> <strong>parameters.pitch</strong>: Pitch angle of the camera. 0 to 90.<ul>
+<li><span class="critic comment">Optional, defaults to 0.</span></li>
+</ul>
+</li>
+<li><a href="../../types/"><span class="tag flo"></span></a> <strong>parameters.yaw</strong>: Yaw angle of the camera. 0 to 360.<ul>
+<li><span class="critic comment">Optional, defaults to 0.</span></li>
+</ul>
+</li>
+<li><a href="../../types/"><span class="tag flo"></span></a> <strong>parameters.distance</strong>: Distance the camera is from the position Vector.<ul>
+<li><span class="critic comment">Optional, defaults to 40.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Assuming someone is in the White seat</span>
+<span class="nv">Player</span><span class="p">[</span><span class="s2">&quot;White&quot;</span><span class="p">].</span><span class="nf">lookAt</span><span class="p">({</span>
+<span class="w">    </span><span class="nv">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nv">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nv">z</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="nv">pitch</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">yaw</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre></div>
+<hr />
+<h3 id="paste">paste(...)<a class="headerlink" href="#paste" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Makes the Player take the Paste action at the specified position.</p>
+<div class="admonition info">
+<p class="admonition-title">paste(position)</p>
+<ul>
+<li><a href="../../types/"><span class="tag vec"></span></a> <strong>position</strong>: The position to paste at.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">.</span><span class="py">Green</span><span class="p">.</span><span class="nf">paste</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h3 id="print">print(...)<a class="headerlink" href="#print" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Prints a message into the Player's game chat.</p>
+<div class="admonition info">
+<p class="admonition-title">print(message, message_color)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>message</strong>: The text to be displayed.</li>
+<li><a href="../../types/#color"><span class="tag col"></span></a> <strong>message_color</strong>: Color for the message text to be tinted.<ul>
+<li><span class="critic comment">Optional, defaults to {r=1, g=1, b=1}.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h3 id="setcameramode">setCameraMode(...)<a class="headerlink" href="#setcameramode" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Sets the player's camera mode. Camera modes available: "ThirdPerson", "FirstPerson", "TopDown".</p>
+<div class="admonition info">
+<p class="admonition-title">changeColor(camera_mode)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>camera_mode</strong>: The Camera Mode to set the Player's Camera to.</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">[</span><span class="s2">&quot;White&quot;</span><span class="p">].</span><span class="nf">setCameraMode</span><span class="p">(</span><span class="s2">&quot;FirstPerson&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="sethandstashlocation">setHandStashLocation(...)<a class="headerlink" href="#sethandstashlocation" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Sets the location of the player's hand stash inside their primary hand zone.</p>
+<div class="admonition info">
+<p class="admonition-title">setHandStashLocation(position, rotation)</p>
+<ul>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>position</strong>: The position of the stash inside the hand zone.  Each ordinal is in the range (<strong>-1.0</strong>..<strong>+1.0</strong>).</li>
+<li><a href="../../types/"><span class="tag int"></span></a> <strong>rotation_index</strong>: The rotation index of the hand stash.</li>
+</ul>
+</div>
+<hr />
+<h3 id="sethandtransform">setHandTransform(...)<a class="headerlink" href="#sethandtransform" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Sets transform elements of a <a href="https://kb.tabletopsimulator.com/host-guides/player-hands/">hand zone</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">setHandTransform(parameters, hand_index)</p>
+<ul>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>parameters</strong>: The Table of data to transform the hand zone with.<ul>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>parameters.position</strong>: Position of the hand zone.<ul>
+<li><span class="critic comment">Optional, defaults to {x=0, y=0, z=0}.</span></li>
+</ul>
+</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>parameters.rotation</strong>: Rotation of the hand zone.<ul>
+<li><span class="critic comment">Optional, defaults to {x=0, y=0, z=0}.</span></li>
+</ul>
+</li>
+<li><a href="../../types/#vector"><span class="tag vec"></span></a> <strong>parameters.scale</strong>: Scale of the hand zone.<ul>
+<li><span class="critic comment">Optional, defaults to {x=0, y=0, z=0}.</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../../types/"><span class="tag int"></span></a> <strong>hand_index</strong>: Index, representing which hand zone to modify.<ul>
+<li><span class="critic comment">Optional, defaults to 1.</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Indexing</p>
+<p>Hand indexes start at 1 and are numbered in the order of their creation. Each Player color has its own indexes.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Example of moving/rotating/scaling hand zone</span>
+<span class="nv">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="nv">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="nv">scale</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nv">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">z</span><span class="o">=</span><span class="mi">2</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="nv">Player</span><span class="p">[</span><span class="s2">&quot;White&quot;</span><span class="p">].</span><span class="nf">setHandTransform</span><span class="p">(</span><span class="nv">params</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="setuitheme">setUITheme(...)<a class="headerlink" href="#setuitheme" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Sets the UI theme for the player.</p>
+<div class="admonition info">
+<p class="admonition-title">setUITheme(theme)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>theme</strong>: A string representing a theme.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Theme Format</p>
+<p>You can view the expected theme format by in-game going to Menu -&gt; Configuration -&gt; Interface -&gt; Theme. Select a
+theme then press "Import/Export".</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Set the White player's default button background to pink.
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">.</span><span class="py">white</span><span class="p">.</span><span class="nf">setUITheme</span><span class="p">(</span><span class="s2">&quot;button_normal #FFC0C0&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<h3 id="showinfodialog">showInfoDialog(...)<a class="headerlink" href="#showinfodialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the info dialog to the player.</p>
+<div class="admonition info">
+<p class="admonition-title">showInfoDialog(info)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>info</strong>: Information to display.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">Player</span><span class="p">.</span><span class="py">white</span><span class="p">.</span><span class="nf">showInfoDialog</span><span class="p">(</span><span class="s2">&quot;Only active players may floop!&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="showconfirmdialog">showConfirmDialog(...)<a class="headerlink" href="#showconfirmdialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the confirm dialog to the player and executes the callback if they click OK.</p>
+<div class="admonition info">
+<p class="admonition-title">showConfirmDialog(info, callback)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>info</strong>: Information to display.</li>
+<li><a href="../../types/"><span class="tag fun"></span></a> <strong>callback</strong>: Callback to execute if they click OK.  Will be called as <code>callback(player_color)</code></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">chosen_player</span><span class="p">.</span><span class="nf">showConfirmDialog</span><span class="p">(</span><span class="s2">&quot;Really roll the dice?&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">player_color</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">dice</span><span class="p">.</span><span class="nf">roll</span><span class="p">()</span>
+<span class="w">        </span><span class="nf">log</span><span class="p">(</span><span class="nv">player_color</span><span class="w"> </span><span class="o">..</span><span class="w"> </span><span class="s2">&quot; rolled the dice.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="showinputdialog">showInputDialog(...)<a class="headerlink" href="#showinputdialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the text input dialog to the player and executes the callback if they click OK.</p>
+<div class="admonition info">
+<p class="admonition-title">showInputDialog(description, default_text, callback)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>description</strong>: Optional description of what the player should input.</li>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>default_text</strong>: Optional default value.</li>
+<li><a href="../../types/"><span class="tag fun"></span></a> <strong>callback</strong>: Callback to execute if they click OK.  Will be called as <code>callback(text, player_color)</code></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">chosen_player</span><span class="p">.</span><span class="nf">showInputDialog</span><span class="p">(</span><span class="s2">&quot;Set Name&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">text</span><span class="p">,</span><span class="w"> </span><span class="nv">player_color</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">chosen_object</span><span class="p">.</span><span class="nf">setName</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="showmemodialog">showMemoDialog(...)<a class="headerlink" href="#showmemodialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the memo input dialog (large text input) to the player and executes the callback if they click OK.</p>
+<div class="admonition info">
+<p class="admonition-title">showMemoDialog(description, default_text, callback)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>description</strong>: Optional description of what the player should input.</li>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>default_text</strong>: Optional default value.</li>
+<li><a href="../../types/"><span class="tag fun"></span></a> <strong>callback</strong>: Callback to execute if they click OK.  Will be called as <code>callback(text, player_color)</code></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">chosen_player</span><span class="p">.</span><span class="nf">showMemoDialog</span><span class="p">(</span><span class="s2">&quot;Set Description&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">text</span><span class="p">,</span><span class="w"> </span><span class="nv">player_color</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">chosen_object</span><span class="p">.</span><span class="nf">setDescription</span><span class="p">(</span><span class="nv">text</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="showoptionsdialog">showOptionsDialog(...)<a class="headerlink" href="#showoptionsdialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the options dropdown dialog to the player and executes the callback if they click OK.</p>
+<div class="admonition info">
+<p class="admonition-title">showOptionsDialog(description, options, default_value, callback)</p>
+<ul>
+<li><a href="../../types/"><span class="tag str"></span></a> <strong>description</strong>: Description of what the player is choosing.</li>
+<li><a href="../../types/"><span class="tag tab"></span></a> <strong>options</strong>: Table of string options.</li>
+<li><a href="../../types/"><span class="tag int"></span></a> <strong>default_value</strong>: Optional default value, an integer index into the options table.  Note you may alternatively use the option string itself.</li>
+<li><a href="../../types/"><span class="tag fun"></span></a> <strong>callback</strong>: Callback to execute if they click OK.  Will be called as <code>callback(selected_text, selected_index, player_color)</code></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">chosen_player</span><span class="p">.</span><span class="nf">showOptionsDialog</span><span class="p">(</span><span class="s2">&quot;Choose Value&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">},</span><span class="w"> </span><span class="nv">dice</span><span class="p">.</span><span class="nf">getValue</span><span class="p">(),</span>
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">text</span><span class="p">,</span><span class="w"> </span><span class="nv">index</span><span class="p">,</span><span class="w"> </span><span class="nv">player_color</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">dice</span><span class="p">.</span><span class="nf">setValue</span><span class="p">(</span><span class="nv">index</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="showcolordialog">showColorDialog(...)<a class="headerlink" href="#showcolordialog" title="Permanent link">&para;</a></h3>
+<p><a href="../../types/"><span class="ret boo"></span></a> Shows the color picker dialog to the player and executes the callback if they click OK.</p>
+<div class="admonition info">
+<p class="admonition-title">showColorDialog(default_color, callback)</p>
+<ul>
+<li><a href="../../types/"><span class="tag colt"></span></a> <strong>default_color</strong>: Optional default color.</li>
+<li><a href="../../types/"><span class="tag fun"></span></a> <strong>callback</strong>: Callback to execute if they click Apply.  Will be called as <code>callback(color, player_color)</code></li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="nv">chosen_player</span><span class="p">.</span><span class="nf">showColorDialog</span><span class="p">(</span><span class="nv">dice</span><span class="p">.</span><span class="nf">getColorTint</span><span class="p">(),</span>
+<span class="w">    </span><span class="kr">function</span><span class="w"> </span><span class="p">(</span><span class="nv">color</span><span class="p">,</span><span class="w"> </span><span class="nv">player_color</span><span class="p">)</span>
+<span class="w">        </span><span class="nv">dice</span><span class="p">.</span><span class="nf">setColorTint</span><span class="p">(</span><span class="nv">color</span><span class="p">)</span>
+<span class="w">    </span><span class="kr">end</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+
+<!-- Last update of source file -->
+
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+        <!-- Copyright and theme information -->
+        <div class="md-footer-copyright">
+          
+          powered by
+          <a href="https://www.mkdocs.org">MkDocs</a>
+          and
+          <a href="https://squidfunk.github.io/mkdocs-material/">
+            Material for MkDocs</a>
+        </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.reddit.com/r/tabletopsimulator/" target="_blank" rel="noopener" title="www.reddit.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M201.5 305.5c-13.8 0-24.9-11.1-24.9-24.6 0-13.8 11.1-24.9 24.9-24.9 13.6 0 24.6 11.1 24.6 24.9 0 13.6-11.1 24.6-24.6 24.6zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-132.3-41.2c-9.4 0-17.7 3.9-23.8 10-22.4-15.5-52.6-25.5-86.1-26.6l17.4-78.3 55.4 12.5c0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.3 24.9-24.9s-11.1-24.9-24.9-24.9c-9.7 0-18 5.8-22.1 13.8l-61.2-13.6c-3-.8-6.1 1.4-6.9 4.4l-19.1 86.4c-33.2 1.4-63.1 11.3-85.5 26.8-6.1-6.4-14.7-10.2-24.1-10.2-34.9 0-46.3 46.9-14.4 62.8-1.1 5-1.7 10.2-1.7 15.5 0 52.6 59.2 95.2 132 95.2 73.1 0 132.3-42.6 132.3-95.2 0-5.3-.6-10.8-1.9-15.8 31.3-16 19.8-62.5-14.9-62.5zM302.8 331c-18.2 18.2-76.1 17.9-93.6 0-2.2-2.2-6.1-2.2-8.3 0-2.5 2.5-2.5 6.4 0 8.6 22.8 22.8 87.3 22.8 110.2 0 2.5-2.2 2.5-6.1 0-8.6-2.2-2.2-6.1-2.2-8.3 0zm7.7-75c-13.6 0-24.6 11.1-24.6 24.9 0 13.6 11.1 24.6 24.6 24.6 13.8 0 24.9-11.1 24.9-24.6 0-13.8-11-24.9-24.9-24.9z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/tabletopsim" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/tabletopsimulator" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/user/berserkgames" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.65ce87ac.min.js"></script>
+      
+    
+  </body>
+</html>
