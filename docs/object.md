@@ -512,7 +512,7 @@ end
 !!!tip "Object Scale"
 	This function takes the Object's scale into account, as the Object is the key relative point.
 
-!!!info "positionToLocal(vector)"
+!!!info "positionToWorld(vector)"
 	* [<span class="tag vec"></span>](types.md) **vector**: The local position to convert into a world position.
 
 ---
