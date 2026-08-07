@@ -832,7 +832,7 @@ Under | Move the targets underneath objects below them on table.
 			if action == Player.Action.Delete and player.color ~= "Black" then
 				for _, target in ipairs(targets) do
 					if target.type ~= "Card" and target.type ~= "Deck" then
-						target.destroy()
+						target.destruct()
 					end
 				end
 
