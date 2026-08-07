@@ -171,7 +171,7 @@ padding |  | float float float float | `0 0 0 0`
 
 !!!example
     ```xml
-    <ToggleButton>Toggle Button Text</Toggle>
+    <ToggleButton>Toggle Button Text</ToggleButton>
     ```
 
 ---
