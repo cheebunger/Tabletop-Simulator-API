@@ -17,6 +17,7 @@ clearChooseInHand([<span class="tag tab"></span>](types.md) player_colors) | Cle
 currentChooseInHand([<span class="tag str"></span>](types.md) player_color) | Get label of current hand select mode for given player. | [<span class="ret str"></span>](types.md) | [:i:](#currentchooseinhand)
 copy([<span class="tag tab"></span>](types.md) object_list) | Copy a list of Objects to the clipboard. Works with [paste(...)](#paste). | [<span class="ret boo"></span>](types.md) | [:i:](#copy)
 destroyObject([<span class="tag obj"></span>](types.md) obj) | Destroy an Object. | [<span class="ret boo"></span>](types.md) | [:i:](#destroyobject)
+executeScript([<span class="tag str"></span>](types.md) script) | Execute a Lua script on an object. | [<span class="ret var"></span>](types.md) |
 flipTable() {: #fliptable data-toc-label="flipTable()" data-toc-child-of="global-function-details" } | Flip the table. | [<span class="ret boo"></span>](types.md) |
 getAllObjects() {: #getallobjects data-toc-label="getAllObjects()" data-toc-child-of="global-function-details" } | <p>[<span class="tag deprecated"></span>](intro.md#deprecated) _Use [getObjects()](#getobjects)_.</p>Returns a Table of all [Objects](object.md) in the game _except hand zones_. | [<span class="ret tab"></span>](types.md) |
 getObjectFromGUID([<span class="tag str"></span>](types.md) guid) | Returns Object by its GUID. Will return `nil` if this GUID doesn't currently exist. | [<span class="ret obj"></span>](types.md) | [:i:](#getobjectfromguid)
